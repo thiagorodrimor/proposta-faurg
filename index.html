@@ -384,30 +384,84 @@
         <p class="text-muted mt-2 text-sm">Proposta financeira detalhada</p>
       </div>
 
-      <div class="invest-card p-10 md:p-16 text-center max-w-2xl mx-auto">
-        <p class="text-blue-400 text-xs uppercase tracking-[0.22em] font-semibold mb-3">
-          Proposta Financeira
-        </p>
-        <h3 class="text-xl font-bold text-white mb-10">Investimento Mensal Estratégico</h3>
-
-        <div class="flex items-start justify-center leading-none mb-2">
-          <span class="text-blue-400 text-xl font-light mr-1 mt-4">R$</span>
-          <span class="price-num">2.947</span>
-          <span class="text-blue-400 text-xl font-light ml-1 mt-4">,00</span>
-        </div>
-        <p class="text-blue-400 text-sm font-medium tracking-wide mb-10">
-          por mês · Contrato de <strong class="text-blue-200">10 meses</strong>
-        </p>
-
-        <div class="w-12 h-px bg-white/10 mx-auto mb-10"></div>
-
-        <div class="bg-white/5 border border-white/10 rounded-2xl px-8 py-6 text-left">
-          <svg class="w-7 h-7 text-blue-500 mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-          </svg>
-          <p class="text-slate-400 text-sm leading-[1.8]">
-            Este valor contempla a operação completa das três unidades de negócio, garantindo unidade visual, tom de voz profissional e a senioridade necessária para o cumprimento das metas de comunicação integrada.
+      <div class="invest-card max-w-3xl mx-auto overflow-hidden">
+        <!-- Topo do card -->
+        <div class="px-8 pt-8 pb-6 text-center border-b border-white/10">
+          <p class="text-blue-400 text-xs uppercase tracking-[0.22em] font-semibold mb-1">
+            Proposta Financeira
           </p>
+          <h3 class="text-lg font-bold text-white">Investimento Mensal Estratégico</h3>
+        </div>
+
+        <!-- Corpo dividido em 2 colunas -->
+        <div class="flex flex-col md:flex-row">
+
+          <!-- Coluna esquerda — valor -->
+          <div class="flex-shrink-0 md:w-64 flex flex-col items-center justify-center px-8 py-10 text-center border-b md:border-b-0 md:border-r border-white/10">
+            <div class="flex items-start justify-center leading-none mb-2">
+              <span class="text-blue-400 text-lg font-light mr-1 mt-3">R$</span>
+              <span class="price-num">2.947</span>
+              <span class="text-blue-400 text-lg font-light ml-1 mt-3">,00</span>
+            </div>
+            <p class="text-blue-400 text-xs font-medium tracking-wide mt-3 leading-relaxed">
+              por mês
+            </p>
+            <div class="mt-4 bg-white/5 border border-white/10 rounded-full px-4 py-1.5">
+              <p class="text-slate-400 text-xs font-medium tracking-wide">
+                Contrato de <strong class="text-blue-300">10 meses</strong>
+              </p>
+            </div>
+          </div>
+
+          <!-- Coluna direita — entregáveis -->
+          <div class="flex-1 px-8 py-10">
+            <p class="text-blue-400 text-xs uppercase tracking-[0.18em] font-semibold mb-6">
+              O que está incluído
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-5 h-5 rounded-full bg-electric/20 border border-electric/40 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-electric" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span class="text-slate-300 text-sm leading-relaxed">
+                  Elaboração de <strong class="text-white">estratégia digital</strong> para as 3 marcas
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-5 h-5 rounded-full bg-electric/20 border border-electric/40 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-electric" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span class="text-slate-300 text-sm leading-relaxed">
+                  Desenvolvimento de <strong class="text-white">cronograma mensal</strong> de publicações
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-5 h-5 rounded-full bg-electric/20 border border-electric/40 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-electric" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span class="text-slate-300 text-sm leading-relaxed">
+                  <strong class="text-white">Design de artes</strong> estáticas e carrosséis + legendas
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-5 h-5 rounded-full bg-electric/20 border border-electric/40 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-electric" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span class="text-slate-300 text-sm leading-relaxed">
+                  <strong class="text-white">Gerenciamento</strong> dos perfis
+                </span>
+              </li>
+            </ul>
+          </div>
+
         </div>
       </div>
     </section>
