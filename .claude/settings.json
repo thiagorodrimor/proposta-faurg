@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"C:/Users/T-GAMER/Desktop/CRIATIVAR/CLAUDE CENTRAL/Proposta FAURG\" && git add -A && git diff --cached --quiet || git commit -m \"auto: update $(date +%Y-%m-%dT%H:%M:%S)\" && git push origin main 2>/dev/null || true",
+            "statusMessage": "Sincronizando com GitHub...",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}
