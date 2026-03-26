@@ -7,7 +7,10 @@
       "Bash(git config:*)",
       "Bash(winget install:*)",
       "Bash(gh repo:*)",
-      "Skill(update-config)"
+      "Skill(update-config)",
+      "Bash(jq:*)",
+      "Bash(python3:*)",
+      "Bash(powershell -Command \"Get-Content 'C:/Users/T-GAMER/Desktop/CRIATIVAR/CLAUDE CENTRAL/Proposta FAURG/.claude/settings.json' | ConvertFrom-Json | ConvertTo-Json -Depth 10\")"
     ]
   }
 }
