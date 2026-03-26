@@ -10,19 +10,17 @@
       theme: {
         extend: {
           colors: {
-            electric: '#0066FF',
-            'electric-dark': '#0052CC',
-            'electric-light': '#E8F0FF',
-            grafite: '#1A1A2E',
-            'grafite-mid': '#3D3D50',
+            electric:      '#0066FF',
+            'electric-dk': '#0047CC',
+            'electric-dim': 'rgba(0,102,255,0.15)',
+            dark:   '#080B14',
+            'dark-2': '#0D1120',
+            'dark-3': '#131929',
+            'dark-4': '#1B2236',
+            muted:  '#8892A4',
           },
           fontFamily: {
             sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-          boxShadow: {
-            card: '0 4px 24px 0 rgba(0,0,0,0.07)',
-            'card-hover': '0 12px 40px 0 rgba(0,102,255,0.13)',
-            invest: '0 20px 60px 0 rgba(0,102,255,0.25)',
           },
         },
       },
@@ -33,185 +31,343 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet"
   />
+
   <style>
+    /* ── Base ── */
     html { scroll-behavior: smooth; }
+    body { -webkit-font-smoothing: antialiased; background: #080B14; color: #E2E8F0; }
 
-    body { -webkit-font-smoothing: antialiased; }
-
-    .hero-gradient {
-      background: linear-gradient(135deg, #0066FF 0%, #003DB3 100%);
-    }
-
-    .invest-gradient {
-      background: linear-gradient(135deg, #0066FF 0%, #003DB3 100%);
+    /* ── Hero ── */
+    .hero-bg {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,102,255,0.35) 0%, transparent 70%),
+        #080B14;
     }
 
-    .card-lift {
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .card-lift:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 16px 48px rgba(0, 102, 255, 0.14);
-    }
-
-    .portfolio-card:hover .portfolio-btn {
-      background: #0066FF;
-      color: #ffffff;
-      border-color: #0066FF;
-    }
-    .portfolio-card:hover .portfolio-icon-wrap {
-      background: #0066FF;
-    }
-    .portfolio-card:hover .portfolio-icon {
-      color: #ffffff;
+    /* ── Divisor ── */
+    .divider {
+      width: 40px; height: 3px;
+      background: linear-gradient(90deg, #0066FF, #004ECC);
+      border-radius: 2px;
+      margin: 0 auto 14px;
     }
 
-    .btn-whatsapp {
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    /* ── Cards (Resumo/Escopo/Investimento/Quem) ── */
+    .card {
+      background: #0D1120;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
-    .btn-whatsapp:hover {
-      transform: scale(1.04);
-      background: #0052CC;
-      box-shadow: 0 20px 60px rgba(0, 102, 255, 0.4);
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,102,255,0.35);
+      box-shadow: 0 16px 48px rgba(0,102,255,0.12);
     }
 
-    .badge {
+    /* ── Portfolio card com imagem de fundo ── */
+    .pf-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      text-decoration: none;
+    }
+    .pf-card:hover {
+      transform: translateY(-6px) scale(1.015);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,102,255,0.5);
+      border-color: rgba(0,102,255,0.5);
+    }
+
+    /* Imagem de fundo do card */
+    .pf-card .pf-img {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease;
+    }
+    .pf-card:hover .pf-img {
+      transform: scale(1.06);
+    }
+
+    /* Degradê sobre a imagem — garante legibilidade mesmo com qualquer foto */
+    .pf-card .pf-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(4, 6, 15, 0.97)  0%,
+        rgba(4, 6, 15, 0.80)  30%,
+        rgba(4, 6, 15, 0.45)  55%,
+        rgba(4, 6, 15, 0.15)  80%,
+        transparent           100%
+      );
+      transition: background 0.3s ease;
+    }
+    .pf-card:hover .pf-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(0, 50, 150, 0.92) 0%,
+        rgba(4, 6, 15, 0.82)   35%,
+        rgba(4, 6, 15, 0.40)   60%,
+        transparent             100%
+      );
+    }
+
+    /* Conteúdo sobre o overlay */
+    .pf-content {
+      position: relative;
+      z-index: 2;
+      padding: 28px;
+    }
+
+    /* Badge de categoria no topo do card */
+    .pf-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
+      background: rgba(0,102,255,0.18);
+      border: 1px solid rgba(0,102,255,0.45);
+      backdrop-filter: blur(8px);
+      color: #93B8FF;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    /* Botão dentro do card */
+    .pf-btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      margin-top: 16px;
+      background: rgba(0,102,255,0.15);
+      border: 1px solid rgba(0,102,255,0.5);
+      backdrop-filter: blur(8px);
+      color: #7EB3FF;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 20px;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
-    .badge-dot {
-      width: 8px;
-      height: 8px;
-      background: #22c55e;
-      border-radius: 9999px;
-      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+    .pf-card:hover .pf-btn {
+      background: #0066FF;
+      border-color: #0066FF;
+      color: #fff;
     }
 
-    /* Divisor decorativo */
-    .section-divider {
-      width: 48px;
-      height: 4px;
+    /* Placeholder para quando não há imagem ainda */
+    .pf-placeholder-1 { background: linear-gradient(135deg, #0D1A3A 0%, #0A1028 100%); }
+    .pf-placeholder-2 { background: linear-gradient(135deg, #0F1F35 0%, #091220 100%); }
+    .pf-placeholder-3 { background: linear-gradient(135deg, #130D2E 0%, #0A0818 100%); }
+
+    /* ── Investimento ── */
+    .invest-card {
+      background: linear-gradient(135deg, #0A1840 0%, #06102E 100%);
+      border: 1px solid rgba(0,102,255,0.3);
+      border-radius: 24px;
+      box-shadow: 0 0 80px rgba(0,102,255,0.12);
+    }
+    .price-num {
+      font-size: clamp(4rem, 12vw, 7rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #ffffff 0%, #93B8FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Quem sou eu ── */
+    .who-photo-wrap {
+      background: linear-gradient(135deg, #0A1840, #060E28);
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+
+    /* ── Botão WhatsApp ── */
+    .btn-wa {
       background: #0066FF;
-      border-radius: 2px;
-      margin: 0 auto 12px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .btn-wa:hover {
+      background: #0047CC;
+      transform: scale(1.04);
+      box-shadow: 0 20px 60px rgba(0,102,255,0.45);
+    }
+
+    /* ── Pulse dot ── */
+    .pulse-dot {
+      width: 8px; height: 8px;
+      background: #22C55E;
+      border-radius: 50%;
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ── Glow line no topo do hero ── */
+    .hero-line {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #0066FF, transparent);
+    }
+
+    /* ── Tag skill ── */
+    .skill-tag {
+      background: rgba(0,102,255,0.12);
+      border: 1px solid rgba(0,102,255,0.25);
+      color: #7EB3FF;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 5px 14px;
+      border-radius: 999px;
+    }
+
+    /* ── Separador de seção ── */
+    .sec-sep {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
     }
   </style>
 </head>
 
-<body class="bg-gray-50 text-grafite font-sans">
+<body class="font-sans">
 
-  <!-- ═══════════════════════════════════════
+  <!-- ════════════════════════════════════
        HERO
-  ═══════════════════════════════════════ -->
-  <header class="hero-gradient text-white">
-    <div class="max-w-5xl mx-auto px-6 py-20 text-center">
-      <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-blue-200 mb-5">
-        Proposta Exclusiva · Confidencial
+  ════════════════════════════════════ -->
+  <div class="hero-line"></div>
+  <header class="hero-bg">
+    <div class="max-w-5xl mx-auto px-6 pt-20 pb-24 text-center">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.18em] uppercase text-blue-400 mb-6">
+        <span class="pulse-dot"></span>
+        Proposta Exclusiva · Personalizada
       </span>
-      <h1 class="text-4xl md:text-6xl font-black leading-tight mb-5">
-        Estratégia Digital<br class="hidden md:block" /> Integrada
+
+      <h1 class="text-5xl md:text-7xl font-black leading-[1.05] mb-6 tracking-tight">
+        Estratégia Digital<br/>
+        <span style="background: linear-gradient(90deg,#0066FF,#5BA3FF); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
+          Integrada
+        </span>
       </h1>
-      <p class="text-lg md:text-xl text-blue-100 font-light max-w-xl mx-auto mb-10">
-        Gestão de 3 marcas com diretriz estratégica central para
+
+      <p class="text-lg text-slate-400 font-light max-w-lg mx-auto mb-10 leading-relaxed">
+        Gestão unificada de 3 marcas com diretriz estratégica central para
         <strong class="text-white font-semibold">[Nome da Instituição]</strong>
       </p>
-      <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur border border-white/20 rounded-full px-6 py-3">
-        <span class="badge">
-          <span class="badge-dot"></span>
-          <span class="text-sm font-medium">Proposta ativa e personalizada para você</span>
+
+      <!-- Pills de canal -->
+      <div class="flex flex-wrap justify-center gap-3">
+        <span class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2 text-sm text-slate-300">
+          <svg class="w-4 h-4 text-pink-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          Instagram
+        </span>
+        <span class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2 text-sm text-slate-300">
+          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </span>
+        <span class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2 text-sm text-slate-300">
+          <svg class="w-4 h-4 text-electric" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+          </svg>
+          3 Marcas
         </span>
       </div>
     </div>
   </header>
 
+  <hr class="sec-sep" />
 
-  <!-- ═══════════════════════════════════════
-       MAIN CONTENT
-  ═══════════════════════════════════════ -->
+
+  <!-- ════════════════════════════════════
+       MAIN
+  ════════════════════════════════════ -->
   <main class="max-w-5xl mx-auto px-6 py-20 space-y-24">
 
 
-    <!-- ── SEÇÃO 1: RESUMO + ESCOPO ── -->
+    <!-- ── RESUMO + ESCOPO ── -->
     <section>
-      <div class="text-center mb-10">
-        <div class="section-divider"></div>
-        <h2 class="text-3xl font-bold text-grafite">Visão Geral do Projeto</h2>
-        <p class="text-grafite-mid mt-2">O que está incluído nesta proposta</p>
+      <div class="text-center mb-12">
+        <div class="divider"></div>
+        <h2 class="text-3xl font-bold text-white">Visão Geral do Projeto</h2>
+        <p class="text-muted mt-2 text-sm">O que está contemplado nesta proposta</p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-6">
+      <div class="grid md:grid-cols-2 gap-5">
 
-        <!-- Box Resumo -->
-        <div class="card-lift bg-white rounded-2xl p-8 shadow-card border border-gray-100">
-          <div class="w-12 h-12 bg-electric-light rounded-xl flex items-center justify-center mb-6">
-            <!-- Ícone: checkmark shield -->
-            <svg class="w-6 h-6 text-electric" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        <!-- Resumo -->
+        <div class="card p-8">
+          <div class="w-11 h-11 rounded-xl bg-electric-dim flex items-center justify-center mb-6 border border-electric/20">
+            <svg class="w-5 h-5 text-electric" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-grafite mb-5">Resumo do Projeto</h3>
+          <h3 class="text-lg font-bold text-white mb-5">Resumo do Projeto</h3>
           <ul class="space-y-4">
             <li class="flex items-start gap-3">
-              <span class="mt-[7px] w-2 h-2 rounded-full bg-electric flex-shrink-0"></span>
-              <span class="text-grafite-mid leading-relaxed">
-                Gestão unificada de <strong class="text-grafite">3 marcas</strong> sob uma diretriz estratégica central.
+              <span class="mt-[8px] w-1.5 h-1.5 rounded-full bg-electric flex-shrink-0"></span>
+              <span class="text-muted leading-relaxed text-sm">
+                Gestão unificada de <strong class="text-slate-200">3 marcas</strong> sob uma diretriz estratégica central.
               </span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="mt-[7px] w-2 h-2 rounded-full bg-electric flex-shrink-0"></span>
-              <span class="text-grafite-mid leading-relaxed">
-                Foco em <strong class="text-grafite">fortalecimento institucional</strong>, captação e posicionamento.
+              <span class="mt-[8px] w-1.5 h-1.5 rounded-full bg-electric flex-shrink-0"></span>
+              <span class="text-muted leading-relaxed text-sm">
+                Foco em <strong class="text-slate-200">fortalecimento institucional</strong>, captação e posicionamento.
               </span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="mt-[7px] w-2 h-2 rounded-full bg-electric flex-shrink-0"></span>
-              <span class="text-grafite-mid leading-relaxed">
-                Canais de atuação: <strong class="text-grafite">Instagram</strong> e <strong class="text-grafite">LinkedIn</strong>.
+              <span class="mt-[8px] w-1.5 h-1.5 rounded-full bg-electric flex-shrink-0"></span>
+              <span class="text-muted leading-relaxed text-sm">
+                Canais de atuação: <strong class="text-slate-200">Instagram</strong> e <strong class="text-slate-200">LinkedIn</strong>.
               </span>
             </li>
           </ul>
         </div>
 
-        <!-- Box Escopo -->
-        <div class="card-lift bg-white rounded-2xl p-8 shadow-card border border-gray-100">
-          <div class="w-12 h-12 bg-electric-light rounded-xl flex items-center justify-center mb-6">
-            <!-- Ícone: clipboard list -->
-            <svg class="w-6 h-6 text-electric" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+        <!-- Escopo -->
+        <div class="card p-8">
+          <div class="w-11 h-11 rounded-xl bg-electric-dim flex items-center justify-center mb-6 border border-electric/20">
+            <svg class="w-5 h-5 text-electric" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-grafite mb-5">Escopo de Atividades</h3>
+          <h3 class="text-lg font-bold text-white mb-5">Escopo de Atividades</h3>
           <ul class="space-y-4">
             <li class="flex items-start gap-3">
-              <span class="mt-[7px] w-2 h-2 rounded-full bg-electric flex-shrink-0"></span>
-              <span class="text-grafite-mid leading-relaxed">
-                Planejamento de conteúdo mensal segmentado para as <strong class="text-grafite">3 frentes</strong>.
-              </span>
+              <span class="mt-[8px] w-1.5 h-1.5 rounded-full bg-electric flex-shrink-0"></span>
+              <span class="text-muted leading-relaxed text-sm">Planejamento de conteúdo mensal segmentado para as <strong class="text-slate-200">3 frentes</strong>.</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="mt-[7px] w-2 h-2 rounded-full bg-electric flex-shrink-0"></span>
-              <span class="text-grafite-mid leading-relaxed">
-                Design de artes e redação de legendas estratégicas <strong class="text-grafite">(Copywriting)</strong>.
-              </span>
+              <span class="mt-[8px] w-1.5 h-1.5 rounded-full bg-electric flex-shrink-0"></span>
+              <span class="text-muted leading-relaxed text-sm">Design de artes e redação de legendas estratégicas <strong class="text-slate-200">(Copywriting)</strong>.</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="mt-[7px] w-2 h-2 rounded-full bg-electric flex-shrink-0"></span>
-              <span class="text-grafite-mid leading-relaxed">
-                Gestão de postagens e monitoramento de interações.
-              </span>
+              <span class="mt-[8px] w-1.5 h-1.5 rounded-full bg-electric flex-shrink-0"></span>
+              <span class="text-muted leading-relaxed text-sm">Gestão de postagens e monitoramento de interações.</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="mt-[7px] w-2 h-2 rounded-full bg-electric flex-shrink-0"></span>
-              <span class="text-grafite-mid leading-relaxed">
-                Fluxo de aprovação direta com a <strong class="text-grafite">Diretoria</strong> para garantir agilidade.
-              </span>
+              <span class="mt-[8px] w-1.5 h-1.5 rounded-full bg-electric flex-shrink-0"></span>
+              <span class="text-muted leading-relaxed text-sm">Fluxo de aprovação direta com a <strong class="text-slate-200">Diretoria</strong> para garantir agilidade.</span>
             </li>
           </ul>
         </div>
@@ -220,44 +376,36 @@
     </section>
 
 
-    <!-- ── SEÇÃO 2: INVESTIMENTO ── -->
+    <!-- ── INVESTIMENTO ── -->
     <section>
-      <div class="text-center mb-10">
-        <div class="section-divider"></div>
-        <h2 class="text-3xl font-bold text-grafite">Investimento</h2>
-        <p class="text-grafite-mid mt-2">Proposta financeira detalhada</p>
+      <div class="text-center mb-12">
+        <div class="divider"></div>
+        <h2 class="text-3xl font-bold text-white">Investimento</h2>
+        <p class="text-muted mt-2 text-sm">Proposta financeira detalhada</p>
       </div>
 
-      <div class="invest-gradient rounded-3xl p-10 md:p-16 text-white text-center shadow-invest max-w-2xl mx-auto">
-        <p class="text-blue-200 text-xs uppercase tracking-[0.22em] font-semibold mb-3">
+      <div class="invest-card p-10 md:p-16 text-center max-w-2xl mx-auto">
+        <p class="text-blue-400 text-xs uppercase tracking-[0.22em] font-semibold mb-3">
           Proposta Financeira
         </p>
-        <h3 class="text-2xl font-bold mb-10">Investimento Mensal Estratégico</h3>
+        <h3 class="text-xl font-bold text-white mb-10">Investimento Mensal Estratégico</h3>
 
-        <!-- Valor em destaque -->
-        <div class="mb-4">
-          <div class="flex items-start justify-center leading-none">
-            <span class="text-blue-200 text-2xl font-light mr-1 mt-3">R$</span>
-            <span class="text-7xl md:text-8xl font-black tracking-tight"
-              style="text-shadow: 0 0 40px rgba(255,255,255,0.2)">
-              2.947
-            </span>
-            <span class="text-blue-200 text-2xl font-light ml-1 mt-3">,00</span>
-          </div>
-          <p class="text-blue-200 text-sm mt-3 font-medium tracking-wide">
-            por mês · Contrato de <strong class="text-white">10 meses</strong>
-          </p>
+        <div class="flex items-start justify-center leading-none mb-2">
+          <span class="text-blue-400 text-xl font-light mr-1 mt-4">R$</span>
+          <span class="price-num">2.947</span>
+          <span class="text-blue-400 text-xl font-light ml-1 mt-4">,00</span>
         </div>
+        <p class="text-blue-400 text-sm font-medium tracking-wide mb-10">
+          por mês · Contrato de <strong class="text-blue-200">10 meses</strong>
+        </p>
 
-        <!-- Separador -->
-        <div class="w-16 h-px bg-white/20 mx-auto my-8"></div>
+        <div class="w-12 h-px bg-white/10 mx-auto mb-10"></div>
 
-        <!-- Texto de apoio -->
-        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-8 py-6">
-          <svg class="w-8 h-8 text-blue-300 mx-auto mb-4 opacity-60" fill="currentColor" viewBox="0 0 24 24">
+        <div class="bg-white/5 border border-white/10 rounded-2xl px-8 py-6 text-left">
+          <svg class="w-7 h-7 text-blue-500 mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24">
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
           </svg>
-          <p class="text-blue-50 text-sm leading-relaxed">
+          <p class="text-slate-400 text-sm leading-[1.8]">
             Este valor contempla a operação completa das três unidades de negócio, garantindo unidade visual, tom de voz profissional e a senioridade necessária para o cumprimento das metas de comunicação integrada.
           </p>
         </div>
@@ -265,103 +413,129 @@
     </section>
 
 
-    <!-- ── SEÇÃO 3: PORTFÓLIO ── -->
+    <!-- ── PORTFÓLIO ── -->
     <section>
-      <div class="text-center mb-10">
-        <div class="section-divider"></div>
-        <h2 class="text-3xl font-bold text-grafite">Portfólio</h2>
-        <p class="text-grafite-mid mt-2">Conheça projetos que já gerencio</p>
+      <div class="text-center mb-12">
+        <div class="divider"></div>
+        <h2 class="text-3xl font-bold text-white">Portfólio</h2>
+        <p class="text-muted mt-2 text-sm">Projetos que já gerencio — veja de perto</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="grid md:grid-cols-3 gap-5">
 
-        <!-- Card 1 -->
-        <a
-          href="#"
-          target="_blank"
-          class="portfolio-card card-lift group bg-white rounded-2xl p-8 shadow-card border border-gray-100 flex flex-col items-center text-center no-underline"
-        >
-          <div class="portfolio-icon-wrap w-14 h-14 bg-electric-light rounded-2xl flex items-center justify-center mb-5 transition-colors duration-200">
-            <svg class="portfolio-icon w-7 h-7 text-electric transition-colors duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
-            </svg>
+        <!-- Card 1 — Lindenmeyer Advogados -->
+        <a href="#" target="_blank" class="pf-card">
+          <!--
+            INSTRUÇÃO: Substitua a classe pf-placeholder-1 por:
+            style="background-image: url('img/lindenmeyer.jpg')"
+            e remova a classe pf-placeholder-1
+          -->
+          <div class="pf-img pf-placeholder-1">
+            <!-- Ícone placeholder centralizado -->
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0.12;">
+              <svg width="80" height="80" fill="white" viewBox="0 0 24 24">
+                <path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
+              </svg>
+            </div>
           </div>
-          <h3 class="text-lg font-bold text-grafite mb-1">Lindenmeyer Advogados</h3>
-          <p class="text-gray-400 text-xs uppercase tracking-wider mb-6">Advocacia & Jurídico</p>
-          <span class="portfolio-btn text-sm font-semibold text-electric border border-electric rounded-full px-6 py-2.5 transition-all duration-200">
-            Acessar Perfil &rarr;
-          </span>
+          <div class="pf-overlay"></div>
+          <span class="pf-badge">Advocacia & Jurídico</span>
+          <div class="pf-content">
+            <p class="text-white font-bold text-lg leading-tight">Lindenmeyer<br/>Advogados</p>
+            <span class="pf-btn">
+              Acessar Perfil
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </span>
+          </div>
         </a>
 
-        <!-- Card 2 -->
-        <a
-          href="#"
-          target="_blank"
-          class="portfolio-card card-lift group bg-white rounded-2xl p-8 shadow-card border border-gray-100 flex flex-col items-center text-center no-underline"
-        >
-          <div class="portfolio-icon-wrap w-14 h-14 bg-electric-light rounded-2xl flex items-center justify-center mb-5 transition-colors duration-200">
-            <svg class="portfolio-icon w-7 h-7 text-electric transition-colors duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-            </svg>
+        <!-- Card 2 — Grupo IES -->
+        <a href="#" target="_blank" class="pf-card">
+          <!--
+            INSTRUÇÃO: Substitua a classe pf-placeholder-2 por:
+            style="background-image: url('img/grupo-ies.jpg')"
+            e remova a classe pf-placeholder-2
+          -->
+          <div class="pf-img pf-placeholder-2">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0.12;">
+              <svg width="80" height="80" fill="white" viewBox="0 0 24 24">
+                <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </div>
           </div>
-          <h3 class="text-lg font-bold text-grafite mb-1">Grupo IES</h3>
-          <p class="text-gray-400 text-xs uppercase tracking-wider mb-6">Educação & Instituições</p>
-          <span class="portfolio-btn text-sm font-semibold text-electric border border-electric rounded-full px-6 py-2.5 transition-all duration-200">
-            Acessar Perfil &rarr;
-          </span>
+          <div class="pf-overlay"></div>
+          <span class="pf-badge">Educação & Instituições</span>
+          <div class="pf-content">
+            <p class="text-white font-bold text-lg leading-tight">Grupo IES</p>
+            <span class="pf-btn">
+              Acessar Perfil
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </span>
+          </div>
         </a>
 
-        <!-- Card 3 -->
-        <a
-          href="#"
-          target="_blank"
-          class="portfolio-card card-lift group bg-white rounded-2xl p-8 shadow-card border border-gray-100 flex flex-col items-center text-center no-underline"
-        >
-          <div class="portfolio-icon-wrap w-14 h-14 bg-electric-light rounded-2xl flex items-center justify-center mb-5 transition-colors duration-200">
-            <svg class="portfolio-icon w-7 h-7 text-electric transition-colors duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
+        <!-- Card 3 — Luiza Osorio -->
+        <a href="#" target="_blank" class="pf-card">
+          <!--
+            INSTRUÇÃO: Substitua a classe pf-placeholder-3 por:
+            style="background-image: url('img/luiza-osorio.jpg')"
+            e remova a classe pf-placeholder-3
+          -->
+          <div class="pf-img pf-placeholder-3">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0.12;">
+              <svg width="80" height="80" fill="white" viewBox="0 0 24 24">
+                <path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
           </div>
-          <h3 class="text-lg font-bold text-grafite mb-1">Luiza Osorio Fotografia</h3>
-          <p class="text-gray-400 text-xs uppercase tracking-wider mb-6">Fotografia & Arte</p>
-          <span class="portfolio-btn text-sm font-semibold text-electric border border-electric rounded-full px-6 py-2.5 transition-all duration-200">
-            Acessar Perfil &rarr;
-          </span>
+          <div class="pf-overlay"></div>
+          <span class="pf-badge">Fotografia & Arte</span>
+          <div class="pf-content">
+            <p class="text-white font-bold text-lg leading-tight">Luiza Osorio<br/>Fotografia</p>
+            <span class="pf-btn">
+              Acessar Perfil
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </span>
+          </div>
         </a>
 
       </div>
+
+      <p class="text-center text-muted text-xs mt-5">
+        * Imagens serão adicionadas em breve
+      </p>
     </section>
 
 
-    <!-- ── SEÇÃO 4: QUEM SOU EU ── -->
+    <!-- ── QUEM SOU EU ── -->
     <section>
-      <div class="text-center mb-10">
-        <div class="section-divider"></div>
-        <h2 class="text-3xl font-bold text-grafite">Quem está por trás?</h2>
-        <p class="text-grafite-mid mt-2">O profissional que vai conduzir a sua estratégia</p>
+      <div class="text-center mb-12">
+        <div class="divider"></div>
+        <h2 class="text-3xl font-bold text-white">Quem está por trás?</h2>
+        <p class="text-muted mt-2 text-sm">O profissional que conduz a sua estratégia</p>
       </div>
 
-      <div class="bg-white rounded-3xl shadow-card border border-gray-100 overflow-hidden">
+      <div class="card overflow-hidden">
         <div class="flex flex-col md:flex-row">
 
           <!-- Foto -->
-          <div class="w-full md:w-72 lg:w-80 flex-shrink-0 bg-gradient-to-br from-electric-light to-blue-100 flex items-center justify-center py-14 md:py-0">
+          <div class="who-photo-wrap w-full md:w-72 lg:w-80 flex-shrink-0 flex flex-col items-center justify-center py-14 md:py-0 gap-4">
             <!--
-              INSTRUÇÃO: Substitua o bloco abaixo por:
-              <img src="foto-thiago.jpg" alt="Thiago" class="w-full h-full object-cover object-top" />
+              INSTRUÇÃO: Substitua todo este bloco por:
+              <img src="foto-thiago.jpg" alt="Thiago"
+                class="w-full h-full object-cover object-top" />
             -->
-            <div class="flex flex-col items-center gap-4">
-              <div class="w-36 h-36 rounded-full bg-electric flex items-center justify-center shadow-xl ring-4 ring-white/60">
-                <span class="text-white text-6xl font-black">T</span>
-              </div>
-              <span class="text-blue-400 text-xs tracking-[0.15em] uppercase font-medium">
-                Substituir pela foto
-              </span>
+            <div class="w-32 h-32 rounded-full bg-electric flex items-center justify-center shadow-2xl"
+              style="box-shadow: 0 0 60px rgba(0,102,255,0.4)">
+              <span class="text-white text-5xl font-black">T</span>
             </div>
+            <span class="text-blue-600 text-xs tracking-[0.15em] uppercase font-medium">Sua foto aqui</span>
           </div>
 
           <!-- Texto -->
@@ -369,21 +543,18 @@
             <p class="text-electric text-xs uppercase tracking-[0.2em] font-semibold mb-2">
               Sobre o Estrategista
             </p>
-            <h3 class="text-2xl font-bold text-grafite mb-6">Thiago</h3>
-
-            <p class="text-grafite-mid leading-[1.8] mb-4">
-              Sou <strong class="text-grafite">Thiago</strong>, estrategista de marketing digital com foco em nichos de alta complexidade. Minha atuação é pautada pela entrega de uma comunicação madura e estratégica, transformando canais digitais em <strong class="text-grafite">ativos de autoridade</strong>.
+            <h3 class="text-2xl font-bold text-white mb-6">Thiago</h3>
+            <p class="text-muted leading-[1.85] mb-4 text-sm">
+              Sou <strong class="text-slate-200">Thiago</strong>, estrategista de marketing digital com foco em nichos de alta complexidade. Minha atuação é pautada pela entrega de uma comunicação madura e estratégica, transformando canais digitais em <strong class="text-slate-200">ativos de autoridade</strong>.
             </p>
-            <p class="text-grafite-mid leading-[1.8]">
-              Com experiência na gestão de contas institucionais e de saúde, trago para este projeto a expertise necessária para gerenciar múltiplas marcas com <strong class="text-grafite">precisão, ética e foco em resultados reais</strong>.
+            <p class="text-muted leading-[1.85] text-sm">
+              Com experiência na gestão de contas institucionais e de saúde, trago para este projeto a expertise necessária para gerenciar múltiplas marcas com <strong class="text-slate-200">precisão, ética e foco em resultados reais</strong>.
             </p>
-
-            <!-- Tags -->
             <div class="flex flex-wrap gap-2 mt-8">
-              <span class="bg-electric-light text-electric text-xs font-semibold px-4 py-1.5 rounded-full">Marketing Digital</span>
-              <span class="bg-electric-light text-electric text-xs font-semibold px-4 py-1.5 rounded-full">Gestão de Marcas</span>
-              <span class="bg-electric-light text-electric text-xs font-semibold px-4 py-1.5 rounded-full">Copywriting</span>
-              <span class="bg-electric-light text-electric text-xs font-semibold px-4 py-1.5 rounded-full">Estratégia de Conteúdo</span>
+              <span class="skill-tag">Marketing Digital</span>
+              <span class="skill-tag">Gestão de Marcas</span>
+              <span class="skill-tag">Copywriting</span>
+              <span class="skill-tag">Estratégia de Conteúdo</span>
             </div>
           </div>
 
@@ -394,40 +565,40 @@
   </main>
 
 
-  <!-- ═══════════════════════════════════════
+  <!-- ════════════════════════════════════
        CTA FINAL
-  ═══════════════════════════════════════ -->
-  <footer class="bg-grafite text-white">
-    <div class="max-w-5xl mx-auto px-6 py-20 text-center">
+  ════════════════════════════════════ -->
+  <footer style="background: linear-gradient(180deg, #080B14 0%, #050710 100%); border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="max-w-5xl mx-auto px-6 py-24 text-center">
 
-      <p class="text-gray-400 text-xs uppercase tracking-[0.22em] font-semibold mb-5">Próximo Passo</p>
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+      <!-- Glow decorativo -->
+      <div style="width:300px;height:1px;background:linear-gradient(90deg,transparent,rgba(0,102,255,0.6),transparent);margin:0 auto 56px;"></div>
+
+      <p class="text-blue-500 text-xs uppercase tracking-[0.22em] font-semibold mb-5">Próximo Passo</p>
+      <h2 class="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">
         Vamos conversar sobre<br class="hidden md:block" /> o seu projeto?
       </h2>
-      <p class="text-gray-400 max-w-md mx-auto mb-12 text-base leading-relaxed">
+      <p class="text-muted max-w-sm mx-auto mb-12 text-sm leading-relaxed">
         Tire suas dúvidas e dê o primeiro passo para transformar a presença digital das suas marcas.
       </p>
 
-      <!-- Botão WhatsApp -->
       <!--
-        INSTRUÇÃO: Substitua SEU_NUMERO pelo seu número com DDI e DDD, ex: 5551999999999
+        INSTRUÇÃO: Substitua SEU_NUMERO pelo seu número com DDI+DDD
+        Exemplo: 5551999999999
       -->
       <a
         href="https://wa.me/SEU_NUMERO"
         target="_blank"
-        class="btn-whatsapp inline-flex items-center gap-3 bg-electric text-white font-bold text-base md:text-lg px-10 py-5 rounded-2xl shadow-invest"
+        class="btn-wa inline-flex items-center gap-3 text-white font-bold text-base md:text-lg px-10 py-5 rounded-2xl"
       >
-        <!-- Ícone WhatsApp -->
         <svg class="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
         Dúvidas sobre a proposta? Fale comigo agora
       </a>
 
-      <div class="w-16 h-px bg-white/10 mx-auto mt-16 mb-8"></div>
-      <p class="text-gray-600 text-xs">
-        © 2025 · Thiago · Estratégia Digital Integrada
-      </p>
+      <div style="width:48px;height:1px;background:rgba(255,255,255,0.08);margin:48px auto 20px;"></div>
+      <p class="text-slate-700 text-xs">© 2025 · Thiago · Estratégia Digital Integrada</p>
     </div>
   </footer>
 
