@@ -65,112 +65,131 @@
       box-shadow: 0 16px 48px rgba(0,102,255,0.12);
     }
 
-    /* ── Portfolio card com imagem de fundo ── */
+    /* ── Portfolio — vitrine estilo Netflix ── */
+    .pf-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 768px) {
+      .pf-grid { grid-template-columns: 1fr; }
+    }
+
     .pf-card {
       position: relative;
-      border-radius: 20px;
+      border-radius: 16px;
       overflow: hidden;
-      min-height: 340px;
+      height: 480px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       border: 1px solid rgba(255,255,255,0.07);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
       text-decoration: none;
+      cursor: pointer;
     }
     .pf-card:hover {
-      transform: translateY(-6px) scale(1.015);
-      box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,102,255,0.5);
-      border-color: rgba(0,102,255,0.5);
+      transform: scale(1.03);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.7), 0 0 0 1.5px rgba(0,102,255,0.6);
+      border-color: rgba(0,102,255,0.6);
+      z-index: 2;
     }
 
-    /* Imagem de fundo do card */
     .pf-card .pf-img {
       position: absolute;
       inset: 0;
       background-size: cover;
-      background-position: center;
-      transition: transform 0.5s ease;
+      background-position: center top;
+      transition: transform 0.6s ease;
     }
     .pf-card:hover .pf-img {
-      transform: scale(1.06);
+      transform: scale(1.08);
     }
 
-    /* Degradê sobre a imagem — garante legibilidade mesmo com qualquer foto */
+    /* Degradê permanente — texto sempre legível com qualquer capa */
     .pf-card .pf-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(
         to top,
-        rgba(4, 6, 15, 0.97)  0%,
-        rgba(4, 6, 15, 0.80)  30%,
-        rgba(4, 6, 15, 0.45)  55%,
-        rgba(4, 6, 15, 0.15)  80%,
-        transparent           100%
+        rgba(4, 6, 15, 1.00)  0%,
+        rgba(4, 6, 15, 0.88)  25%,
+        rgba(4, 6, 15, 0.50)  50%,
+        rgba(4, 6, 15, 0.15)  75%,
+        rgba(4, 6, 15, 0.05) 100%
       );
-      transition: background 0.3s ease;
+      transition: background 0.35s ease;
     }
     .pf-card:hover .pf-overlay {
       background: linear-gradient(
         to top,
-        rgba(0, 50, 150, 0.92) 0%,
-        rgba(4, 6, 15, 0.82)   35%,
-        rgba(4, 6, 15, 0.40)   60%,
-        transparent             100%
+        rgba(0, 40, 130, 0.97)  0%,
+        rgba(0, 20, 80,  0.80)  30%,
+        rgba(4,  6,  15, 0.45)  60%,
+        rgba(4,  6,  15, 0.05) 100%
       );
     }
 
-    /* Conteúdo sobre o overlay */
     .pf-content {
       position: relative;
       z-index: 2;
-      padding: 28px;
+      padding: 28px 24px;
     }
 
-    /* Badge de categoria no topo do card */
+    /* Conteúdo oculto que aparece no hover */
+    .pf-desc {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.35s ease;
+    }
+    .pf-card:hover .pf-desc {
+      max-height: 60px;
+      opacity: 1;
+    }
+
     .pf-badge {
       position: absolute;
-      top: 20px;
-      left: 20px;
+      top: 18px;
+      left: 18px;
       z-index: 2;
-      background: rgba(0,102,255,0.18);
-      border: 1px solid rgba(0,102,255,0.45);
-      backdrop-filter: blur(8px);
-      color: #93B8FF;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      color: #CBD5E1;
       font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      padding: 5px 12px;
+      padding: 5px 13px;
       border-radius: 999px;
     }
 
-    /* Botão dentro do card */
     .pf-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-top: 16px;
-      background: rgba(0,102,255,0.15);
-      border: 1px solid rgba(0,102,255,0.5);
-      backdrop-filter: blur(8px);
-      color: #7EB3FF;
-      font-size: 13px;
-      font-weight: 600;
+      margin-top: 14px;
+      background: #0066FF;
+      border: none;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
       padding: 9px 20px;
       border-radius: 999px;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
     .pf-card:hover .pf-btn {
-      background: #0066FF;
-      border-color: #0066FF;
-      color: #fff;
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* Placeholder para quando não há imagem ainda */
-    .pf-placeholder-1 { background: linear-gradient(135deg, #0D1A3A 0%, #0A1028 100%); }
-    .pf-placeholder-2 { background: linear-gradient(135deg, #0F1F35 0%, #091220 100%); }
-    .pf-placeholder-3 { background: linear-gradient(135deg, #130D2E 0%, #0A0818 100%); }
+    /* Placeholders */
+    .pf-placeholder-1 { background: linear-gradient(160deg, #0D1A3A 0%, #070D1E 100%); }
+    .pf-placeholder-2 { background: linear-gradient(160deg, #0F1F35 0%, #060F1A 100%); }
+    .pf-placeholder-3 { background: linear-gradient(160deg, #1A0D30 0%, #0C0715 100%); }
 
     /* ── Investimento ── */
     .invest-card {
