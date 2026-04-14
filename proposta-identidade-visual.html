@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Proposta Técnica: Identidade Visual e Brandbook | FAURG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Print config ── */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #080B14;
+      color: #E2E8F0;
+      -webkit-font-smoothing: antialiased;
+      width: 210mm;
+      margin: 0 auto;
+    }
+
+    .page-break { page-break-after: always; break-after: always; }
+    .no-break   { page-break-inside: avoid; break-inside: avoid; }
+
+    /* ── HERO ── */
+    .hero {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,102,255,0.40) 0%, transparent 70%),
+        #080B14;
+      padding: 48px 48px 40px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero-line {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #0066FF, transparent);
+      margin-bottom: 0;
+    }
+    .hero img.logo {
+      height: 90px;
+      margin: 0 auto 28px;
+      display: block;
+      object-fit: contain;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,102,255,0.12);
+      border: 1px solid rgba(0,102,255,0.3);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7EB3FF;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 24px;
+    }
+    .hero h1 span {
+      background: linear-gradient(90deg, #0066FF, #5BA3FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Box CNPJ */
+    .cnpj-box {
+      display: inline-block;
+      background: rgba(0,102,255,0.10);
+      border: 1px solid rgba(0,102,255,0.35);
+      border-radius: 14px;
+      padding: 16px 32px;
+      margin-bottom: 24px;
+    }
+    .cnpj-box .label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #5B8EFF;
+      margin-bottom: 6px;
+    }
+    .cnpj-box .razao {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .cnpj-box .cnpj {
+      font-size: 12px;
+      font-weight: 500;
+      color: #8892A4;
+      letter-spacing: 0.05em;
+    }
+
+    /* Pills de marcas */
+    .hero-pills {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 11px;
+      color: #CBD5E1;
+    }
+    .pill-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+    /* ── SEÇÕES ── */
+    .main { padding: 40px 48px; }
+    .section { margin-bottom: 40px; }
+
+    .section-header { text-align: center; margin-bottom: 24px; }
+    .divider {
+      width: 40px; height: 3px;
+      background: linear-gradient(90deg, #0066FF, #004ECC);
+      border-radius: 2px;
+      margin: 0 auto 12px;
+    }
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .section-sub {
+      font-size: 12px;
+      color: #8892A4;
+      margin-top: 6px;
+      line-height: 1.6;
+    }
+    .section-sub strong { color: #ffffff; font-weight: 600; }
+
+    /* ── CARDS BASE ── */
+    .card {
+      background: #0D1120;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+    }
+
+    /* ── GRIDS ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid-1 { display: grid; grid-template-columns: 1fr; gap: 14px; }
+
+    .card-inner { padding: 24px; }
+    .icon-wrap {
+      width: 40px; height: 40px;
+      background: rgba(0,102,255,0.15);
+      border: 1px solid rgba(0,102,255,0.2);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 14px; font-weight: 700; color: #ffffff; margin-bottom: 14px;
+    }
+    .card-subtitle {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #5B8EFF; margin-bottom: 10px;
+    }
+    .bullet-list { list-style: none; }
+    .bullet-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 10px; font-size: 12px; color: #8892A4; line-height: 1.6;
+    }
+    .bullet-list li strong { color: #CBD5E1; }
+    .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #0066FF; flex-shrink: 0; margin-top: 5px;
+    }
+
+    /* ── ENTREGA CARDS ── */
+    .entrega-card {
+      background: #0D1120;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .entrega-header {
+      display: flex; align-items: flex-start; gap: 16px;
+      margin-bottom: 20px;
+    }
+    .entrega-num {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: linear-gradient(135deg, #0066FF, #004ECC);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 900; color: #ffffff;
+    }
+    .entrega-title-wrap {}
+    .entrega-label {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: #5B8EFF; margin-bottom: 4px;
+    }
+    .entrega-title {
+      font-size: 16px; font-weight: 800; color: #ffffff; line-height: 1.2;
+    }
+    .entrega-desc {
+      font-size: 11px; color: #8892A4; margin-top: 4px; line-height: 1.5;
+    }
+    .entrega-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+      margin-top: 4px;
+    }
+    .entrega-sub-card {
+      background: rgba(0,102,255,0.05);
+      border: 1px solid rgba(0,102,255,0.15);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .entrega-sub-title {
+      font-size: 11px; font-weight: 700; color: #93B8FF; margin-bottom: 8px;
+    }
+
+    /* ── PRAZO ── */
+    .prazo-card {
+      background: linear-gradient(135deg, rgba(0,102,255,0.08), rgba(0,102,255,0.04));
+      border: 1px solid rgba(0,102,255,0.2);
+      border-radius: 16px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .prazo-icon {
+      width: 52px; height: 52px; flex-shrink: 0;
+      background: rgba(0,102,255,0.15);
+      border: 1px solid rgba(0,102,255,0.3);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .prazo-text {}
+    .prazo-label {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: #5B8EFF; margin-bottom: 4px;
+    }
+    .prazo-value {
+      font-size: 22px; font-weight: 900; color: #ffffff; line-height: 1;
+      margin-bottom: 4px;
+    }
+    .prazo-detail { font-size: 11px; color: #8892A4; }
+
+    /* ── INVESTIMENTO ── */
+    .invest-card {
+      background: linear-gradient(135deg, #0A1840 0%, #06102E 100%);
+      border: 1px solid rgba(0,102,255,0.3);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .invest-top {
+      padding: 20px 28px 16px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .invest-label {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: #5B8EFF; margin-bottom: 4px;
+    }
+    .invest-subtitle { font-size: 14px; font-weight: 700; color: #ffffff; }
+
+    /* Tabela de preços */
+    .price-table { width: 100%; border-collapse: collapse; }
+    .price-table-wrap { padding: 24px 28px; }
+    .price-table tr.item-row td {
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #CBD5E1;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .price-table tr.item-row td:last-child {
+      text-align: right;
+      font-weight: 600;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+    .price-table tr.item-row td:first-child {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .brand-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    }
+    .item-label { font-size: 9px; color: #5B8EFF; display: block; margin-top: 2px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+    .total-row {
+      background: rgba(0,102,255,0.10);
+    }
+    .total-row td {
+      padding: 18px 16px !important;
+      border-bottom: none !important;
+    }
+    .total-row td:first-child {
+      font-size: 13px !important;
+      font-weight: 800 !important;
+      color: #ffffff !important;
+      letter-spacing: 0.04em;
+    }
+    .total-price {
+      font-size: 24px !important;
+      font-weight: 900 !important;
+      background: linear-gradient(135deg, #ffffff, #93B8FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .invest-note {
+      padding: 0 28px 20px;
+      font-size: 10px;
+      color: #5B8EFF;
+      text-align: center;
+    }
+
+    /* ── QUEM SOU EU ── */
+    .who-card {
+      background: #0D1120;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+    }
+    .who-photo {
+      width: 200px; flex-shrink: 0;
+      background: linear-gradient(135deg, #0A1840, #060E28);
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+    .who-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+      display: block;
+    }
+    .who-text { flex: 1; padding: 28px 32px; }
+    .who-label {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: #0066FF; margin-bottom: 4px;
+    }
+    .who-name { font-size: 20px; font-weight: 800; color: #ffffff; margin-bottom: 14px; }
+    .who-bio { font-size: 12px; color: #8892A4; line-height: 1.8; }
+    .who-bio strong { color: #CBD5E1; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+    .tag {
+      background: rgba(0,102,255,0.12);
+      border: 1px solid rgba(0,102,255,0.25);
+      color: #7EB3FF;
+      font-size: 10px; font-weight: 600;
+      padding: 4px 12px; border-radius: 999px;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      background: linear-gradient(180deg, #080B14 0%, #050710 100%);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 40px 48px;
+      text-align: center;
+    }
+    .cta-glow {
+      width: 240px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,102,255,0.6), transparent);
+      margin: 0 auto 32px;
+    }
+    .cta-label {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: #0066FF; margin-bottom: 10px;
+    }
+    .cta h2 {
+      font-size: 26px; font-weight: 900;
+      color: #ffffff; margin-bottom: 8px; line-height: 1.2;
+    }
+    .cta p { font-size: 12px; color: #8892A4; margin-bottom: 24px; line-height: 1.6; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #0066FF;
+      color: #fff; font-size: 13px; font-weight: 700;
+      padding: 14px 32px; border-radius: 14px;
+      text-decoration: none;
+    }
+    .cta-footer {
+      margin-top: 28px;
+      font-size: 10px; color: #2D3748;
+    }
+
+    svg { display: inline-block; vertical-align: middle; }
+  </style>
+</head>
+
+<body>
+
+  <!-- CABEÇALHO EMPRESA -->
+  <div style="background:#0D1120; border-bottom:1px solid rgba(0,102,255,0.2); padding:12px 48px; display:flex; align-items:center; justify-content:space-between;">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div style="width:3px; height:32px; background:linear-gradient(180deg,#0066FF,#004ECC); border-radius:2px;"></div>
+      <div>
+        <div style="font-size:11px; font-weight:800; color:#ffffff; letter-spacing:0.04em;">LUIZA SANTOS OSORIO LTDA</div>
+        <div style="font-size:10px; color:#8892A4; margin-top:2px;">CNPJ: 53.091.213/0001-32</div>
+      </div>
+    </div>
+    <div style="font-size:9px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#5B8EFF; background:rgba(0,102,255,0.1); border:1px solid rgba(0,102,255,0.25); padding:5px 14px; border-radius:999px;">
+      Proposta Técnica
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero-line"></div>
+  <header class="hero">
+    <img src="logo.png" alt="Logo" class="logo" />
+
+    <div class="hero-badge">
+      <span style="width:7px;height:7px;background:#22C55E;border-radius:50%;display:inline-block;"></span>
+      Proposta Exclusiva · Personalizada
+    </div>
+
+    <h1>Identidade Visual e<br/><span>Brandbook Integrado</span></h1>
+
+    <!-- Box CNPJ -->
+    <div class="cnpj-box">
+      <div class="label">Orçamento direcionado a</div>
+      <div class="razao">Fundação de Apoio à Universidade do Rio Grande</div>
+      <div class="cnpj">CNPJ: 034.839.120/0001-50</div>
+    </div>
+
+    <div class="hero-pills">
+      <span class="pill">
+        <span class="pill-dot" style="background:#22D3EE;"></span>
+        Oceantec
+      </span>
+      <span class="pill">
+        <span class="pill-dot" style="background:#A78BFA;"></span>
+        Innovatio
+      </span>
+      <span class="pill">
+        <span class="pill-dot" style="background:#34D399;"></span>
+        Proiti
+      </span>
+    </div>
+  </header>
+
+
+  <div class="main">
+
+    <!-- VISÃO GERAL -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Visão Geral do Projeto</div>
+        <div class="section-sub">O que está contemplado nesta proposta</div>
+      </div>
+
+      <div class="grid-2">
+        <!-- Resumo -->
+        <div class="card card-inner">
+          <div class="icon-wrap">
+            <svg width="18" height="18" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <div class="card-title">Resumo do Projeto</div>
+          <ul class="bullet-list">
+            <li><span class="dot"></span><span>Desenvolvimento de <strong>Identidade Visual e Brandbook</strong> para <strong>3 unidades</strong>: Oceantec, Innovatio e Proiti.</span></li>
+            <li><span class="dot"></span><span>Utilização dos <strong>logotipos existentes</strong> como base, consolidando a presença institucional de cada marca.</span></li>
+            <li><span class="dot"></span><span>Entrega de <strong>guia técnico completo</strong> e biblioteca de ativos organizada para operação.</span></li>
+          </ul>
+        </div>
+
+        <!-- Escopo -->
+        <div class="card card-inner">
+          <div class="icon-wrap">
+            <svg width="18" height="18" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+            </svg>
+          </div>
+          <div class="card-title">O que será entregue</div>
+          <ul class="bullet-list">
+            <li><span class="dot"></span><span><strong>Entrega 1:</strong> Brandbook Completo — manual de marca com identidade verbal e visual.</span></li>
+            <li><span class="dot"></span><span><strong>Entrega 2:</strong> Biblioteca de Ativos — arquivos de logotipo, elementos gráficos e guia rápido.</span></li>
+            <li><span class="dot"></span><span>Tudo entregue individualmente para cada uma das <strong>3 marcas</strong>.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ESCOPO DE ENTREGA -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Escopo de Entrega</div>
+        <div class="section-sub">Para as 3 unidades: <strong>Oceantec, Innovatio e Proiti</strong></div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:14px;">
+
+        <!-- Entrega 1 -->
+        <div class="entrega-card">
+          <div class="entrega-header">
+            <div class="entrega-num">1</div>
+            <div class="entrega-title-wrap">
+              <div class="entrega-label">Primeira Entrega</div>
+              <div class="entrega-title">Brandbook Completo — Manual da Marca</div>
+              <div class="entrega-desc">Um guia técnico e estratégico completo para cada marca, contemplando:</div>
+            </div>
+          </div>
+          <div class="entrega-grid">
+            <div class="entrega-sub-card">
+              <div class="entrega-sub-title">Identidade Verbal</div>
+              <ul class="bullet-list">
+                <li><span class="dot"></span><span>Propósito, Missão, Visão e Valores</span></li>
+                <li><span class="dot"></span><span>Tom de Voz e Personalidade da Marca</span></li>
+              </ul>
+            </div>
+            <div class="entrega-sub-card">
+              <div class="entrega-sub-title">Identidade Visual</div>
+              <ul class="bullet-list">
+                <li><span class="dot"></span><span>Sistema de cores (Primárias, Secundárias e Apoio)</span></li>
+                <li><span class="dot"></span><span>Tipografia Institucional (Títulos, Subtítulos e Corpo)</span></li>
+              </ul>
+            </div>
+            <div class="entrega-sub-card">
+              <div class="entrega-sub-title">Guia de Aplicação</div>
+              <ul class="bullet-list">
+                <li><span class="dot"></span><span>Regras de uso do logotipo e limites de redução</span></li>
+                <li><span class="dot"></span><span>Áreas de proteção e proibições</span></li>
+              </ul>
+            </div>
+            <div class="entrega-sub-card">
+              <div class="entrega-sub-title">Diretrizes de Composição</div>
+              <ul class="bullet-list">
+                <li><span class="dot"></span><span>Grid visual e estilo fotográfico</span></li>
+                <li><span class="dot"></span><span>Padronização para materiais digitais</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Entrega 2 -->
+        <div class="entrega-card">
+          <div class="entrega-header">
+            <div class="entrega-num">2</div>
+            <div class="entrega-title-wrap">
+              <div class="entrega-label">Segunda Entrega</div>
+              <div class="entrega-title">Biblioteca de Ativos da Marca</div>
+              <div class="entrega-desc">Exportação e organização de todos os elementos necessários para a operação da instituição:</div>
+            </div>
+          </div>
+          <div class="entrega-grid">
+            <div class="entrega-sub-card">
+              <div class="entrega-sub-title">Arquivos do Logotipo</div>
+              <ul class="bullet-list">
+                <li><span class="dot"></span><span>Versões verticais, horizontais e reduzidas</span></li>
+                <li><span class="dot"></span><span>Formatos editáveis e prontos para uso (PDF, EPS e PNG)</span></li>
+              </ul>
+            </div>
+            <div class="entrega-sub-card">
+              <div class="entrega-sub-title">Elementos Gráficos</div>
+              <ul class="bullet-list">
+                <li><span class="dot"></span><span>Grafismos desenvolvidos para a marca</span></li>
+                <li><span class="dot"></span><span>Ícones e texturas institucionais</span></li>
+              </ul>
+            </div>
+            <div class="entrega-sub-card" style="grid-column: span 2;">
+              <div class="entrega-sub-title">Guia Rápido (One Page)</div>
+              <ul class="bullet-list">
+                <li><span class="dot"></span><span>Documento de consulta ágil com os <strong>códigos das cores</strong> e <strong>fontes institucionais</strong> de cada marca</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- PRAZO -->
+    <div class="section no-break">
+      <div class="prazo-card">
+        <div class="prazo-icon">
+          <svg width="24" height="24" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div class="prazo-text">
+          <div class="prazo-label">Prazo de Entrega</div>
+          <div class="prazo-value">40 dias úteis</div>
+          <div class="prazo-detail">Para entrega completa dos <strong style="color:#CBD5E1;">3 manuais e bibliotecas de ativos</strong>, contados a partir da aprovação e início do projeto.</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- INVESTIMENTO -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Investimento</div>
+      </div>
+
+      <div class="invest-card">
+        <div class="invest-top">
+          <div class="invest-label">Proposta Financeira</div>
+          <div class="invest-subtitle">Brandbook + Biblioteca de Ativos — Por Unidade</div>
+        </div>
+
+        <div class="price-table-wrap">
+          <table class="price-table">
+            <tr class="item-row">
+              <td>
+                <span class="brand-dot" style="background:#22D3EE;"></span>
+                <div>
+                  Brandbook + Biblioteca de Ativos
+                  <span class="item-label">Oceantec</span>
+                </div>
+              </td>
+              <td>R$ 1.650,00</td>
+            </tr>
+            <tr class="item-row">
+              <td>
+                <span class="brand-dot" style="background:#A78BFA;"></span>
+                <div>
+                  Brandbook + Biblioteca de Ativos
+                  <span class="item-label">Innovatio</span>
+                </div>
+              </td>
+              <td>R$ 1.650,00</td>
+            </tr>
+            <tr class="item-row">
+              <td>
+                <span class="brand-dot" style="background:#34D399;"></span>
+                <div>
+                  Brandbook + Biblioteca de Ativos
+                  <span class="item-label">Proiti</span>
+                </div>
+              </td>
+              <td>R$ 1.650,00</td>
+            </tr>
+            <tr class="total-row">
+              <td style="font-size:13px; font-weight:800; color:#ffffff; letter-spacing:0.04em; display:flex; align-items:center; gap:10px;">
+                <div style="width:8px; height:8px; border-radius:50%; background:linear-gradient(135deg,#0066FF,#5BA3FF); flex-shrink:0;"></div>
+                TOTAL DO INVESTIMENTO
+              </td>
+              <td style="text-align:right;">
+                <span class="total-price">R$ 4.950,00</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="invest-note">
+          * Valor referente ao projeto completo (não recorrente) · Prazo: 40 dias úteis
+        </div>
+      </div>
+    </div>
+
+
+    <!-- QUEM SOU EU -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Quem está por trás?</div>
+        <div class="section-sub">O profissional que conduz o seu projeto</div>
+      </div>
+
+      <div class="who-card">
+        <div class="who-photo">
+          <img src="foto-thiago.jpg" alt="Thiago Rodrigues" />
+        </div>
+        <div class="who-text">
+          <div class="who-label">Sobre o Profissional</div>
+          <div class="who-name">Thiago Rodrigues</div>
+          <div class="who-bio">
+            Natural de <strong>Rio Grande</strong> e atuando como estrategista e criador de conteúdo desde 2022. Sou <strong>publicitário formado pela UCPel</strong> e concentro minha maior experiência no atendimento a negócios de alta responsabilidade, como os setores de <strong>advocacia e saúde</strong>.<br/><br/>
+            Minha especialidade é gerenciar perfis de negócios institucionais, utilizando minha formação técnica para torná-los <strong>interessantes e atrativos</strong>, sem abrir mão do profissionalismo e da seriedade que esses setores exigem.
+          </div>
+          <div class="tags">
+            <span class="tag">Publicidade</span>
+            <span class="tag">Identidade Visual</span>
+            <span class="tag">Branding</span>
+            <span class="tag">Manual de Marca</span>
+            <span class="tag">Gestão Institucional</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- CTA -->
+  <footer class="cta">
+    <div class="cta-glow"></div>
+    <div class="cta-label">Próximo Passo</div>
+    <h2>Vamos conversar sobre o seu projeto?</h2>
+    <p>Tire suas dúvidas e dê o primeiro passo para consolidar a identidade das suas marcas.</p>
+    <a href="https://wa.me/5553999664690" class="cta-btn">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Dúvidas sobre a proposta? Fale comigo agora
+    </a>
+    <div class="cta-footer">© 2025 · Thiago Rodrigues · Identidade Visual e Brandbook</div>
+  </footer>
+
+</body>
+</html>
