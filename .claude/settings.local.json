@@ -19,7 +19,8 @@
       "Bash(where chrome:*)",
       "Bash(python -m pip list)",
       "Bash(pip install:*)",
-      "Bash(python -m playwright install chromium)"
+      "Bash(python -m playwright install chromium)",
+      "Bash(python:*)"
     ]
   }
 }
