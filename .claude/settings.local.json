@@ -10,7 +10,16 @@
       "Skill(update-config)",
       "Bash(jq:*)",
       "Bash(python3:*)",
-      "Bash(powershell -Command \"Get-Content 'C:/Users/T-GAMER/Desktop/CRIATIVAR/CLAUDE CENTRAL/Proposta FAURG/.claude/settings.json' | ConvertFrom-Json | ConvertTo-Json -Depth 10\")"
+      "Bash(powershell -Command \"Get-Content 'C:/Users/T-GAMER/Desktop/CRIATIVAR/CLAUDE CENTRAL/Proposta FAURG/.claude/settings.json' | ConvertFrom-Json | ConvertTo-Json -Depth 10\")",
+      "Bash(python -c \"import playwright; print\\('playwright ok'\\)\")",
+      "Bash(python -c \"import weasyprint; print\\('weasyprint ok'\\)\")",
+      "Bash(python -c \"import pdfkit; print\\('pdfkit ok'\\)\")",
+      "Bash(where wkhtmltopdf:*)",
+      "Bash(where chromium:*)",
+      "Bash(where chrome:*)",
+      "Bash(python -m pip list)",
+      "Bash(pip install:*)",
+      "Bash(python -m playwright install chromium)"
     ]
   }
 }
