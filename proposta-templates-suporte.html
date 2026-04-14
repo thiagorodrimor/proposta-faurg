@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Proposta Técnica: Templates e Suporte Criativo | FAURG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    @page { size: A4; margin: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #080B14;
+      color: #E2E8F0;
+      -webkit-font-smoothing: antialiased;
+      width: 210mm;
+      margin: 0 auto;
+    }
+
+    .page-break { page-break-after: always; break-after: always; }
+    .no-break   { page-break-inside: avoid; break-inside: avoid; }
+
+    /* ── HERO ── */
+    .hero {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,102,255,0.40) 0%, transparent 70%),
+        #080B14;
+      padding: 48px 48px 40px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero-line {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #0066FF, transparent);
+    }
+    .hero img.logo {
+      height: 90px; margin: 0 auto 28px; display: block; object-fit: contain;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,102,255,0.12); border: 1px solid rgba(0,102,255,0.3);
+      border-radius: 999px; padding: 6px 16px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+      color: #7EB3FF; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 36px; font-weight: 900; line-height: 1.1;
+      letter-spacing: -0.03em; color: #ffffff; margin-bottom: 24px;
+    }
+    .hero h1 span {
+      background: linear-gradient(90deg, #0066FF, #5BA3FF);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .cnpj-box {
+      display: inline-block;
+      background: rgba(0,102,255,0.10); border: 1px solid rgba(0,102,255,0.35);
+      border-radius: 14px; padding: 16px 32px;
+    }
+    .cnpj-box .label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      color: #5B8EFF; margin-bottom: 6px;
+    }
+    .cnpj-box .razao { font-size: 15px; font-weight: 700; color: #ffffff; margin-bottom: 4px; }
+    .cnpj-box .cnpj  { font-size: 12px; font-weight: 500; color: #8892A4; letter-spacing: 0.05em; }
+
+    /* ── SEÇÕES ── */
+    .main { padding: 40px 48px; }
+    .section { margin-bottom: 40px; }
+    .section-header { text-align: center; margin-bottom: 24px; }
+    .divider {
+      width: 40px; height: 3px;
+      background: linear-gradient(90deg, #0066FF, #004ECC);
+      border-radius: 2px; margin: 0 auto 12px;
+    }
+    .section-title { font-size: 22px; font-weight: 800; color: #ffffff; }
+    .section-sub { font-size: 12px; color: #8892A4; margin-top: 6px; line-height: 1.6; }
+    .section-sub strong { color: #ffffff; font-weight: 600; }
+
+    /* ── CARDS BASE ── */
+    .card { background: #0D1120; border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; }
+    .card-inner { padding: 24px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .icon-wrap {
+      width: 40px; height: 40px;
+      background: rgba(0,102,255,0.15); border: 1px solid rgba(0,102,255,0.2);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .card-title { font-size: 14px; font-weight: 700; color: #ffffff; margin-bottom: 14px; }
+    .bullet-list { list-style: none; }
+    .bullet-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 10px; font-size: 12px; color: #8892A4; line-height: 1.6;
+    }
+    .bullet-list li strong { color: #CBD5E1; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: #0066FF; flex-shrink: 0; margin-top: 5px; }
+
+    /* ── TEMPLATES GRID ── */
+    .tpl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .tpl-card {
+      background: #0D1120; border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px; padding: 22px;
+    }
+    .tpl-icon-wrap {
+      width: 38px; height: 38px;
+      background: rgba(0,102,255,0.12); border: 1px solid rgba(0,102,255,0.2);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+    .tpl-title { font-size: 13px; font-weight: 700; color: #ffffff; margin-bottom: 8px; }
+    .tpl-desc  { font-size: 11px; color: #8892A4; line-height: 1.6; }
+
+    /* ── SUPORTE CARD ── */
+    .suporte-card {
+      background: linear-gradient(135deg, rgba(0,102,255,0.06), rgba(0,102,255,0.02));
+      border: 1px solid rgba(0,102,255,0.18);
+      border-radius: 16px; padding: 28px;
+    }
+    .suporte-header {
+      display: flex; align-items: flex-start; gap: 16px; margin-bottom: 22px;
+    }
+    .suporte-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(0,102,255,0.15); border: 1px solid rgba(0,102,255,0.3);
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    }
+    .suporte-label { font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #5B8EFF; margin-bottom: 4px; }
+    .suporte-title { font-size: 16px; font-weight: 800; color: #ffffff; line-height: 1.2; }
+    .suporte-desc  { font-size: 11px; color: #8892A4; margin-top: 4px; line-height: 1.5; }
+    .suporte-items { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .suporte-item {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px; padding: 14px 16px;
+    }
+    .suporte-item-title { font-size: 11px; font-weight: 700; color: #93B8FF; margin-bottom: 6px; }
+    .suporte-item-desc  { font-size: 11px; color: #8892A4; line-height: 1.6; }
+
+    /* ── LIMITES ── */
+    .limites-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; padding: 24px 28px;
+    }
+    .limites-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+    }
+    .limites-badge {
+      background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.25);
+      border-radius: 8px; width: 36px; height: 36px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .limites-title { font-size: 14px; font-weight: 700; color: #ffffff; }
+    .limites-subtitle { font-size: 11px; color: #8892A4; margin-top: 2px; }
+    .limites-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .limite-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px; padding: 12px 14px;
+    }
+    .limite-x {
+      width: 16px; height: 16px; flex-shrink: 0;
+      background: rgba(248,113,113,0.12); border: 1px solid rgba(248,113,113,0.25);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .limite-text { font-size: 11px; color: #8892A4; line-height: 1.5; }
+    .limite-text strong { color: #CBD5E1; display: block; margin-bottom: 2px; font-size: 11px; }
+
+    /* ── INVESTIMENTO ── */
+    .invest-card {
+      background: linear-gradient(135deg, #0A1840 0%, #06102E 100%);
+      border: 1px solid rgba(0,102,255,0.3);
+      border-radius: 18px; overflow: hidden;
+    }
+    .invest-top {
+      padding: 20px 28px 16px; text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .invest-label { font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #5B8EFF; margin-bottom: 4px; }
+    .invest-subtitle { font-size: 14px; font-weight: 700; color: #ffffff; }
+    .invest-body { display: flex; }
+    .invest-left {
+      width: 260px; flex-shrink: 0; padding: 28px 24px; text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    .price-row { display: flex; align-items: flex-start; line-height: 1; }
+    .price-currency { font-size: 18px; font-weight: 300; color: #5B8EFF; margin-right: 2px; margin-top: 6px; }
+    .price-num {
+      font-size: 52px; font-weight: 900; letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #ffffff, #93B8FF);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .price-cents { font-size: 18px; font-weight: 300; color: #5B8EFF; margin-left: 2px; margin-top: 6px; }
+    .price-mes { font-size: 11px; color: #5B8EFF; margin-top: 6px; }
+    .contrato-pill {
+      margin-top: 10px; background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10); border-radius: 999px;
+      padding: 5px 14px; font-size: 10px; color: #8892A4;
+    }
+    .contrato-pill strong { color: #93B8FF; }
+    .invest-right { flex: 1; padding: 28px 28px; }
+    .invest-right-label { font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #5B8EFF; margin-bottom: 16px; }
+    .check-list { list-style: none; }
+    .check-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 12px; font-size: 12px; color: #CBD5E1; line-height: 1.55;
+    }
+    .check-list li strong { color: #ffffff; }
+    .check-icon {
+      width: 18px; height: 18px; flex-shrink: 0;
+      background: rgba(0,102,255,0.2); border: 1px solid rgba(0,102,255,0.4);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+
+    /* ── QUEM SOU EU ── */
+    .who-card {
+      background: #0D1120; border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px; overflow: hidden; display: flex;
+    }
+    .who-photo {
+      width: 200px; flex-shrink: 0;
+      background: linear-gradient(135deg, #0A1840, #060E28);
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+    .who-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .who-text { flex: 1; padding: 28px 32px; }
+    .who-label { font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #0066FF; margin-bottom: 4px; }
+    .who-name  { font-size: 20px; font-weight: 800; color: #ffffff; margin-bottom: 14px; }
+    .who-bio   { font-size: 12px; color: #8892A4; line-height: 1.8; }
+    .who-bio strong { color: #CBD5E1; }
+
+    svg { display: inline-block; vertical-align: middle; }
+  </style>
+</head>
+
+<body>
+
+  <!-- CABEÇALHO -->
+  <div style="background:#0D1120; border-bottom:1px solid rgba(0,102,255,0.2); padding:12px 48px; display:flex; align-items:center; justify-content:space-between;">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div style="width:3px; height:32px; background:linear-gradient(180deg,#0066FF,#004ECC); border-radius:2px;"></div>
+      <div>
+        <div style="font-size:11px; font-weight:800; color:#ffffff; letter-spacing:0.04em;">LUIZA SANTOS OSORIO LTDA</div>
+        <div style="font-size:10px; color:#8892A4; margin-top:2px;">CNPJ: 53.091.213/0001-32</div>
+      </div>
+    </div>
+    <div style="font-size:9px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#5B8EFF; background:rgba(0,102,255,0.1); border:1px solid rgba(0,102,255,0.25); padding:5px 14px; border-radius:999px;">
+      Proposta Técnica
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero-line"></div>
+  <header class="hero">
+    <img src="logo.png" alt="Logo" class="logo" />
+
+    <div class="hero-badge">
+      <span style="width:7px;height:7px;background:#22C55E;border-radius:50%;display:inline-block;"></span>
+      Proposta Exclusiva · Personalizada
+    </div>
+
+    <h1>Templates e<br/><span>Suporte Criativo</span></h1>
+
+    <div class="cnpj-box">
+      <div class="label">Orçamento direcionado a</div>
+      <div class="razao">Fundação de Apoio à Universidade do Rio Grande</div>
+      <div class="cnpj">CNPJ: 034.839.120/0001-50</div>
+    </div>
+  </header>
+
+
+  <div class="main">
+
+    <!-- VISÃO GERAL -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Visão Geral do Projeto</div>
+        <div class="section-sub">O que está contemplado nesta proposta</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card card-inner">
+          <div class="icon-wrap">
+            <svg width="18" height="18" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <div class="card-title">Resumo do Projeto</div>
+          <ul class="bullet-list">
+            <li><span class="dot"></span><span>Desenvolvimento de um <strong>ecossistema de templates profissionais</strong> para as 3 unidades no Canva.</span></li>
+            <li><span class="dot"></span><span>Foco em dar <strong>autonomia operacional</strong> à equipe interna, mantendo a integridade visual do Brandbook.</span></li>
+            <li><span class="dot"></span><span><strong>Suporte criativo direto</strong> à Pró-Reitoria e direcionamento técnico da equipe de comunicação.</span></li>
+          </ul>
+        </div>
+
+        <div class="card card-inner">
+          <div class="icon-wrap">
+            <svg width="18" height="18" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+            </svg>
+          </div>
+          <div class="card-title">O que será entregue</div>
+          <ul class="bullet-list">
+            <li><span class="dot"></span><span><strong>Pacote de Templates:</strong> Sistema completo no Canva para as 3 marcas (Oceantec, Innovatio e Proiti).</span></li>
+            <li><span class="dot"></span><span><strong>Suporte Colaborativo:</strong> Orientação técnica da equipe interna e criação sob demanda.</span></li>
+            <li><span class="dot"></span><span><strong>Produção Audiovisual:</strong> Edição de até 1 vídeo por unidade mensalmente.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- SISTEMA DE TEMPLATES -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Sistema de Templates (Canva)</div>
+        <div class="section-sub">Pacote completo por unidade — <strong>Oceantec, Innovatio e Proiti</strong></div>
+      </div>
+
+      <div class="tpl-grid">
+
+        <div class="tpl-card">
+          <div class="tpl-icon-wrap">
+            <svg width="17" height="17" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+            </svg>
+          </div>
+          <div class="tpl-title">Cards Institucionais</div>
+          <div class="tpl-desc">Templates para avisos, citações e comunicados oficiais das unidades.</div>
+        </div>
+
+        <div class="tpl-card">
+          <div class="tpl-icon-wrap">
+            <svg width="17" height="17" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <div class="tpl-title">Divulgação e Eventos</div>
+          <div class="tpl-desc">Layouts para chamadas de eventos, resultados e calendários institucionais.</div>
+        </div>
+
+        <div class="tpl-card">
+          <div class="tpl-icon-wrap">
+            <svg width="17" height="17" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+          </div>
+          <div class="tpl-title">Conteúdo Programático</div>
+          <div class="tpl-desc">Estruturas prontas para carrosséis educativos e conteúdo de valor.</div>
+        </div>
+
+        <div class="tpl-card">
+          <div class="tpl-icon-wrap">
+            <svg width="17" height="17" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
+            </svg>
+          </div>
+          <div class="tpl-title">Vídeos e Reels</div>
+          <div class="tpl-desc">Capas de destaque e molduras personalizadas para conteúdo audiovisual.</div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- SUPORTE CRIATIVO -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Suporte Criativo e Trabalho Colaborativo</div>
+        <div class="section-sub">Suporte direto à Pró-Reitoria e <strong>direcionamento da equipe interna</strong></div>
+      </div>
+
+      <div class="suporte-card">
+        <div class="suporte-header">
+          <div class="suporte-icon">
+            <svg width="20" height="20" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="suporte-label">Modelo de Trabalho</div>
+            <div class="suporte-title">Diferente de uma gestão isolada</div>
+            <div class="suporte-desc">Este serviço foca no suporte direto e no direcionamento técnico, não na gestão autônoma dos perfis.</div>
+          </div>
+        </div>
+        <div class="suporte-items">
+          <div class="suporte-item">
+            <div class="suporte-item-title">Trabalho Colaborativo</div>
+            <div class="suporte-item-desc">Orientação, auxílio e direcionamento técnico da equipe de comunicação interna para garantir a aplicação correta da nova identidade visual.</div>
+          </div>
+          <div class="suporte-item">
+            <div class="suporte-item-title">Criação sob Demanda</div>
+            <div class="suporte-item-desc">Desenvolvimento de materiais gráficos e audiovisuais conforme solicitação das lideranças de cada projeto (Oceantec, Innovatio e Proiti).</div>
+          </div>
+          <div class="suporte-item">
+            <div class="suporte-item-title">Produção Audiovisual</div>
+            <div class="suporte-item-desc">Edição de até <strong style="color:#93B8FF;">01 vídeo (Reels/Institucional)</strong> por unidade mensalmente, mediante envio de informações e materiais pela equipe.</div>
+          </div>
+          <div class="suporte-item">
+            <div class="suporte-item-title">Roteirização</div>
+            <div class="suporte-item-desc">Apoio no desenvolvimento de roteiros para os vídeos mensais de cada unidade.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- LIMITES DE ESCOPO -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Limites de Escopo</div>
+        <div class="section-sub">O que <strong>não está incluso</strong> — responsabilidade da equipe interna</div>
+      </div>
+
+      <div class="limites-card">
+        <div class="limites-header">
+          <div class="limites-badge">
+            <svg width="16" height="16" fill="none" stroke="#F87171" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="limites-title">Para clareza operacional</div>
+            <div class="limites-subtitle">As atividades abaixo ficam sob responsabilidade da equipe interna da instituição.</div>
+          </div>
+        </div>
+        <div class="limites-grid">
+          <div class="limite-item">
+            <div class="limite-x">
+              <svg width="8" height="8" fill="none" stroke="#F87171" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </div>
+            <div class="limite-text"><strong>Cronograma de Conteúdo</strong>Definição de pautas e datas de publicação.</div>
+          </div>
+          <div class="limite-item">
+            <div class="limite-x">
+              <svg width="8" height="8" fill="none" stroke="#F87171" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </div>
+            <div class="limite-text"><strong>Gerenciamento de Redes Sociais</strong>Publicação de posts, resposta a comentários e mensagens.</div>
+          </div>
+          <div class="limite-item">
+            <div class="limite-x">
+              <svg width="8" height="8" fill="none" stroke="#F87171" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </div>
+            <div class="limite-text"><strong>Elaboração de Legendas</strong>Escrita de textos para as postagens nas redes.</div>
+          </div>
+          <div class="limite-item">
+            <div class="limite-x">
+              <svg width="8" height="8" fill="none" stroke="#F87171" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </div>
+            <div class="limite-text"><strong>Métricas</strong>Monitoramento e análise de dados de desempenho das redes.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- INVESTIMENTO -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Investimento</div>
+      </div>
+
+      <div class="invest-card">
+        <div class="invest-top">
+          <div class="invest-label">Proposta Financeira</div>
+          <div class="invest-subtitle">Total das 3 Unidades · Investimento Mensal</div>
+        </div>
+        <div class="invest-body">
+          <div class="invest-left">
+            <div class="price-row">
+              <span class="price-currency">R$</span>
+              <span class="price-num">1.250</span>
+              <span class="price-cents">,00</span>
+            </div>
+            <div class="price-mes">por mês</div>
+            <div class="contrato-pill">Vigência <strong>mensal</strong></div>
+          </div>
+          <div class="invest-right">
+            <div class="invest-right-label">O que está incluído</div>
+            <ul class="check-list">
+              <li>
+                <span class="check-icon">
+                  <svg width="10" height="10" fill="none" stroke="#0066FF" stroke-width="3" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <strong>Pacote de templates</strong> no Canva para as 3 marcas
+              </li>
+              <li>
+                <span class="check-icon">
+                  <svg width="10" height="10" fill="none" stroke="#0066FF" stroke-width="3" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <strong>Orientação técnica</strong> da equipe interna de comunicação
+              </li>
+              <li>
+                <span class="check-icon">
+                  <svg width="10" height="10" fill="none" stroke="#0066FF" stroke-width="3" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <strong>Criação sob demanda</strong> de materiais gráficos e audiovisuais
+              </li>
+              <li>
+                <span class="check-icon">
+                  <svg width="10" height="10" fill="none" stroke="#0066FF" stroke-width="3" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                Edição de <strong>até 3 vídeos/mês</strong> (1 por unidade) + roteirização
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- QUEM SOU EU -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Quem está por trás?</div>
+        <div class="section-sub">O profissional que conduz o seu projeto</div>
+      </div>
+
+      <div class="who-card">
+        <div class="who-photo">
+          <img src="foto-thiago.jpg" alt="Thiago Rodrigues" />
+        </div>
+        <div class="who-text">
+          <div class="who-label">Sobre o Profissional</div>
+          <div class="who-name">Thiago Rodrigues</div>
+          <div class="who-bio">
+            Natural de <strong>Rio Grande</strong> e atuando como estrategista e criador de conteúdo desde 2022. Sou <strong>publicitário formado pela UCPel</strong> e concentro minha maior experiência no atendimento a negócios de alta responsabilidade, como os setores de <strong>advocacia e saúde</strong>.<br/><br/>
+            Minha especialidade é gerenciar perfis de negócios institucionais, utilizando minha formação técnica para torná-los <strong>interessantes e atrativos</strong>, sem abrir mão do profissionalismo e da seriedade que esses setores exigem.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
