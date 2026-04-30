@@ -22,5 +22,9 @@
       "Bash(python -m playwright install chromium)",
       "Bash(python:*)"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "playwright"
+  ],
+  "enableAllProjectMcpServers": true
 }

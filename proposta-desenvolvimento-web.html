@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Proposta: Desenvolvimento Web | Criativar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    @page { size: A4; margin: 0; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #080B14;
+      color: #E2E8F0;
+      -webkit-font-smoothing: antialiased;
+      width: 210mm;
+      margin: 0 auto;
+    }
+
+    .page-break { page-break-after: always; break-after: always; }
+    .no-break   { page-break-inside: avoid; break-inside: avoid; }
+
+    /* ── HERO ── */
+    .hero {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,102,255,0.40) 0%, transparent 70%),
+        #080B14;
+      padding: 48px 48px 40px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero-line {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #0066FF, transparent);
+    }
+    .hero img.logo {
+      height: 90px;
+      margin: 0 auto 28px;
+      display: block;
+      object-fit: contain;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,102,255,0.12);
+      border: 1px solid rgba(0,102,255,0.3);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7EB3FF;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+    .hero h1 span {
+      background: linear-gradient(90deg, #0066FF, #5BA3FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 13px;
+      color: #8892A4;
+      line-height: 1.6;
+    }
+
+    /* ── SEÇÕES ── */
+    .main { padding: 40px 48px; }
+    .section { margin-bottom: 40px; }
+
+    .section-header { text-align: center; margin-bottom: 24px; }
+    .divider {
+      width: 40px; height: 3px;
+      background: linear-gradient(90deg, #0066FF, #004ECC);
+      border-radius: 2px;
+      margin: 0 auto 12px;
+    }
+    .section-title { font-size: 22px; font-weight: 800; color: #ffffff; }
+    .section-sub { font-size: 12px; color: #8892A4; margin-top: 6px; line-height: 1.6; }
+    .section-sub strong { color: #ffffff; font-weight: 600; }
+
+    /* ── CARDS BASE ── */
+    .card {
+      background: #0D1120;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .card-inner { padding: 24px; }
+    .icon-wrap {
+      width: 40px; height: 40px;
+      background: rgba(0,102,255,0.15);
+      border: 1px solid rgba(0,102,255,0.2);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .card-title { font-size: 14px; font-weight: 700; color: #ffffff; margin-bottom: 14px; }
+
+    .bullet-list { list-style: none; }
+    .bullet-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 10px; font-size: 12px; color: #8892A4; line-height: 1.6;
+    }
+    .bullet-list li strong { color: #CBD5E1; }
+    .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #0066FF; flex-shrink: 0; margin-top: 5px;
+    }
+
+    /* ── OPTION CARDS ── */
+    .option-card {
+      background: #0D1120;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .option-header {
+      display: flex; align-items: flex-start; gap: 16px;
+      margin-bottom: 20px;
+    }
+    .option-num {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: linear-gradient(135deg, #0066FF, #004ECC);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 900; color: #ffffff;
+    }
+    .option-label {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: #5B8EFF; margin-bottom: 4px;
+    }
+    .option-title { font-size: 16px; font-weight: 800; color: #ffffff; line-height: 1.2; }
+    .option-desc { font-size: 11px; color: #8892A4; margin-top: 4px; line-height: 1.5; }
+
+    .option-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .option-sub-card {
+      background: rgba(0,102,255,0.05);
+      border: 1px solid rgba(0,102,255,0.15);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .option-sub-title { font-size: 11px; font-weight: 700; color: #93B8FF; margin-bottom: 8px; }
+
+    /* ── ALERTA / NÃO INCLUSO ── */
+    .alert-card {
+      background: rgba(245,200,66,0.04);
+      border: 1px solid rgba(245,200,66,0.18);
+      border-radius: 16px;
+      padding: 24px 28px;
+      display: flex;
+      gap: 20px;
+    }
+    .alert-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: rgba(245,200,66,0.10);
+      border: 1px solid rgba(245,200,66,0.25);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .alert-label {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: #F5C842; margin-bottom: 6px;
+    }
+    .alert-title { font-size: 14px; font-weight: 700; color: #ffffff; margin-bottom: 12px; }
+    .alert-list { list-style: none; }
+    .alert-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 8px; font-size: 12px; color: #8892A4; line-height: 1.55;
+    }
+    .alert-list li strong { color: #CBD5E1; }
+    .alert-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #F5C842; flex-shrink: 0; margin-top: 5px;
+    }
+
+    /* ── PORTFÓLIO ── */
+    .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .portfolio-card {
+      background: #0D1120;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 22px;
+      text-decoration: none;
+      display: block;
+    }
+    .portfolio-card-top {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .portfolio-label {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: #5B8EFF; margin-bottom: 4px;
+    }
+    .portfolio-name { font-size: 14px; font-weight: 700; color: #ffffff; }
+    .portfolio-desc { font-size: 11px; color: #8892A4; margin-bottom: 14px; line-height: 1.55; }
+    .portfolio-url {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 10px; font-weight: 600;
+      color: #5B8EFF;
+      background: rgba(0,102,255,0.08);
+      border: 1px solid rgba(0,102,255,0.2);
+      border-radius: 999px;
+      padding: 4px 12px;
+    }
+
+    /* ── INVESTIMENTO ── */
+    .invest-card {
+      background: linear-gradient(135deg, #0A1840 0%, #06102E 100%);
+      border: 1px solid rgba(0,102,255,0.3);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .invest-top {
+      padding: 20px 28px 16px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .invest-label {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: #5B8EFF; margin-bottom: 4px;
+    }
+    .invest-subtitle { font-size: 14px; font-weight: 700; color: #ffffff; }
+
+    .price-table { width: 100%; border-collapse: collapse; }
+    .price-table-wrap { padding: 24px 28px; }
+    .price-table tr.item-row td {
+      padding: 16px 16px;
+      font-size: 13px;
+      color: #CBD5E1;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      vertical-align: middle;
+    }
+    .price-table tr.item-row:last-child td { border-bottom: none; }
+    .price-table tr.item-row td:last-child {
+      text-align: right;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+      font-size: 18px;
+    }
+    .price-table tr.item-row td:first-child {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .brand-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .item-sub { font-size: 10px; color: #5B8EFF; display: block; margin-top: 3px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+    .item-detail { font-size: 10px; color: #8892A4; display: block; margin-top: 2px; }
+
+    .invest-note {
+      padding: 0 28px 20px;
+      font-size: 10px;
+      color: #5B8EFF;
+      text-align: center;
+    }
+
+    /* ── QUEM SOU EU ── */
+    .who-card {
+      background: #0D1120;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+    }
+    .who-photo {
+      width: 200px; flex-shrink: 0;
+      background: linear-gradient(135deg, #0A1840, #060E28);
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+    .who-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+      display: block;
+    }
+    .who-text { flex: 1; padding: 28px 32px; }
+    .who-label {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: #0066FF; margin-bottom: 4px;
+    }
+    .who-name { font-size: 20px; font-weight: 800; color: #ffffff; margin-bottom: 14px; }
+    .who-bio { font-size: 12px; color: #8892A4; line-height: 1.8; }
+    .who-bio strong { color: #CBD5E1; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+    .tag {
+      background: rgba(0,102,255,0.12);
+      border: 1px solid rgba(0,102,255,0.25);
+      color: #7EB3FF;
+      font-size: 10px; font-weight: 600;
+      padding: 4px 12px; border-radius: 999px;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      background: linear-gradient(180deg, #080B14 0%, #050710 100%);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 40px 48px;
+      text-align: center;
+    }
+    .cta-glow {
+      width: 240px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,102,255,0.6), transparent);
+      margin: 0 auto 32px;
+    }
+    .cta-label {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: #0066FF; margin-bottom: 10px;
+    }
+    .cta h2 { font-size: 26px; font-weight: 900; color: #ffffff; margin-bottom: 8px; line-height: 1.2; }
+    .cta p { font-size: 12px; color: #8892A4; margin-bottom: 24px; line-height: 1.6; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #0066FF;
+      color: #fff; font-size: 13px; font-weight: 700;
+      padding: 14px 32px; border-radius: 14px;
+      text-decoration: none;
+    }
+    .cta-footer { margin-top: 28px; font-size: 10px; color: #2D3748; }
+
+    svg { display: inline-block; vertical-align: middle; }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOPO -->
+  <div style="background:#0D1120; border-bottom:1px solid rgba(0,102,255,0.2); padding:12px 48px; display:flex; align-items:center; justify-content:space-between;">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div style="width:3px; height:32px; background:linear-gradient(180deg,#0066FF,#004ECC); border-radius:2px;"></div>
+      <div>
+        <div style="font-size:11px; font-weight:800; color:#ffffff; letter-spacing:0.04em;">LUIZA SANTOS OSORIO LTDA</div>
+        <div style="font-size:10px; color:#8892A4; margin-top:2px;">CNPJ: 53.091.213/0001-32</div>
+      </div>
+    </div>
+    <div style="font-size:9px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#5B8EFF; background:rgba(0,102,255,0.1); border:1px solid rgba(0,102,255,0.25); padding:5px 14px; border-radius:999px;">
+      Proposta Técnica
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero-line"></div>
+  <header class="hero">
+    <img src="logo.png" alt="Logo" class="logo" />
+
+    <div class="hero-badge">
+      <span style="width:7px;height:7px;background:#22C55E;border-radius:50%;display:inline-block;"></span>
+      Proposta Personalizada
+    </div>
+
+    <h1>Desenvolvimento Web<br/><span>Presença Digital que Converte</span></h1>
+    <p class="hero-sub">Uma solução sob medida para o seu negócio — do briefing ao site no ar.</p>
+  </header>
+
+
+  <div class="main">
+
+    <!-- VISÃO GERAL -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Visão Geral do Projeto</div>
+        <div class="section-sub">O que está contemplado nesta proposta</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card card-inner">
+          <div class="icon-wrap">
+            <svg width="18" height="18" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div class="card-title">Por que um site profissional importa</div>
+          <ul class="bullet-list">
+            <li><span class="dot"></span><span>É a <strong>primeira impressão digital</strong> do seu negócio — e ela precisa ser boa.</span></li>
+            <li><span class="dot"></span><span>Funciona <strong>24h por dia</strong>, captando leads e clientes mesmo fora do horário comercial.</span></li>
+            <li><span class="dot"></span><span><strong>Controle total</strong> sobre como você se apresenta ao mercado, sem depender de algoritmos.</span></li>
+          </ul>
+        </div>
+
+        <div class="card card-inner">
+          <div class="icon-wrap">
+            <svg width="18" height="18" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+            </svg>
+          </div>
+          <div class="card-title">O que esta proposta contempla</div>
+          <ul class="bullet-list">
+            <li><span class="dot"></span><span><strong>Duas opções de serviço</strong> para diferentes estágios de maturidade digital.</span></li>
+            <li><span class="dot"></span><span>Desenvolvimento <strong>responsivo</strong> — adaptado para desktop, tablet e celular.</span></li>
+            <li><span class="dot"></span><span>Você escolhe a opção que <strong>faz mais sentido</strong> para o seu momento.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- OPÇÕES DE SERVIÇO -->
+    <div class="section">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Opções de Serviço</div>
+        <div class="section-sub">Escolha o que melhor se encaixa no seu momento</div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:14px;">
+
+        <!-- Opção 1 -->
+        <div class="option-card no-break">
+          <div class="option-header">
+            <div class="option-num">1</div>
+            <div>
+              <div class="option-label">Primeira Opção</div>
+              <div class="option-title">Landing Page de Alta Conversão</div>
+              <div class="option-desc">Para quem precisa de uma presença digital rápida, focada e que converta visitantes em clientes.</div>
+            </div>
+          </div>
+          <div class="option-grid">
+            <div class="option-sub-card">
+              <div class="option-sub-title">Design & Desenvolvimento</div>
+              <ul class="bullet-list">
+                <li><span class="dot"></span><span>Design personalizado para desktop e mobile</span></li>
+                <li><span class="dot"></span><span>Seções estratégicas: Hero, Serviços, Sobre, Depoimentos, CTA e Contato</span></li>
+              </ul>
+            </div>
+            <div class="option-sub-card">
+              <div class="option-sub-title">Funcionalidades</div>
+              <ul class="bullet-list">
+                <li><span class="dot"></span><span>Botão de WhatsApp integrado</span></li>
+                <li><span class="dot"></span><span>Formulário de contato funcional</span></li>
+              </ul>
+            </div>
+            <div class="option-sub-card">
+              <div class="option-sub-title">Otimização</div>
+              <ul class="bullet-list">
+                <li><span class="dot"></span><span>SEO básico: meta tags, velocidade e estrutura</span></li>
+                <li><span class="dot"></span><span>1 rodada de revisão incluída</span></li>
+              </ul>
+            </div>
+            <div class="option-sub-card">
+              <div class="option-sub-title">Prazo & Entrega</div>
+              <ul class="bullet-list">
+                <li><span class="dot"></span><span><strong>15 dias úteis</strong> após aprovação do briefing</span></li>
+                <li><span class="dot"></span><span>Suporte na publicação do site</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Opção 2 -->
+        <div class="option-card no-break" style="border-color:rgba(99,102,241,0.2);">
+          <div class="option-header">
+            <div class="option-num" style="background:linear-gradient(135deg,#6366F1,#4338CA);">2</div>
+            <div>
+              <div class="option-label" style="color:#A5B4FC;">Segunda Opção</div>
+              <div class="option-title">Site Institucional com Blog</div>
+              <div class="option-desc">Para quem quer uma presença digital robusta, com múltiplas páginas e capacidade de produzir conteúdo próprio.</div>
+            </div>
+          </div>
+          <div class="option-grid">
+            <div class="option-sub-card" style="border-color:rgba(99,102,241,0.2);background:rgba(99,102,241,0.05);">
+              <div class="option-sub-title" style="color:#A5B4FC;">Tudo da Opção 1, mais:</div>
+              <ul class="bullet-list">
+                <li><span class="dot" style="background:#6366F1;"></span><span>Páginas separadas: Início, Sobre, Serviços, Blog e Contato</span></li>
+                <li><span class="dot" style="background:#6366F1;"></span><span>Sistema de blog gerenciável sem depender de desenvolvedor</span></li>
+              </ul>
+            </div>
+            <div class="option-sub-card" style="border-color:rgba(99,102,241,0.2);background:rgba(99,102,241,0.05);">
+              <div class="option-sub-title" style="color:#A5B4FC;">Painel de Administração</div>
+              <ul class="bullet-list">
+                <li><span class="dot" style="background:#6366F1;"></span><span>Interface simples e intuitiva para publicar conteúdo</span></li>
+                <li><span class="dot" style="background:#6366F1;"></span><span>Sem necessidade de conhecimento técnico</span></li>
+              </ul>
+            </div>
+            <div class="option-sub-card" style="border-color:rgba(99,102,241,0.2);background:rgba(99,102,241,0.05);">
+              <div class="option-sub-title" style="color:#A5B4FC;">SEO Avançado</div>
+              <ul class="bullet-list">
+                <li><span class="dot" style="background:#6366F1;"></span><span>Sitemap, schema markup e estrutura de URLs otimizada</span></li>
+                <li><span class="dot" style="background:#6366F1;"></span><span>2 rodadas de revisão incluídas</span></li>
+              </ul>
+            </div>
+            <div class="option-sub-card" style="border-color:rgba(99,102,241,0.2);background:rgba(99,102,241,0.05);">
+              <div class="option-sub-title" style="color:#A5B4FC;">Prazo & Entrega</div>
+              <ul class="bullet-list">
+                <li><span class="dot" style="background:#6366F1;"></span><span><strong>30 dias úteis</strong> após aprovação do briefing</span></li>
+                <li><span class="dot" style="background:#6366F1;"></span><span>Suporte na publicação do site</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- O QUE NÃO ESTÁ INCLUÍDO -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">O que não está incluído</div>
+        <div class="section-sub">Custos de infraestrutura contratados separadamente pelo cliente</div>
+      </div>
+
+      <div class="alert-card">
+        <div class="alert-icon">
+          <svg width="18" height="18" fill="none" stroke="#F5C842" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div style="flex:1;">
+          <div class="alert-label">Importante</div>
+          <div class="alert-title">Custos de Infraestrutura</div>
+          <ul class="alert-list">
+            <li><span class="alert-dot"></span><span>Os valores desta proposta cobrem exclusivamente o <strong>desenvolvimento do site</strong>. Os itens abaixo são contratados diretamente pelo cliente, conforme sua preferência de fornecedor:</span></li>
+            <li><span class="alert-dot"></span><span><strong>Registro de domínio</strong> — ex: seusite.com.br (aprox. R$50/ano)</span></li>
+            <li><span class="alert-dot"></span><span><strong>Hospedagem</strong> — plano mensal ou anual (aprox. R$20–80/mês dependendo do plano escolhido)</span></li>
+            <li><span class="alert-dot"></span><span><strong>Outras ferramentas ou integrações externas</strong>, se necessárias para funcionalidades específicas</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- PORTFÓLIO -->
+    <div class="section">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Portfólio</div>
+        <div class="section-sub">Projetos desenvolvidos com foco em identidade visual, performance e experiência do usuário</div>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <a href="https://nutrimariaamelia.com.br/" class="portfolio-card" target="_blank">
+          <div class="portfolio-card-top">
+            <div>
+              <div class="portfolio-label">Site Institucional</div>
+              <div class="portfolio-name">Nutri Maria Amélia</div>
+            </div>
+            <svg width="14" height="14" fill="none" stroke="#5B8EFF" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </div>
+          <p class="portfolio-desc">Site institucional para nutricionista com identidade visual profissional e foco em captação de novos pacientes.</p>
+          <span class="portfolio-url">
+            <svg width="11" height="11" fill="none" stroke="#5B8EFF" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+            nutrimariaamelia.com.br
+          </span>
+        </a>
+
+        <a href="https://oguiadofotografo.com.br" class="portfolio-card" target="_blank">
+          <div class="portfolio-card-top">
+            <div>
+              <div class="portfolio-label">Portal com Blog</div>
+              <div class="portfolio-name">O Guia do Fotógrafo</div>
+            </div>
+            <svg width="14" height="14" fill="none" stroke="#5B8EFF" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </div>
+          <p class="portfolio-desc">Portal com conteúdo especializado para fotógrafos, sistema de blog gerenciável e estrutura otimizada para SEO.</p>
+          <span class="portfolio-url">
+            <svg width="11" height="11" fill="none" stroke="#5B8EFF" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+            oguiadofotografo.com.br
+          </span>
+        </a>
+
+        <a href="https://lmbadvs.com.br/" class="portfolio-card" target="_blank">
+          <div class="portfolio-card-top">
+            <div>
+              <div class="portfolio-label">Site Institucional</div>
+              <div class="portfolio-name">LMB Advogados</div>
+            </div>
+            <svg width="14" height="14" fill="none" stroke="#5B8EFF" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </div>
+          <p class="portfolio-desc">Site institucional para escritório de advocacia com design sóbrio e alinhado à seriedade do setor jurídico.</p>
+          <span class="portfolio-url">
+            <svg width="11" height="11" fill="none" stroke="#5B8EFF" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+            lmbadvs.com.br
+          </span>
+        </a>
+
+        <a href="https://vemprabox.com.br/proposta-videos/" class="portfolio-card" target="_blank">
+          <div class="portfolio-card-top">
+            <div>
+              <div class="portfolio-label">Landing Page</div>
+              <div class="portfolio-name">Vem pra Box</div>
+            </div>
+            <svg width="14" height="14" fill="none" stroke="#5B8EFF" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </div>
+          <p class="portfolio-desc">Landing page de proposta comercial com foco em conversão, navegação fluida e apresentação objetiva do serviço.</p>
+          <span class="portfolio-url">
+            <svg width="11" height="11" fill="none" stroke="#5B8EFF" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+            vemprabox.com.br
+          </span>
+        </a>
+
+      </div>
+    </div>
+
+
+    <!-- INVESTIMENTO -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Investimento</div>
+        <div class="section-sub">Escolha a opção que melhor se encaixa no seu momento</div>
+      </div>
+
+      <div class="invest-card">
+        <div class="invest-top">
+          <div class="invest-label">Proposta Financeira</div>
+          <div class="invest-subtitle">Desenvolvimento Web — Duas opções disponíveis</div>
+        </div>
+
+        <div class="price-table-wrap">
+          <table class="price-table">
+            <tr class="item-row">
+              <td>
+                <span class="brand-dot" style="background:#0066FF;"></span>
+                <div>
+                  Landing Page de Alta Conversão
+                  <span class="item-sub">Opção 1</span>
+                  <span class="item-detail">Prazo: 15 dias úteis · 1 rodada de revisão</span>
+                </div>
+              </td>
+              <td>R$ 1.500,00</td>
+            </tr>
+            <tr class="item-row">
+              <td>
+                <span class="brand-dot" style="background:#6366F1;"></span>
+                <div>
+                  Site Institucional com Blog
+                  <span class="item-sub" style="color:#A5B4FC;">Opção 2</span>
+                  <span class="item-detail">Prazo: 30 dias úteis · 2 rodadas de revisão</span>
+                </div>
+              </td>
+              <td>R$ 2.450,00</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="invest-note">
+          * Aceitamos parcelamento em até 12x · Custos de domínio, hospedagem e outras ferramentas não inclusos
+        </div>
+      </div>
+    </div>
+
+
+    <!-- QUEM SOU EU -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Quem está por trás?</div>
+        <div class="section-sub">O profissional que conduz o seu projeto</div>
+      </div>
+
+      <div class="who-card">
+        <div class="who-photo">
+          <img src="foto-thiago.jpg" alt="Thiago Rodrigues" />
+        </div>
+        <div class="who-text">
+          <div class="who-label">Sobre o Profissional</div>
+          <div class="who-name">Thiago Rodrigues</div>
+          <div class="who-bio">
+            Natural de <strong>Rio Grande</strong> e atuando como estrategista e criador de conteúdo digital desde 2022. Sou <strong>publicitário formado pela UCPel</strong> e tenho maior experiência no atendimento a negócios de alta responsabilidade, como os setores de <strong>advocacia, saúde e educação</strong>.<br/><br/>
+            Minha especialidade é criar sites que equilibram <strong>design profissional e resultado prático</strong> — páginas que refletem a identidade do negócio e trabalham ativamente pela conversão de novos clientes.
+          </div>
+          <div class="tags">
+            <span class="tag">Desenvolvimento Web</span>
+            <span class="tag">Design</span>
+            <span class="tag">SEO</span>
+            <span class="tag">Conteúdo</span>
+            <span class="tag">Estratégia Digital</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- CTA -->
+  <div class="cta">
+    <div class="cta-glow"></div>
+    <div class="cta-label">Próximos Passos</div>
+    <h2>Pronto para começar?</h2>
+    <p>Escolha a opção que melhor se encaixa no seu momento e entre em contato.<br/>Alinhamos os detalhes, definimos o briefing e colocamos o seu site no ar.</p>
+    <a href="https://wa.me/55SEUNUMERO" class="cta-btn">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.126 1.536 5.858L0 24l6.335-1.514A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.369l-.36-.214-3.727.977.994-3.634-.235-.374A9.818 9.818 0 1112 21.818z"/>
+      </svg>
+      Falar no WhatsApp
+    </a>
+    <div class="cta-footer">LUIZA SANTOS OSORIO LTDA · CNPJ: 53.091.213/0001-32 · thiago.rodrimor@gmail.com</div>
+  </div>
+
+</body>
+</html>
