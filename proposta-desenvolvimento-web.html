@@ -352,6 +352,49 @@
     .cta-footer { margin-top: 28px; font-size: 11px; color: #2D3748; }
 
     svg { display: inline-block; vertical-align: middle; }
+
+    /* ── RESPONSIVO ── */
+    @media (max-width: 720px) {
+      .hero { padding: 36px 24px 32px; }
+      .hero h1 { font-size: 32px; }
+      .hero-sub { font-size: 14px; }
+
+      .main { padding: 32px 20px; }
+      .section { margin-bottom: 36px; }
+      .cta { padding: 36px 24px; }
+
+      .grid-2 { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .option-grid { grid-template-columns: 1fr; }
+
+      .option-card { padding: 24px 20px; }
+      .alert-card { flex-direction: column; gap: 14px; }
+      .alert-icon { width: 36px; height: 36px; }
+
+      .who-card { flex-direction: column; }
+      .who-photo { width: 100%; height: 220px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .who-text { padding: 24px; }
+
+      .parcelamento-banner { flex-direction: column; align-items: flex-start; gap: 14px; }
+
+      .price-table-wrap { padding: 16px 20px; }
+      .price-table tr.item-row td { padding: 14px 10px; font-size: 13px; }
+      .price-table tr.item-row td:last-child { font-size: 18px; }
+      .price-table tr.item-row td:first-child { gap: 10px; }
+
+      .invest-top { padding: 18px 20px 14px; }
+      .parcelamento-banner { margin: 0 20px 20px; }
+      .invest-note { padding: 0 20px 16px; }
+
+      .cta h2 { font-size: 26px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 26px; }
+      .section-title { font-size: 22px; }
+      .option-title { font-size: 16px; }
+      .who-name { font-size: 20px; }
+    }
   </style>
 </head>
 
