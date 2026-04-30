@@ -20,11 +20,12 @@
       "Bash(python -m pip list)",
       "Bash(pip install:*)",
       "Bash(python -m playwright install chromium)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(npx playwright *)"
     ]
   },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "playwright"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }
