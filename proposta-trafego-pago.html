@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposta Tráfego Pago | Box Marketing</title>
+
+  <meta name="description" content="Proposta de gestão de tráfego pago — anúncios bem estruturados para atrair as pessoas certas para o seu negócio." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Proposta Tráfego Pago | Box Marketing" />
+  <meta property="og:description" content="Proposta de gestão de tráfego pago — anúncios bem estruturados para atrair as pessoas certas para o seu negócio." />
+  <meta property="og:image" content="https://vemprabox.com.br/trafego-pago/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Proposta Tráfego Pago | Box Marketing" />
+  <meta name="twitter:description" content="Proposta de gestão de tráfego pago — anúncios bem estruturados para atrair as pessoas certas para o seu negócio." />
+  <meta name="twitter:image" content="https://vemprabox.com.br/trafego-pago/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    @page { size: A4; margin: 0; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #080B14;
+      color: #E2E8F0;
+      -webkit-font-smoothing: antialiased;
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .page-break { page-break-after: always; break-after: always; }
+    .no-break   { page-break-inside: avoid; break-inside: avoid; }
+
+    /* ── HERO ── */
+    .hero {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,102,255,0.40) 0%, transparent 70%),
+        #080B14;
+      padding: 48px 48px 40px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero-line {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #0066FF, transparent);
+    }
+    .hero img.logo {
+      height: 90px;
+      margin: 0 auto 28px;
+      display: block;
+      object-fit: contain;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,102,255,0.12);
+      border: 1px solid rgba(0,102,255,0.3);
+      border-radius: 999px;
+      padding: 7px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7EB3FF;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+    .hero h1 span {
+      background: linear-gradient(90deg, #0066FF, #5BA3FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 15px;
+      color: #8892A4;
+      line-height: 1.6;
+    }
+
+    /* ── SEÇÕES ── */
+    .main { padding: 48px 56px; }
+    .section { margin-bottom: 48px; }
+
+    .section-header { text-align: center; margin-bottom: 28px; }
+    .divider {
+      width: 40px; height: 3px;
+      background: linear-gradient(90deg, #0066FF, #004ECC);
+      border-radius: 2px;
+      margin: 0 auto 14px;
+    }
+    .section-title { font-size: 26px; font-weight: 800; color: #ffffff; }
+    .section-sub {
+      font-size: 14px; color: #8892A4; margin-top: 8px; line-height: 1.6;
+      max-width: 540px; margin-left: auto; margin-right: auto;
+    }
+    .section-sub strong { color: #ffffff; font-weight: 600; }
+
+    /* ── CARDS ── */
+    .card {
+      background: #0D1120;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .card-inner { padding: 28px; }
+    .icon-wrap {
+      width: 44px; height: 44px;
+      background: rgba(0,102,255,0.15);
+      border: 1px solid rgba(0,102,255,0.2);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+      flex-shrink: 0;
+    }
+    .card-title { font-size: 16px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+    .card-desc { font-size: 14px; color: #8892A4; line-height: 1.65; }
+
+    /* ── ALERTA / NÃO INCLUSO ── */
+    .alert-card {
+      background: rgba(245,200,66,0.04);
+      border: 1px solid rgba(245,200,66,0.18);
+      border-radius: 16px;
+      padding: 26px 30px;
+      display: flex;
+      gap: 22px;
+    }
+    .alert-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(245,200,66,0.10);
+      border: 1px solid rgba(245,200,66,0.25);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .alert-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: #F5C842; margin-bottom: 6px;
+    }
+    .alert-title { font-size: 16px; font-weight: 700; color: #ffffff; margin-bottom: 14px; }
+    .alert-list { list-style: none; }
+    .alert-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 10px; font-size: 14px; color: #8892A4; line-height: 1.55;
+    }
+    .alert-list li:last-child { margin-bottom: 0; }
+    .alert-list li strong { color: #CBD5E1; }
+    .alert-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #F5C842; flex-shrink: 0; margin-top: 6px;
+    }
+
+    /* ── INVESTIMENTO ── */
+    .invest-card {
+      background: linear-gradient(135deg, #0A1840 0%, #06102E 100%);
+      border: 1px solid rgba(0,102,255,0.3);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .invest-inner {
+      padding: 44px 36px;
+      text-align: center;
+    }
+    .invest-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: #5B8EFF; margin-bottom: 8px;
+    }
+    .invest-service {
+      font-size: 16px; font-weight: 600; color: #CBD5E1; margin-bottom: 28px;
+    }
+    .invest-includes {
+      margin-top: 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 13px; color: #8892A4; line-height: 1.7;
+      max-width: 460px; margin-left: auto; margin-right: auto;
+    }
+
+    /* ── QUEM SOU EU ── */
+    .who-card {
+      background: #0D1120;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+    }
+    .who-photo {
+      width: 220px; flex-shrink: 0;
+      background: linear-gradient(135deg, #0A1840, #060E28);
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+    .who-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+      display: block;
+    }
+    .who-text { flex: 1; padding: 32px 36px; }
+    .who-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: #0066FF; margin-bottom: 4px;
+    }
+    .who-name { font-size: 22px; font-weight: 800; color: #ffffff; margin-bottom: 14px; }
+    .who-bio { font-size: 14px; color: #8892A4; line-height: 1.8; }
+    .who-bio strong { color: #CBD5E1; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .tag {
+      background: rgba(0,102,255,0.12);
+      border: 1px solid rgba(0,102,255,0.25);
+      color: #7EB3FF;
+      font-size: 11px; font-weight: 600;
+      padding: 5px 14px; border-radius: 999px;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      background: linear-gradient(180deg, #080B14 0%, #050710 100%);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 48px 56px;
+      text-align: center;
+    }
+    .cta-glow {
+      width: 240px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,102,255,0.6), transparent);
+      margin: 0 auto 32px;
+    }
+    .cta-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: #0066FF; margin-bottom: 10px;
+    }
+    .cta h2 { font-size: 32px; font-weight: 900; color: #ffffff; margin-bottom: 10px; line-height: 1.2; }
+    .cta p { font-size: 14px; color: #8892A4; margin-bottom: 28px; line-height: 1.6; }
+    .cta-footer { margin-top: 28px; font-size: 11px; color: #2D3748; }
+
+    svg { display: inline-block; vertical-align: middle; }
+
+    /* ── RESPONSIVO ── */
+    @media (max-width: 720px) {
+      .hero { padding: 36px 24px 32px; }
+      .hero h1 { font-size: 32px; }
+      .hero-sub { font-size: 14px; }
+
+      .main { padding: 32px 20px; }
+      .section { margin-bottom: 36px; }
+      .cta { padding: 36px 24px; }
+
+      .grid-2 { grid-template-columns: 1fr; }
+
+      .alert-card { flex-direction: column; gap: 14px; }
+      .alert-icon { width: 36px; height: 36px; }
+
+      .who-card { flex-direction: column; }
+      .who-photo { width: 100%; height: 220px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .who-text { padding: 24px; }
+
+      .invest-inner { padding: 32px 20px; }
+
+      .cta h2 { font-size: 26px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 26px; }
+      .section-title { font-size: 22px; }
+      .who-name { font-size: 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <div class="hero-line"></div>
+  <header class="hero">
+    <img src="logo.png" alt="Logo" class="logo" />
+
+    <div class="hero-badge">
+      <span style="width:7px;height:7px;background:#22C55E;border-radius:50%;display:inline-block;"></span>
+      Proposta Personalizada
+    </div>
+
+    <h1>Gestão de<br/><span>Tráfego Pago</span></h1>
+    <p class="hero-sub">Anúncios bem estruturados para atrair pessoas certas para o seu negócio</p>
+  </header>
+
+
+  <div class="main">
+
+    <!-- O QUE ESTÁ INCLUSO -->
+    <div class="section">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">O que está incluso</div>
+        <div class="section-sub">A gestão de tráfego pago ajuda sua empresa a aparecer para quem tem mais chance de se interessar, entrar em contato e comprar.</div>
+      </div>
+
+      <div class="grid-2">
+
+        <!-- Configuração inicial -->
+        <div class="card card-inner">
+          <div class="icon-wrap">
+            <svg width="18" height="18" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+            </svg>
+          </div>
+          <div class="card-title">Configuração inicial</div>
+          <p class="card-desc">Organização da BM, conta de anúncios, acessos, pixel, eventos e estrutura necessária para iniciar as campanhas com segurança.</p>
+        </div>
+
+        <!-- Estratégia de campanhas -->
+        <div class="card card-inner">
+          <div class="icon-wrap">
+            <svg width="18" height="18" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+              <line x1="4" y1="22" x2="4" y2="15"/>
+            </svg>
+          </div>
+          <div class="card-title">Estratégia de campanhas</div>
+          <p class="card-desc">Definição dos objetivos, públicos, verba, formatos e abordagem mais adequada para o momento do negócio.</p>
+        </div>
+
+        <!-- Criação e gerenciamento -->
+        <div class="card card-inner">
+          <div class="icon-wrap">
+            <svg width="18" height="18" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+          </div>
+          <div class="card-title">Criação e gerenciamento</div>
+          <p class="card-desc">Campanhas configuradas, acompanhadas e otimizadas de forma contínua para melhorar o desempenho.</p>
+        </div>
+
+        <!-- Análise de resultados -->
+        <div class="card card-inner">
+          <div class="icon-wrap">
+            <svg width="18" height="18" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="17 6 23 6 23 12"/>
+            </svg>
+          </div>
+          <div class="card-title">Análise de resultados</div>
+          <p class="card-desc">Leitura dos principais indicadores para entender o que está funcionando, o que precisa ser ajustado e onde estão as melhores oportunidades.</p>
+        </div>
+
+        <!-- Relatórios mensais -->
+        <div class="card card-inner">
+          <div class="icon-wrap">
+            <svg width="18" height="18" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <div class="card-title">Relatórios mensais</div>
+          <p class="card-desc">Resumo claro dos resultados, investimentos, custos, aprendizados e próximos passos.</p>
+        </div>
+
+        <!-- Curadoria de criativos -->
+        <div class="card card-inner">
+          <div class="icon-wrap">
+            <svg width="18" height="18" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+          </div>
+          <div class="card-title">Curadoria de criativos</div>
+          <p class="card-desc">Orientação sobre imagens, vídeos, chamadas e formatos com maior potencial para gerar resultado nas campanhas.</p>
+        </div>
+
+        <!-- Reunião semanal online — span full width -->
+        <div class="card card-inner" style="grid-column: 1 / -1;">
+          <div style="display: flex; align-items: flex-start; gap: 20px;">
+            <div class="icon-wrap" style="margin-bottom: 0;">
+              <svg width="18" height="18" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <polygon points="23 7 16 12 23 17 23 7"/>
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+              </svg>
+            </div>
+            <div>
+              <div class="card-title">Reunião semanal online</div>
+              <p class="card-desc">Possibilidade de até 1 reunião por semana para alinhamento, análise e decisões estratégicas.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- INVESTIMENTO -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Investimento</div>
+        <div class="section-sub">Tudo que você precisa para crescer com anúncios em um único plano mensal</div>
+      </div>
+
+      <div class="invest-card">
+        <div class="invest-inner">
+          <div class="invest-label">Proposta Financeira</div>
+          <div class="invest-service">Gestão mensal de tráfego pago</div>
+          <div>
+            <span style="font-size: 58px; font-weight: 900; color: #ffffff; line-height: 1; letter-spacing: -0.02em;">R$750</span><span style="font-size: 24px; font-weight: 700; color: #5B8EFF;">/mês</span>
+          </div>
+          <div class="invest-includes">
+            Inclui planejamento, configuração, gerenciamento, análise, relatórios, curadoria de criativos e reuniões de alinhamento.
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- NÃO ESTÁ INCLUSO -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Não está incluso</div>
+        <div class="section-sub">Itens que ficam fora do escopo da gestão mensal</div>
+      </div>
+
+      <div class="alert-card">
+        <div class="alert-icon">
+          <svg width="18" height="18" fill="none" stroke="#F5C842" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div style="flex:1;">
+          <div class="alert-label">Importante</div>
+          <div class="alert-title">Fora do escopo</div>
+          <ul class="alert-list">
+            <li>
+              <span class="alert-dot"></span>
+              <span><strong>Verba de anúncios</strong> — O investimento em mídia é pago separadamente pelo cliente, direto para a plataforma de anúncios.</span>
+            </li>
+            <li>
+              <span class="alert-dot"></span>
+              <span><strong>Materiais extras</strong> — Criação de artes, vídeos, landing pages e materiais adicionais podem ser orçados à parte.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- QUEM SOU EU -->
+    <div class="section no-break">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-title">Quem está por trás?</div>
+        <div class="section-sub">O profissional que conduz o seu projeto</div>
+      </div>
+
+      <div class="who-card">
+        <div class="who-photo">
+          <img src="foto-thiago.jpg" alt="Thiago Rodrigues" />
+        </div>
+        <div class="who-text">
+          <div class="who-label">Sobre o Profissional</div>
+          <div class="who-name">Thiago Rodrigues</div>
+          <div class="who-bio">
+            Natural de <strong>Rio Grande</strong> e atuando como estrategista e criador de conteúdo digital desde 2022. Sou <strong>publicitário formado pela UCPel</strong> e tenho maior experiência no atendimento a negócios de alta responsabilidade, como os setores de <strong>advocacia, saúde e educação</strong>.
+          </div>
+          <div class="tags">
+            <span class="tag">Tráfego Pago</span>
+            <span class="tag">Meta Ads</span>
+            <span class="tag">Google Ads</span>
+            <span class="tag">Estratégia Digital</span>
+            <span class="tag">Análise de Dados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- CTA -->
+  <div class="cta">
+    <div class="cta-glow"></div>
+    <div class="cta-label">Próximos Passos</div>
+    <h2>Pronto para começar?</h2>
+    <p>Entre em contato para alinharmos os detalhes, entender o seu negócio<br/>e colocar as campanhas no ar da forma certa.</p>
+    <div class="cta-footer">LUIZA SANTOS OSORIO LTDA · CNPJ: 53.091.213/0001-32 · thiago.rodrimor@gmail.com</div>
+  </div>
+
+</body>
+</html>
