@@ -23,7 +23,8 @@
       "Bash(python:*)",
       "Bash(npx playwright *)",
       "Bash(node gerar-og-image.js)",
-      "Bash(del *)"
+      "Bash(del *)",
+      "WebFetch(domain:carolinabelasquem.adv.br)"
     ]
   },
   "enableAllProjectMcpServers": true,
