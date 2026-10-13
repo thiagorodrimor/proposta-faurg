@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Proposta comercial — Projeto de expedições</title>
+<meta name="description" content="Proposta de consultoria de marca, produção audiovisual e gestão de tráfego pago para o projeto de expedições entre Rio Grande e Chuí, pela Praia do Cassino." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500&display=swap" />
+<style>
+  /* Layout: faixa de areia com blocos de grafite; cada serviço é uma "etapa de trecho" com marcador de rota à esquerda */
+  :root {
+    --sand:      #E7DDC8;
+    --sand-deep: #D6C8AA;
+    --paper:     #F3ECDD;
+    --graphite:  #24251F;
+    --graphite-2:#34352D;
+    --olive:     #56622B;
+    --olive-lt:  #AEB879;
+    --ink:       #24251F;
+    --ink-soft:  #57533F;
+    --on-dark:   #ECE3CF;
+    --on-dark-soft: #B9B19B;
+    --line:      rgba(36,37,31,.16);
+    --line-dark: rgba(236,227,207,.16);
+
+    --f-display: "Big Shoulders Display", "Oswald", "Arial Narrow", Impact, sans-serif;
+    --f-body: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --f-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+    --shell: 1120px;
+    --gutter: clamp(18px, 5vw, 48px);
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--sand);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: var(--shell); margin: 0 auto; padding-inline: var(--gutter); }
+  h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: .98; letter-spacing: .005em; }
+  .label {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .num { font-variant-numeric: tabular-nums; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--olive-lt); outline-offset: 3px; }
+
+  /* ── HERO ───────────────────────── */
+  .hero {
+    background: var(--graphite);
+    color: var(--on-dark);
+    padding-block: 28px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before { /* marcas de pneu na areia */
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 10px, rgba(236,227,207,.035) 10px 16px) right -40px top 0 / 130px 100% no-repeat,
+      repeating-linear-gradient(0deg, transparent 0 7px, rgba(236,227,207,.04) 7px 10px) right -40px top 0 / 130px 100% no-repeat;
+    pointer-events: none;
+  }
+  .topbar {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px;
+    color: var(--on-dark-soft);
+    border-bottom: 1px solid var(--line-dark);
+    padding-bottom: 16px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-block: clamp(40px, 7vw, 80px) clamp(40px, 6vw, 72px);
+    position: relative;
+  }
+  @media (min-width: 900px) {
+    .hero-grid { grid-template-columns: 1.35fr .65fr; align-items: end; }
+  }
+  .hero h1 {
+    font-size: clamp(46px, 9vw, 104px);
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+  .hero h1 span { display: block; color: var(--olive-lt); }
+  .hero .sub {
+    margin-top: 24px;
+    max-width: 58ch;
+    font-size: clamp(17px, 2vw, 19px);
+    color: var(--on-dark-soft);
+  }
+
+  .route { color: var(--on-dark-soft); }
+  .route svg { width: 100%; max-width: 300px; height: auto; display: block; }
+  .route-stops { display: grid; gap: 4px; margin-top: 14px; }
+  .route-stops div { display: flex; justify-content: space-between; gap: 16px; max-width: 300px; }
+  .route-stops b { color: var(--on-dark); font-weight: 500; }
+
+  /* ── INTRO ──────────────────────── */
+  .intro { padding-block: clamp(48px, 8vw, 88px); }
+  .intro-grid { display: grid; gap: 40px; }
+  @media (min-width: 900px) { .intro-grid { grid-template-columns: 1fr 1fr; gap: 64px; } }
+  .intro p.lead {
+    font-size: clamp(20px, 2.4vw, 24px);
+    line-height: 1.45;
+    font-weight: 500;
+    max-width: 32ch;
+  }
+  .intro p.note { margin-top: 18px; color: var(--ink-soft); max-width: 46ch; }
+
+  .index { list-style: none; border-top: 2px solid var(--ink); }
+  .index a {
+    display: grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items: baseline;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    color: inherit; text-decoration: none;
+  }
+  .index a:hover .index-name { color: var(--olive); }
+  .index .label { color: var(--olive); }
+  .index-name { font-weight: 600; line-height: 1.3; }
+  .index-price { font-family: var(--f-display); font-weight: 800; font-size: 22px; white-space: nowrap; }
+  .index-price small { font-family: var(--f-body); font-size: 13px; font-weight: 500; color: var(--ink-soft); }
+
+  /* ── SERVIÇOS ───────────────────── */
+  .service { padding-block: clamp(56px, 8vw, 96px); border-top: 1px solid var(--line); }
+  .service.alt { background: var(--paper); }
+  .service-head {
+    display: grid; gap: 14px;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    column-gap: clamp(16px, 3vw, 32px);
+  }
+  .marker {
+    font-family: var(--f-display);
+    font-weight: 900;
+    font-size: clamp(56px, 9vw, 96px);
+    line-height: .8;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--olive);
+  }
+  .service-head .label { color: var(--olive); font-weight: 500; }
+  .service h2 {
+    font-size: clamp(34px, 5.4vw, 58px);
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+  .service .desc { margin-top: 18px; max-width: 62ch; color: var(--ink-soft); }
+
+  .service-body {
+    display: grid; gap: 32px;
+    margin-top: clamp(32px, 5vw, 56px);
+  }
+  @media (min-width: 900px) { .service-body { grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: start; } }
+
+  .block-title { color: var(--ink-soft); margin-bottom: 14px; display: block; }
+  .checklist { list-style: none; display: grid; }
+  .checklist li {
+    display: grid; grid-template-columns: 22px 1fr; gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .checklist li:first-child { border-top: 1px solid var(--line); }
+  .checklist li::before {
+    content: "";
+    width: 12px; height: 12px; margin-top: 7px;
+    border: 2px solid var(--olive);
+    transform: rotate(45deg);
+  }
+  .aside-text { margin-top: 28px; max-width: 60ch; }
+  .aside-text p { color: var(--ink-soft); margin-top: 6px; }
+
+  /* Bloco de investimento: o elemento de destaque de cada serviço */
+  .invest {
+    background: var(--graphite);
+    color: var(--on-dark);
+    padding: clamp(22px, 3.5vw, 32px);
+    border-radius: 4px;
+    display: grid; gap: 20px;
+  }
+  .invest .label { color: var(--olive-lt); }
+  .price {
+    font-family: var(--f-display);
+    font-weight: 900;
+    font-size: clamp(54px, 8vw, 76px);
+    line-height: .9;
+    font-variant-numeric: tabular-nums;
+  }
+  .price .cur { font-size: .42em; font-weight: 800; vertical-align: .9em; margin-right: 4px; color: var(--on-dark-soft); }
+  .price .per { font-family: var(--f-body); font-size: 16px; font-weight: 500; color: var(--on-dark-soft); margin-left: 4px; }
+  .was { color: var(--on-dark-soft); font-size: 15px; }
+  .was s { text-decoration-thickness: 2px; text-decoration-color: var(--olive-lt); }
+  .badge {
+    display: inline-block;
+    background: var(--olive);
+    color: #F3ECDD;
+    font-family: var(--f-mono);
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 2px;
+  }
+  .terms { display: grid; gap: 10px; border-top: 1px solid var(--line-dark); padding-top: 18px; font-size: 15px; }
+  .terms div { display: grid; grid-template-columns: 1fr; gap: 2px; }
+  .terms dt { font-family: var(--f-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--on-dark-soft); }
+  .terms dd { color: var(--on-dark); }
+
+  .option { display: grid; gap: 8px; }
+  .option + .option { border-top: 1px solid var(--line-dark); padding-top: 20px; }
+  .option .price { font-size: clamp(44px, 6vw, 60px); }
+  .option.featured .price { font-size: clamp(54px, 8vw, 76px); color: #F3ECDD; }
+  .option p { font-size: 15px; color: var(--on-dark-soft); }
+  .option p strong { color: var(--on-dark); font-weight: 600; }
+
+  .notes {
+    margin-top: 20px;
+    display: grid; gap: 10px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    list-style: none;
+  }
+  .notes li { padding-left: 18px; position: relative; }
+  .notes li::before { content: ""; position: absolute; left: 0; top: .7em; width: 8px; height: 2px; background: var(--olive); }
+
+  /* ── RESUMO ─────────────────────── */
+  .summary { background: var(--sand-deep); padding-block: clamp(56px, 8vw, 96px); }
+  .summary h2 { font-size: clamp(36px, 5.4vw, 58px); font-weight: 800; text-transform: uppercase; }
+  .summary .label { color: var(--olive); }
+  .sum-list { list-style: none; margin-top: 32px; border-top: 2px solid var(--ink); }
+  .sum-list li {
+    display: grid; gap: 4px 24px;
+    grid-template-columns: 1fr;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  @media (min-width: 720px) {
+    .sum-list li { grid-template-columns: 1fr auto; align-items: baseline; }
+  }
+  .sum-name { font-weight: 600; font-size: 18px; }
+  .sum-cond { color: var(--ink-soft); font-size: 15px; grid-column: 1; }
+  .sum-price {
+    font-family: var(--f-display); font-weight: 900; font-size: clamp(34px, 5vw, 44px); line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  @media (min-width: 720px) { .sum-price { grid-column: 2; grid-row: 1 / span 2; text-align: right; } }
+  .sum-price small { font-family: var(--f-body); font-size: 15px; font-weight: 500; color: var(--ink-soft); }
+  .summary .foot { margin-top: 24px; max-width: 64ch; color: var(--ink-soft); }
+
+  /* ── ENCERRAMENTO ───────────────── */
+  .closing {
+    background: var(--graphite); color: var(--on-dark);
+    padding-block: clamp(64px, 10vw, 112px) 40px;
+  }
+  .closing h2 {
+    font-size: clamp(34px, 5.6vw, 64px);
+    font-weight: 800;
+    text-transform: uppercase;
+    max-width: 20ch;
+  }
+  .next {
+    margin-top: 36px;
+    display: grid; gap: 6px;
+    max-width: 56ch;
+    border-left: 3px solid var(--olive-lt);
+    padding-left: 18px;
+  }
+  .next .label { color: var(--olive-lt); }
+  .next p { font-size: 19px; }
+  .cta {
+    margin-top: 36px;
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--olive);
+    color: #F3ECDD;
+    font-family: var(--f-body);
+    font-weight: 700;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 18px 26px;
+    border-radius: 3px;
+    transition: background .2s, transform .2s;
+  }
+  .cta:hover { background: #66743A; transform: translateY(-2px); }
+  .cta svg { width: 20px; height: 20px; flex: none; }
+  .closing-foot {
+    margin-top: clamp(56px, 8vw, 96px);
+    padding-top: 18px;
+    border-top: 1px solid var(--line-dark);
+    color: var(--on-dark-soft);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px;
+  }
+
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    .index a { grid-template-columns: 34px 1fr; }
+    .index-price { grid-column: 2; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .cta { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar label">
+      <span>Proposta comercial — Projeto de expedições</span>
+      <span>Marca · Audiovisual · Tráfego pago</span>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <h1>Uma marca para apresentar. <span>Uma experiência para mostrar.</span></h1>
+        <p class="sub">Proposta de consultoria de marca, produção audiovisual e gestão de tráfego pago para o projeto de expedições entre Rio Grande e Chuí, pela Praia do Cassino.</p>
+      </div>
+
+      <div class="route" aria-label="Percurso: Rio Grande, Praia do Cassino e Chuí">
+        <svg viewBox="0 0 300 220" role="img" aria-hidden="true">
+          <!-- linha do mar -->
+          <path d="M10 16 C 70 40, 120 70, 160 104 S 240 170, 292 208" fill="none" stroke="rgba(174,184,121,.35)" stroke-width="18" stroke-linecap="round"/>
+          <!-- trilha pela areia -->
+          <path d="M14 30 C 72 54, 118 82, 156 114 S 234 178, 284 210" fill="none" stroke="#ECE3CF" stroke-width="2" stroke-dasharray="6 7" stroke-linecap="round"/>
+          <circle cx="14" cy="30" r="6" fill="#24251F" stroke="#ECE3CF" stroke-width="2"/>
+          <circle cx="62" cy="49" r="4" fill="#AEB879"/>
+          <circle cx="284" cy="210" r="6" fill="#AEB879"/>
+          <text x="26" y="24" fill="#ECE3CF" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="1">RIO GRANDE</text>
+          <text x="72" y="72" fill="#B9B19B" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1">CASSINO</text>
+          <text x="226" y="196" fill="#ECE3CF" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="1" text-anchor="end">CHUÍ</text>
+        </svg>
+        <div class="route-stops label">
+          <div><b>Rio Grande</b><span class="num">32°02′ S</span></div>
+          <div><b>Chuí</b><span class="num">33°41′ S</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="intro">
+    <div class="wrap intro-grid">
+      <div>
+        <p class="lead">Uma experiência de aventura começa a conquistar seu público antes mesmo da partida. Esta proposta reúne três serviços para estruturar a marca, mostrar a experiência e alcançar potenciais participantes.</p>
+        <p class="note">Os serviços podem ser contratados individualmente, conforme as prioridades e o momento do projeto.</p>
+      </div>
+
+      <nav aria-label="Serviços da proposta">
+        <span class="label block-title">Serviços desta proposta</span>
+        <ul class="index">
+          <li><a href="#marca">
+            <span class="label">01</span>
+            <span class="index-name">Consultoria e desenvolvimento de marca</span>
+            <span class="index-price num">R$ 1.100</span>
+          </a></li>
+          <li><a href="#audiovisual">
+            <span class="label">02</span>
+            <span class="index-name">Produção audiovisual da expedição</span>
+            <span class="index-price num">R$ 3.500 <small>4 dias</small></span>
+          </a></li>
+          <li><a href="#trafego">
+            <span class="label">03</span>
+            <span class="index-name">Gestão de tráfego pago</span>
+            <span class="index-price num">R$ 550 <small>/mês</small></span>
+          </a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <!-- 01 MARCA -->
+  <section class="service" id="marca">
+    <div class="wrap">
+      <div class="service-head">
+        <span class="marker" aria-hidden="true">01</span>
+        <div>
+          <span class="label">01 — Consultoria e desenvolvimento de marca</span>
+          <h2>Dar nome, identidade e direção ao projeto.</h2>
+          <p class="desc">Consultoria para organizar as definições essenciais do negócio e desenvolver uma marca coerente com a experiência oferecida, o público pretendido e as possibilidades de expansão dos roteiros.</p>
+        </div>
+      </div>
+
+      <div class="service-body">
+        <div>
+          <span class="label block-title">O que está incluído</span>
+          <ul class="checklist">
+            <li>Alinhamento sobre o negócio, público e diferenciais.</li>
+            <li>Definição do posicionamento e da proposta de valor.</li>
+            <li>Definição de como apresentar a empresa e seus roteiros: marca principal, nome da experiência ou combinação dos dois.</li>
+            <li>Desenvolvimento do nome.</li>
+            <li>Definição da personalidade e do tom de voz.</li>
+            <li>Criação do logo e suas versões.</li>
+            <li>Definição de cores, tipografia e elementos visuais de apoio.</li>
+            <li>Manual básico de marca com as definições e orientações de uso.</li>
+          </ul>
+        </div>
+
+        <div class="invest">
+          <span class="label">Investimento</span>
+          <div class="price"><span class="cur">R$</span>1.100</div>
+          <dl class="terms">
+            <div><dt>Condição de pagamento</dt><dd>À vista ou em até 12x.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 AUDIOVISUAL -->
+  <section class="service alt" id="audiovisual">
+    <div class="wrap">
+      <div class="service-head">
+        <span class="marker" aria-hidden="true">02</span>
+        <div>
+          <span class="label">02 — Produção audiovisual da expedição</span>
+          <h2>Transformar a experiência em conteúdo.</h2>
+          <p class="desc">Acompanhamento da expedição por dois profissionais, com foco na produção de vídeos para redes sociais e anúncios, além de fotografias que apresentem o percurso, a aventura e a estrutura da experiência.</p>
+        </div>
+      </div>
+
+      <div class="service-body">
+        <div>
+          <span class="label block-title">O que está incluído</span>
+          <ul class="checklist">
+            <li>Alinhamento prévio e planejamento da captação.</li>
+            <li>Acompanhamento do percurso pela equipe.</li>
+            <li>Captação de vídeos e fotografias.</li>
+            <li>Registro das paisagens, atividades, momentos e detalhes da experiência.</li>
+            <li>Seleção e edição dos vídeos para redes sociais e anúncios.</li>
+            <li>Seleção e tratamento das fotografias.</li>
+          </ul>
+
+          <div class="aside-text">
+            <span class="label block-title">Sobre a entrega</span>
+            <p>Os materiais serão entregues editados e prontos para uso. A quantidade e a duração dos vídeos serão definidas a partir do aproveitamento do material captado, considerando os acontecimentos e as condições da expedição.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="invest">
+            <span class="label">Investimento</span>
+
+            <div class="option">
+              <span class="label" style="color:var(--on-dark-soft)">Diária integral</span>
+              <div class="price"><span class="cur">R$</span>1.125</div>
+              <p>Aplicável às contratações de um ou dois dias.</p>
+            </div>
+
+            <div class="option featured">
+              <span class="badge">Condição especial · pacote de 4 dias</span>
+              <p class="was">De <s class="num">R$ 4.500</s> por</p>
+              <div class="price"><span class="cur">R$</span>3.500</div>
+              <p>Equivalente a <strong class="num">R$ 875 por diária</strong>.<br />Economia de <strong class="num">R$ 1.000</strong> no pacote completo.</p>
+            </div>
+
+            <dl class="terms">
+              <div><dt>Incluso no investimento</dt><dd>Os dois profissionais e a edição dos materiais.</dd></div>
+              <div><dt>Condição de pagamento</dt><dd>À vista ou em até 12x.</dd></div>
+            </dl>
+          </div>
+
+          <ul class="notes">
+            <li>Transporte, alimentação e acomodação da equipe serão custeados pelo contratante.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 TRÁFEGO -->
+  <section class="service" id="trafego">
+    <div class="wrap">
+      <div class="service-head">
+        <span class="marker" aria-hidden="true">03</span>
+        <div>
+          <span class="label">03 — Gestão de tráfego pago</span>
+          <h2>Levar a experiência até potenciais participantes.</h2>
+          <p class="desc">Planejamento e gestão de campanhas no Instagram e Facebook, com foco em apresentar os roteiros ao público de interesse e gerar contatos para o atendimento comercial.</p>
+        </div>
+      </div>
+
+      <div class="service-body">
+        <div>
+          <span class="label block-title">O que está incluído</span>
+          <ul class="checklist">
+            <li>Criação e configuração da estrutura de anúncios necessária, incluindo BM/portfólio empresarial e conta de anúncios.</li>
+            <li>Planejamento das campanhas e definição dos públicos.</li>
+            <li>Configuração e publicação das campanhas.</li>
+            <li>Testes com os materiais disponíveis.</li>
+            <li>Acompanhamento e otimização dos anúncios.</li>
+            <li>Análise e apresentação dos resultados.</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="invest">
+            <span class="label">Investimento mensal</span>
+            <div class="option featured">
+              <span class="badge">Desconto de R$ 200 por mês</span>
+              <p class="was">De <s class="num">R$ 750</s> por</p>
+              <div class="price"><span class="cur">R$</span>550<span class="per">/mês</span></div>
+            </div>
+            <dl class="terms">
+              <div><dt>Condição</dt><dd>Contratação mínima de três meses.</dd></div>
+            </dl>
+          </div>
+
+          <ul class="notes">
+            <li>A configuração inicial está incluída na mensalidade.</li>
+            <li>A verba destinada aos anúncios é paga separadamente pelo contratante.</li>
+            <li>A gestão de tráfego não inclui publicações orgânicas nem atendimento aos contatos recebidos.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUMO -->
+  <section class="summary" id="resumo">
+    <div class="wrap">
+      <span class="label">Resumo</span>
+      <h2>Resumo do investimento</h2>
+      <ul class="sum-list">
+        <li>
+          <span class="sum-name">Consultoria e desenvolvimento de marca</span>
+          <span class="sum-price">R$ 1.100</span>
+          <span class="sum-cond">Pagamento único, à vista ou em até 12x.</span>
+        </li>
+        <li>
+          <span class="sum-name">Produção audiovisual — pacote de quatro dias</span>
+          <span class="sum-price">R$ 3.500</span>
+          <span class="sum-cond">Pagamento único, à vista ou em até 12x.</span>
+        </li>
+        <li>
+          <span class="sum-name">Gestão de tráfego pago</span>
+          <span class="sum-price">R$ 550 <small>/mês</small></span>
+          <span class="sum-cond">Contratação mínima de três meses.</span>
+        </li>
+      </ul>
+      <p class="foot">Os serviços podem ser contratados individualmente. A condição especial da produção audiovisual é exclusiva para o pacote de quatro dias.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="closing">
+  <div class="wrap">
+    <h2>Uma proposta para dar identidade ao projeto, construir um acervo de conteúdo e iniciar sua divulgação com direção.</h2>
+
+    <div class="next">
+      <span class="label">Próximo passo</span>
+      <p>Definir os serviços contratados e alinhar o cronograma de execução.</p>
+    </div>
+
+    <a class="cta" id="cta-whatsapp" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+      Conversar sobre a proposta
+    </a>
+
+    <div class="closing-foot label">
+      <span>Proposta comercial — Projeto de expedições</span>
+      <span>Rio Grande → Chuí · Praia do Cassino</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ═══ CONFIGURAÇÃO DO BOTÃO ═══════════════════════════════════
+     WHATSAPP_NUMERO: DDI + DDD + número, só dígitos. Ex.: "5553999999999"
+     WHATSAPP_MENSAGEM: texto que já aparece preenchido na conversa.
+     Se preferir outro destino, preencha LINK_PERSONALIZADO (tem prioridade). */
+  const WHATSAPP_NUMERO   = "";
+  const WHATSAPP_MENSAGEM = "Olá! Vi a proposta do projeto de expedições e gostaria de conversar.";
+  const LINK_PERSONALIZADO = "";
+  /* ════════════════════════════════════════════════════════════ */
+
+  (function () {
+    const btn = document.getElementById("cta-whatsapp");
+    const numero = WHATSAPP_NUMERO.replace(/\D/g, "");
+    if (LINK_PERSONALIZADO) {
+      btn.href = LINK_PERSONALIZADO;
+    } else if (numero) {
+      btn.href = "https://wa.me/" + numero + "?text=" + encodeURIComponent(WHATSAPP_MENSAGEM);
+    } else {
+      btn.removeAttribute("target");
+      btn.href = "#resumo";
+    }
+  })();
+</script>
+</body>
+</html>
