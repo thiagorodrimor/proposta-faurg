@@ -308,17 +308,14 @@
     .stage-title { font-size: 21px; font-weight: 800; color: #ffffff; line-height: 1.2; letter-spacing: -0.02em; }
     .stage-desc { font-size: 14px; color: var(--muted); margin-top: 7px; line-height: 1.6; }
 
-    .stage-price {
-      flex-shrink: 0; text-align: right;
-      padding-left: 20px;
-    }
-    .stage-price-value {
-      font-size: 30px; font-weight: 900; color: #ffffff;
-      line-height: 1; letter-spacing: -0.03em; white-space: nowrap;
-    }
-    .stage-price-note {
-      font-size: 11px; color: var(--muted); margin-top: 7px;
-      letter-spacing: 0.04em;
+    .stage-deadline {
+      flex-shrink: 0; align-self: flex-start;
+      font-size: 12px; font-weight: 600; white-space: nowrap;
+      color: var(--soft);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 14px;
     }
 
     /* sub-cards internos */
@@ -654,8 +651,7 @@
 
       .stage-card { padding: 26px 22px; }
       .stage-header { flex-wrap: wrap; }
-      .stage-price { padding-left: 0; text-align: left; width: 100%; margin-top: 6px; }
-      .stage-price-value { font-size: 26px; }
+      .stage-deadline { margin-top: 4px; }
 
       .phase-card { padding: 26px 24px 24px; }
       .note-card, .alert-card { padding: 22px 20px; }
@@ -725,7 +721,6 @@
             <p class="phase-desc">Criamos o conceito visual do seu site — paleta, tipografia, componentes e o desenho completo da página inicial, para computador e celular. Nada é programado antes de você aprovar o visual.</p>
             <div class="phase-meta">
               <span class="meta-chip">7 dias úteis</span>
-              <span class="meta-chip">R$ 497,00</span>
               <span class="meta-chip">1 rodada de revisão</span>
             </div>
           </div>
@@ -747,7 +742,7 @@
             <p class="phase-desc">Com o visual aprovado, o site é construído, otimizado e publicado. Você escolhe entre uma Página de Vendas para uma oferta específica, uma Landing Page focada em conversão ou um Site Institucional com múltiplas páginas.</p>
             <div class="phase-meta">
               <span class="meta-chip">10 a 30 dias úteis</span>
-              <span class="meta-chip">A partir de R$ 1.000,00</span>
+              <span class="meta-chip">3 opções</span>
               <span class="meta-chip">Publicação inclusa</span>
             </div>
           </div>
@@ -781,10 +776,7 @@
               <div class="stage-title">Key Visual</div>
               <p class="stage-desc">A partir de um briefing estratégico, traduzimos o seu negócio em um sistema visual próprio e mostramos a página inicial já desenhada — exatamente do jeito que ela vai ficar no ar.</p>
             </div>
-            <div class="stage-price">
-              <div class="stage-price-value">R$ 497,00</div>
-              <div class="stage-price-note">7 dias úteis</div>
-            </div>
+            <div class="stage-deadline">7 dias úteis</div>
           </div>
 
           <div class="grid-auto">
@@ -863,10 +855,7 @@
                 <div class="stage-title">Página de Vendas</div>
                 <p class="stage-desc">Para quem tem um produto, serviço ou oferta específica e precisa de uma página que conduza o visitante até a compra.</p>
               </div>
-              <div class="stage-price">
-                <div class="stage-price-value">R$ 1.000,00</div>
-                <div class="stage-price-note">10 dias úteis</div>
-              </div>
+              <div class="stage-deadline">10 dias úteis</div>
             </div>
 
             <div class="sub-stack">
@@ -912,10 +901,7 @@
                 <div class="stage-title">Landing Page</div>
                 <p class="stage-desc">Para quem precisa de uma presença digital rápida, focada e que converta visitantes em clientes.</p>
               </div>
-              <div class="stage-price">
-                <div class="stage-price-value">R$ 1.200,00</div>
-                <div class="stage-price-note">15 dias úteis</div>
-              </div>
+              <div class="stage-deadline">15 dias úteis</div>
             </div>
 
             <div class="sub-stack">
@@ -960,10 +946,7 @@
                 <div class="stage-title">Site Institucional</div>
                 <p class="stage-desc">Para quem quer uma presença digital robusta, com múltiplas páginas e espaço para apresentar o negócio com profundidade.</p>
               </div>
-              <div class="stage-price">
-                <div class="stage-price-value">R$ 2.500,00</div>
-                <div class="stage-price-note">30 dias úteis</div>
-              </div>
+              <div class="stage-deadline">30 dias úteis</div>
             </div>
 
             <div class="sub-stack">
@@ -1192,7 +1175,7 @@
           <a href="https://oguiadofotografo.com.br" class="portfolio-card" target="_blank" rel="noopener">
             <div class="portfolio-card-top">
               <div>
-                <div class="portfolio-label">Portal com Blog</div>
+                <div class="portfolio-label">Página de Vendas</div>
                 <div class="portfolio-name">O Guia do Fotógrafo</div>
               </div>
               <svg width="14" height="14" fill="none" stroke="#5B8EFF" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;">
@@ -1223,20 +1206,20 @@
             </span>
           </a>
 
-          <a href="https://vemprabox.com.br/proposta-videos/" class="portfolio-card" target="_blank" rel="noopener">
+          <a href="https://juriposts.com.br" class="portfolio-card" target="_blank" rel="noopener">
             <div class="portfolio-card-top">
               <div>
-                <div class="portfolio-label">Landing Page</div>
-                <div class="portfolio-name">Vem pra Box</div>
+                <div class="portfolio-label">Página de Vendas</div>
+                <div class="portfolio-name">JuriPosts</div>
               </div>
               <svg width="14" height="14" fill="none" stroke="#5B8EFF" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
             </div>
-            <p class="portfolio-desc">Landing page de proposta comercial com foco em conversão, navegação fluida e apresentação objetiva do serviço.</p>
+            <p class="portfolio-desc">Página de vendas de uma biblioteca de conteúdos jurídicos para advogados, com demonstração do produto e foco na compra.</p>
             <span class="portfolio-url">
               <svg width="11" height="11" fill="none" stroke="#5B8EFF" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path stroke-linecap="round" d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" /></svg>
-              vemprabox.com.br
+              juriposts.com.br
             </span>
           </a>
 
