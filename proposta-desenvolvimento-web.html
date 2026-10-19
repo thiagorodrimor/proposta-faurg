@@ -6,10 +6,10 @@
   <title>Proposta Desenvolvimento Web | Box Marketing</title>
 
   <!-- SEO / WhatsApp preview -->
-  <meta name="description" content="Proposta de desenvolvimento web em duas fases — Key Visual e Desenvolvimento. Landing Page a partir de R$1.697 ou Site Institucional por R$2.997." />
+  <meta name="description" content="Proposta de desenvolvimento web em duas fases — Key Visual e Desenvolvimento. Página de Vendas a partir de R$1.497, Landing Page por R$1.697 ou Site Institucional por R$2.997." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Proposta Desenvolvimento Web | Box Marketing" />
-  <meta property="og:description" content="Proposta de desenvolvimento web em duas fases — Key Visual e Desenvolvimento. Landing Page a partir de R$1.697 ou Site Institucional por R$2.997." />
+  <meta property="og:description" content="Proposta de desenvolvimento web em duas fases — Key Visual e Desenvolvimento. Página de Vendas a partir de R$1.497, Landing Page por R$1.697 ou Site Institucional por R$2.997." />
   <meta property="og:image" content="https://vemprabox.com.br/desenvolvimento-web/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -46,6 +46,10 @@
       --cyan:   #06B6D4;
       --cyan-d: #0E7490;
       --cyan-l: #67E8F9;
+
+      --emerald:   #10B981;
+      --emerald-d: #047857;
+      --emerald-l: #6EE7B7;
 
       --amber: #F5C842;
 
@@ -270,6 +274,7 @@
       padding: 36px;
     }
     .stage-card.accent-cyan   { border-color: rgba(6,182,212,0.20); }
+    .stage-card.accent-emerald { border-color: rgba(16,185,129,0.20); }
     .stage-card.accent-blue   { border-color: rgba(0,102,255,0.20); }
     .stage-card.accent-indigo { border-color: rgba(99,102,241,0.20); }
 
@@ -285,6 +290,7 @@
       font-size: 18px; font-weight: 900; color: #ffffff;
     }
     .accent-cyan   .stage-num { background: linear-gradient(135deg, var(--cyan), var(--cyan-d)); }
+    .accent-emerald .stage-num { background: linear-gradient(135deg, var(--emerald), var(--emerald-d)); }
     .accent-blue   .stage-num { background: linear-gradient(135deg, var(--blue), var(--blue-d)); }
     .accent-indigo .stage-num { background: linear-gradient(135deg, var(--indigo), var(--indigo-d)); }
 
@@ -295,6 +301,7 @@
       margin-bottom: 5px;
     }
     .accent-cyan   .stage-label { color: var(--cyan-l); }
+    .accent-emerald .stage-label { color: var(--emerald-l); }
     .accent-blue   .stage-label { color: var(--blue-m); }
     .accent-indigo .stage-label { color: var(--indigo-l); }
 
@@ -323,6 +330,10 @@
       background: rgba(6,182,212,0.05);
       border: 1px solid rgba(6,182,212,0.15);
     }
+    .accent-emerald .sub-card {
+      background: rgba(16,185,129,0.05);
+      border: 1px solid rgba(16,185,129,0.15);
+    }
     .accent-blue .sub-card {
       background: rgba(0,102,255,0.05);
       border: 1px solid rgba(0,102,255,0.15);
@@ -336,16 +347,17 @@
       margin-bottom: 11px; letter-spacing: 0.02em;
     }
     .accent-cyan   .sub-title { color: var(--cyan-l); }
+    .accent-emerald .sub-title { color: var(--emerald-l); }
     .accent-blue   .sub-title { color: #93B8FF; }
     .accent-indigo .sub-title { color: var(--indigo-l); }
 
     .accent-cyan   .dot { background: var(--cyan); }
+    .accent-emerald .dot { background: var(--emerald); }
     .accent-indigo .dot { background: var(--indigo); }
 
     /* Comparativo Fase 2 */
-    .options-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start; }
-    .options-grid .stage-card { display: flex; flex-direction: column; }
-    .options-grid .sub-stack { display: flex; flex-direction: column; gap: 12px; }
+    .options-grid { display: flex; flex-direction: column; gap: 24px; }
+    .options-grid .sub-stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
 
     /* ── Caixa "o que não é" ── */
     .note-card {
@@ -376,7 +388,7 @@
     /* ════════════════════════════════════
        INVESTIMENTO
        ════════════════════════════════════ */
-    .combo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .combo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .combo-card {
       background: linear-gradient(150deg, #0A1840 0%, #06102E 100%);
       border: 1px solid rgba(0,102,255,0.30);
@@ -385,9 +397,10 @@
       display: flex; flex-direction: column;
     }
     .combo-card.alt { border-color: rgba(99,102,241,0.30); }
+    .combo-card.sales { border-color: rgba(16,185,129,0.30); }
 
     .combo-top {
-      padding: 24px 30px 20px;
+      padding: 24px 26px 20px;
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
     .combo-label {
@@ -396,9 +409,10 @@
       color: var(--blue-m); margin-bottom: 6px;
     }
     .combo-card.alt .combo-label { color: var(--indigo-l); }
+    .combo-card.sales .combo-label { color: var(--emerald-l); }
     .combo-name { font-size: 19px; font-weight: 800; color: #ffffff; line-height: 1.3; letter-spacing: -0.02em; }
 
-    .combo-rows { padding: 20px 30px 4px; flex: 1; }
+    .combo-rows { padding: 20px 26px 4px; flex: 1; }
     .combo-row {
       display: flex; align-items: center; justify-content: space-between;
       gap: 16px; padding: 13px 0;
@@ -411,9 +425,9 @@
     .combo-row-value { font-size: 15px; font-weight: 700; color: #ffffff; white-space: nowrap; }
 
     .combo-total {
-      padding: 20px 30px 24px;
-      display: flex; align-items: flex-end; justify-content: space-between;
-      gap: 16px;
+      padding: 20px 26px 24px;
+      display: flex; flex-direction: column; align-items: flex-start;
+      gap: 10px;
     }
     .combo-total-label {
       font-size: 11px; font-weight: 700;
@@ -426,7 +440,7 @@
       color: var(--dim); margin-top: 6px;
     }
     .combo-total-value {
-      font-size: 38px; font-weight: 900; color: #ffffff;
+      font-size: 34px; font-weight: 900; color: #ffffff;
       line-height: 1; letter-spacing: -0.035em; white-space: nowrap;
     }
 
@@ -730,10 +744,10 @@
                 <div class="phase-name">Desenvolvimento</div>
               </div>
             </div>
-            <p class="phase-desc">Com o visual aprovado, o site é construído, otimizado e publicado. Você escolhe entre uma Landing Page focada em conversão ou um Site Institucional com múltiplas páginas.</p>
+            <p class="phase-desc">Com o visual aprovado, o site é construído, otimizado e publicado. Você escolhe entre uma Página de Vendas para uma oferta específica, uma Landing Page focada em conversão ou um Site Institucional com múltiplas páginas.</p>
             <div class="phase-meta">
-              <span class="meta-chip">15 ou 30 dias úteis</span>
-              <span class="meta-chip">R$ 1.200,00 ou R$ 2.500,00</span>
+              <span class="meta-chip">10 a 30 dias úteis</span>
+              <span class="meta-chip">A partir de R$ 1.000,00</span>
               <span class="meta-chip">Publicação inclusa</span>
             </div>
           </div>
@@ -835,17 +849,66 @@
         <div class="section-header">
           <div class="divider"></div>
           <h2 class="section-title">Fase 2 — Desenvolvimento</h2>
-          <p class="section-sub">Duas opções para diferentes estágios de maturidade digital. Você escolhe a que faz mais sentido para o seu momento.</p>
+          <p class="section-sub">Três opções para diferentes objetivos e estágios de maturidade digital. Você escolhe a que faz mais sentido para o seu momento.</p>
         </div>
 
         <div class="options-grid">
 
-          <!-- Opção 1 -->
-          <div class="stage-card accent-blue">
+          <!-- Opção A -->
+          <div class="stage-card accent-emerald">
             <div class="stage-header">
               <div class="stage-num">A</div>
               <div class="stage-head-text">
                 <div class="stage-label">Primeira Opção</div>
+                <div class="stage-title">Página de Vendas</div>
+                <p class="stage-desc">Para quem tem um produto, serviço ou oferta específica e precisa de uma página que conduza o visitante até a compra.</p>
+              </div>
+              <div class="stage-price">
+                <div class="stage-price-value">R$ 1.000,00</div>
+                <div class="stage-price-note">10 dias úteis</div>
+              </div>
+            </div>
+
+            <div class="sub-stack">
+              <div class="sub-card">
+                <div class="sub-title">Estrutura Persuasiva</div>
+                <ul class="bullet-list">
+                  <li><span class="dot"></span><span>Página única responsiva, construída a partir do Key Visual aprovado</span></li>
+                  <li><span class="dot"></span><span>Sequência pensada para a venda: promessa, problema, solução, benefícios, oferta, prova social, perguntas frequentes e garantia</span></li>
+                </ul>
+              </div>
+              <div class="sub-card">
+                <div class="sub-title">Foco na Conversão</div>
+                <ul class="bullet-list">
+                  <li><span class="dot"></span><span>Botões de compra distribuídos ao longo da página</span></li>
+                  <li><span class="dot"></span><span>Integração com o link de pagamento da sua plataforma (Hotmart, Kiwify, Mercado Pago, entre outras)</span></li>
+                  <li><span class="dot"></span><span>Botão de WhatsApp para tirar dúvidas antes da compra</span></li>
+                </ul>
+              </div>
+              <div class="sub-card">
+                <div class="sub-title">Otimização</div>
+                <ul class="bullet-list">
+                  <li><span class="dot"></span><span>Carregamento rápido, pensado para tráfego pago</span></li>
+                  <li><span class="dot"></span><span>Preparada para receber pixel de anúncios (Meta e Google)</span></li>
+                  <li><span class="dot"></span><span>1 rodada de revisão de execução</span></li>
+                </ul>
+              </div>
+              <div class="sub-card">
+                <div class="sub-title">Prazo &amp; Entrega</div>
+                <ul class="bullet-list">
+                  <li><span class="dot"></span><span><strong>10 dias úteis</strong> após a aprovação do Key Visual</span></li>
+                  <li><span class="dot"></span><span>Suporte na publicação do site</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Opção B -->
+          <div class="stage-card accent-blue">
+            <div class="stage-header">
+              <div class="stage-num">B</div>
+              <div class="stage-head-text">
+                <div class="stage-label">Segunda Opção</div>
                 <div class="stage-title">Landing Page</div>
                 <p class="stage-desc">Para quem precisa de uma presença digital rápida, focada e que converta visitantes em clientes.</p>
               </div>
@@ -888,12 +951,12 @@
             </div>
           </div>
 
-          <!-- Opção 2 -->
+          <!-- Opção C -->
           <div class="stage-card accent-indigo">
             <div class="stage-header">
-              <div class="stage-num">B</div>
+              <div class="stage-num">C</div>
               <div class="stage-head-text">
-                <div class="stage-label">Segunda Opção</div>
+                <div class="stage-label">Terceira Opção</div>
                 <div class="stage-title">Site Institucional</div>
                 <p class="stage-desc">Para quem quer uma presença digital robusta, com múltiplas páginas e espaço para apresentar o negócio com profundidade.</p>
               </div>
@@ -905,18 +968,12 @@
 
             <div class="sub-stack">
               <div class="sub-card">
-                <div class="sub-title">Tudo da Opção A, mais:</div>
+                <div class="sub-title">Tudo da Opção B, mais:</div>
                 <ul class="bullet-list">
                   <li><span class="dot"></span><span>Páginas separadas: Início, Sobre, Serviços e Contato</span></li>
                   <li><span class="dot"></span><span>Arquitetura de navegação e organização do conteúdo</span></li>
                   <li><span class="dot"></span><span>Estrutura preparada para crescer com o seu negócio</span></li>
-                </ul>
-              </div>
-              <div class="sub-card">
-                <div class="sub-title">Escopo definido junto com você</div>
-                <ul class="bullet-list">
-                  <li><span class="dot"></span><span>As páginas são definidas no briefing, conforme a necessidade do seu negócio</span></li>
-                  <li><span class="dot"></span><span>Você não paga por página que não vai usar</span></li>
+                  <li><span class="dot"></span><span><strong>Escopo definido junto com você:</strong> as páginas são definidas no briefing, e você não paga por página que não vai usar</span></li>
                 </ul>
               </div>
               <div class="sub-card">
@@ -960,10 +1017,32 @@
 
         <div class="combo-grid">
 
-          <!-- Combo 1 -->
-          <div class="combo-card">
+          <!-- Combo A -->
+          <div class="combo-card sales">
             <div class="combo-top">
               <div class="combo-label">Opção A</div>
+              <div class="combo-name">Key Visual + Página de Vendas</div>
+            </div>
+            <div class="combo-rows">
+              <div class="combo-row">
+                <div class="combo-row-name">Fase 1 — Key Visual<span>7 dias úteis · 1 rodada de revisão</span></div>
+                <div class="combo-row-value">R$ 497,00</div>
+              </div>
+              <div class="combo-row">
+                <div class="combo-row-name">Fase 2 — Página de Vendas<span>10 dias úteis · 1 rodada de revisão</span></div>
+                <div class="combo-row-value">R$ 1.000,00</div>
+              </div>
+            </div>
+            <div class="combo-total">
+              <div class="combo-total-label">Investimento total<span>Prazo estimado: 17 dias úteis</span></div>
+              <div class="combo-total-value">R$ 1.497,00</div>
+            </div>
+          </div>
+
+          <!-- Combo B -->
+          <div class="combo-card">
+            <div class="combo-top">
+              <div class="combo-label">Opção B</div>
               <div class="combo-name">Key Visual + Landing Page</div>
             </div>
             <div class="combo-rows">
@@ -982,10 +1061,10 @@
             </div>
           </div>
 
-          <!-- Combo 2 -->
+          <!-- Combo C -->
           <div class="combo-card alt">
             <div class="combo-top">
-              <div class="combo-label">Opção B</div>
+              <div class="combo-label">Opção C</div>
               <div class="combo-name">Key Visual + Site Institucional</div>
             </div>
             <div class="combo-rows">
