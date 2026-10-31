@@ -20,7 +20,6 @@ html,body{background:#000;-webkit-print-color-adjust:exact;print-color-adjust:ex
 .assina{font-size:26px;letter-spacing:.005em;white-space:nowrap}
 .assina b{font-weight:600}
 .assina i{font-style:normal;font-weight:300}
-.folio{right:var(--m);bottom:56px;text-align:right}
 
 /* 1 — capa */
 #p1 .titulo{left:66px;top:44px;font-size:189px}
@@ -41,7 +40,7 @@ html,body{background:#000;-webkit-print-color-adjust:exact;print-color-adjust:ex
 
 /* 3 — investimento */
 #p3 .titulo{left:67px;top:56px;font-size:118px;line-height:.92}
-#p3 .folio{left:var(--m);right:auto;text-align:left}
+#p3 .assina{left:var(--m);bottom:56px}
 .pl{top:0;height:1080px}
 #master{left:610px;width:730px;background:var(--branco)}
 #padrao{left:1340px;width:580px}
@@ -78,7 +77,8 @@ html,body{background:#000;-webkit-print-color-adjust:exact;print-color-adjust:ex
 #p4 .titulo{left:66px;top:56px;font-size:190px;line-height:.96}
 #p4 .apoio{left:var(--m);top:634px;width:680px;font-size:32px;line-height:1.28;font-weight:300}
 #p4 .apoio p+p{margin-top:16px;font-weight:600}
-#p4 .contato{left:var(--m);top:880px;width:640px;font-size:32px;line-height:1.4;padding-top:24px;border-top:1.5px solid rgba(244,243,239,.3)}
+#p4 .contato{left:var(--m);top:850px;width:640px;font-size:32px;line-height:1.4;padding-top:24px;border-top:1.5px solid rgba(244,243,239,.3)}
+#p4 .contato .lbl{font-size:24px;line-height:1;color:var(--ouro);font-weight:600;letter-spacing:.09em;margin-bottom:14px}
 #p4 .contato .linha{display:flex;gap:48px}
 #p4 .contato .nome{font-weight:600}
 </style>
@@ -98,19 +98,20 @@ html,body{background:#000;-webkit-print-color-adjust:exact;print-color-adjust:ex
   <div class="cota" style="top:312px">
     <span class="num xc ouro">1</span>
     <h3>COTA <b>MASTER</b></h3>
-    <p>Uma única posição, na parte superior das costas, abaixo das bandeiras. A maior área de destaque.</p>
+    <p>Uma única posição, na parte superior<br>das costas, abaixo das bandeiras.<br>A maior área de destaque.</p>
   </div>
   <div class="fio" style="left:952px;top:712px;width:404px"></div>
   <div class="cota" style="top:656px">
     <span class="num xc">8</span>
     <h3>COTA <b>PADRÃO</b></h3>
-    <p>Oito espaços, em duas colunas e quatro linhas, abaixo da área Master.</p>
+    <p>Oito espaços, em duas colunas e<br>quatro linhas, abaixo da área Master.</p>
   </div>
+  <p class="assina" style="left:1380px;bottom:56px"><b>DUS GURI</b> <i>PADEL TEAM</i></p>
 </section>
 
 <section class="pg" id="p3">
   <h2 class="titulo xc">Escolha<br>como sua<br>marca vai<br>participar</h2>
-  <p class="assina folio"><b>DUS GURI</b> <i>PADEL TEAM</i></p>
+  <p class="assina"><b>DUS GURI</b> <i>PADEL TEAM</i></p>
   <div class="pl" id="master">
     <img class="foto" src="assets/detalhe-master.jpg" alt="Detalhe da posição Master">
     <h3>COTA <b>MASTER</b></h3>
@@ -143,6 +144,7 @@ html,body{background:#000;-webkit-print-color-adjust:exact;print-color-adjust:ex
     <p>Entre em contato e garanta<br>seu espaço no uniforme.</p>
   </div>
   <div class="contato">
+    <p class="lbl">CONTATO COMERCIAL</p>
     <p class="nome">[RESPONSÁVEL]</p>
     <div class="linha"><span>[WHATSAPP]</span><span>[INSTAGRAM]</span></div>
   </div>
