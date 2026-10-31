@@ -32,8 +32,7 @@ html,body{background:#000;-webkit-print-color-adjust:exact;print-color-adjust:ex
 .fio{height:2px;background:var(--tinta)}
 .fio::before{content:"";position:absolute;left:-7px;top:-6px;width:14px;height:14px;border-radius:50%;background:var(--ouro)}
 .cota{left:1380px;width:470px}
-.cota .num{font-size:150px;line-height:.78;display:block}
-.cota h3{font-size:50px;font-weight:300;line-height:1;margin:16px 0 8px;white-space:nowrap}
+.cota h3{font-size:50px;font-weight:300;line-height:1;margin:0 0 10px;white-space:nowrap}
 .cota h3 b{font-family:"Archivo XC";font-weight:800;font-size:58px}
 .cota p{font-size:28px;line-height:1.3;color:var(--grafite)}
 .ouro{color:var(--ouro)}
@@ -51,20 +50,13 @@ html,body{background:#000;-webkit-print-color-adjust:exact;print-color-adjust:ex
 #diag{left:0;top:0;width:1920px;height:1080px;background:var(--ouro);clip-path:polygon(610px 355px,1920px 237px,1920px 243px,610px 361px)}
 .pl h3{left:44px;font-size:40px;font-weight:300;line-height:1;white-space:nowrap}
 .pl h3 b{font-weight:600}
-#master h3{top:396px}
-#padrao h3{top:474px}
-.preco{left:44px;display:flex;align-items:flex-start;white-space:nowrap}
-#master .preco{top:444px}
-#padrao .preco{top:522px}
-.preco .rs{font-weight:600;font-family:"Archivo"}
-.preco .cheio{line-height:.86}
-#master .rs{font-size:48px;margin:24px 12px 0 0}
-#master .cheio{font-size:340px;color:var(--ouro)}
-#master .cent{font-size:104px;line-height:1;margin:10px 0 0 6px}
-#padrao .rs{font-size:40px;margin:16px 10px 0 0}
-#padrao .cheio{font-size:250px}
-#padrao .cent{font-size:78px;line-height:1;margin:6px 0 0 5px}
-.pl ul{left:44px;top:768px;list-style:none;font-size:28px;line-height:1.26;color:var(--grafite)}
+.pl h3{top:440px}
+.preco{left:44px;top:488px;display:flex;align-items:flex-start;white-space:nowrap}
+.preco .rs{font-size:40px;font-weight:600;font-family:"Archivo";margin:16px 10px 0 0}
+.preco .cheio{font-size:250px;line-height:.86}
+.preco .cent{font-size:78px;line-height:1;margin:6px 0 0 5px}
+#master .preco{color:var(--ouro)}
+.pl ul{left:44px;top:735px;list-style:none;font-size:28px;line-height:1.26;color:var(--grafite)}
 #master ul{right:44px}
 #padrao ul{right:72px}
 .pl li{padding:11px 0;border-top:1.5px solid rgba(18,18,17,.18)}
@@ -74,13 +66,7 @@ html,body{background:#000;-webkit-print-color-adjust:exact;print-color-adjust:ex
 #p4{background:var(--tinta);color:#F4F3EF}
 #p4 .macro{left:0;top:0;width:1920px;height:1080px;clip-path:polygon(1010px 0,1920px 0,1920px 1080px,770px 1080px)}
 #p4 .fio-ouro{left:0;top:0;width:1920px;height:1080px;background:var(--ouro);clip-path:polygon(1002px 0,1010px 0,770px 1080px,762px 1080px)}
-#p4 .titulo{left:66px;top:56px;font-size:190px;line-height:.96}
-#p4 .apoio{left:var(--m);top:634px;width:680px;font-size:32px;line-height:1.28;font-weight:300}
-#p4 .apoio p+p{margin-top:16px;font-weight:600}
-#p4 .contato{left:var(--m);top:850px;width:640px;font-size:32px;line-height:1.4;padding-top:24px;border-top:1.5px solid rgba(244,243,239,.3)}
-#p4 .contato .lbl{font-size:24px;line-height:1;color:var(--ouro);font-weight:600;letter-spacing:.09em;margin-bottom:14px}
-#p4 .contato .linha{display:flex;gap:48px}
-#p4 .contato .nome{font-weight:600}
+#p4 .titulo{left:66px;top:275px;font-size:184px;line-height:.96}
 </style>
 </head>
 <body>
@@ -95,14 +81,12 @@ html,body{background:#000;-webkit-print-color-adjust:exact;print-color-adjust:ex
   <h2 class="titulo xc">Sua marca no nosso uniforme</h2>
   <img class="camisa" src="assets/camisa-costas.png" alt="Costas da camiseta com as áreas de patrocínio">
   <div class="fio" style="left:852px;top:368px;width:504px"></div>
-  <div class="cota" style="top:312px">
-    <span class="num xc ouro">1</span>
+  <div class="cota" style="top:338px">
     <h3>COTA <b>MASTER</b></h3>
     <p>Uma única posição, na parte superior<br>das costas, abaixo das bandeiras.<br>A maior área de destaque.</p>
   </div>
   <div class="fio" style="left:952px;top:712px;width:404px"></div>
-  <div class="cota" style="top:656px">
-    <span class="num xc">8</span>
+  <div class="cota" style="top:682px">
     <h3>COTA <b>PADRÃO</b></h3>
     <p>Oito espaços, em duas colunas e<br>quatro linhas, abaixo da área Master.</p>
   </div>
@@ -138,16 +122,7 @@ html,body{background:#000;-webkit-print-color-adjust:exact;print-color-adjust:ex
 <section class="pg" id="p4">
   <img class="macro" src="assets/macro-escudo.jpg" alt="Detalhe do escudo Dus Guri no tecido">
   <div class="fio-ouro"></div>
-  <h2 class="titulo xc">Faça parte<br>do nosso<br><span class="ouro">time.</span></h2>
-  <div class="apoio">
-    <p>Sua marca pode fazer parte da identidade<br>do Dus Guri Padel Team.</p>
-    <p>Entre em contato e garanta<br>seu espaço no uniforme.</p>
-  </div>
-  <div class="contato">
-    <p class="lbl">CONTATO COMERCIAL</p>
-    <p class="nome">[RESPONSÁVEL]</p>
-    <div class="linha"><span>[WHATSAPP]</span><span>[INSTAGRAM]</span></div>
-  </div>
+  <h2 class="titulo xc">Faça parte<br>do nosso<br><span class="ouro">time!</span></h2>
 </section>
 
 </body>
