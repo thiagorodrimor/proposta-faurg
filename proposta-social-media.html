@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Proposta de Social Media | Box Marketing</title>
   <meta name="description" content="Proposta de gestão de social media da Box Marketing: estratégia, roteiro, captação e design para um perfil que constrói autoridade." />
-  <meta name="theme-color" content="#07070A" />
+  <meta name="theme-color" content="#060807" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Proposta de Social Media | Box Marketing" />
@@ -24,16 +24,16 @@
   <style>
     /* ═══════════════ TOKENS ═══════════════ */
     :root {
-      --bg: #07070A;
-      --bg-2: #0E0E14;
+      --bg: #060807;
+      --bg-2: #0C110F;
       --line: rgba(255,255,255,.08);
       --line-2: rgba(255,255,255,.14);
       --text: #F5F5F7;
       --soft: #A1A1AC;
       --muted: #8A8A96;
-      --accent: #7C5CFF;
-      --accent-deep: #5B3DF5;
-      --accent-2: #22D3EE;
+      --accent: #13A87C;
+      --accent-deep: #0B7A5A;
+      --accent-2: #3CCFB0;
       --gold: #E8D3A2;
       --ease: cubic-bezier(.16,1,.3,1);
       --sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
@@ -55,7 +55,7 @@
     }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
-    ::selection { background: rgba(124,92,255,.45); color: #fff; }
+    ::selection { background: rgba(19,168,124,.45); color: #fff; }
     :focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; border-radius: 8px; }
     .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
     .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -97,7 +97,7 @@
       padding: 8px 8px 8px 22px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,.09);
-      background: rgba(14,14,20,.45);
+      background: rgba(12,17,15,.45);
       backdrop-filter: blur(18px) saturate(140%);
       -webkit-backdrop-filter: blur(18px) saturate(140%);
       transition: background .5s var(--ease), border-color .5s var(--ease), box-shadow .5s var(--ease), max-width .7s var(--ease);
@@ -105,7 +105,7 @@
     }
     .nav.is-scrolled {
       max-width: 980px;
-      background: rgba(10,10,15,.72);
+      background: rgba(8,12,10,.72);
       border-color: rgba(255,255,255,.12);
       box-shadow: 0 20px 60px -30px rgba(0,0,0,.9);
     }
@@ -131,13 +131,13 @@
     }
     .btn:hover::after { transform: translateX(120%); }
     .btn-light { min-height: 44px; padding: 0 20px; background: var(--text); color: var(--bg); font-size: 14px; }
-    .btn-light::after { background: linear-gradient(110deg, transparent 30%, rgba(124,92,255,.25) 50%, transparent 70%); }
+    .btn-light::after { background: linear-gradient(110deg, transparent 30%, rgba(19,168,124,.25) 50%, transparent 70%); }
     .btn-primary {
       min-height: 56px; padding: 0 28px; font-size: 16px; color: #fff;
       background: linear-gradient(135deg, var(--accent), var(--accent-deep));
-      box-shadow: 0 10px 40px -14px rgba(124,92,255,.85), inset 0 1px 0 rgba(255,255,255,.25);
+      box-shadow: 0 10px 40px -14px rgba(19,168,124,.85), inset 0 1px 0 rgba(255,255,255,.25);
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 50px -12px rgba(124,92,255,.8), inset 0 1px 0 rgba(255,255,255,.25); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 50px -12px rgba(19,168,124,.8), inset 0 1px 0 rgba(255,255,255,.25); }
     .btn-ghost {
       min-height: 56px; padding: 0 26px; font-size: 16px;
       border: 1px solid var(--line-2); color: var(--text);
@@ -165,7 +165,7 @@
               mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
     }
     .spotlight { position: absolute; inset: 0; background: radial-gradient(560px circle at var(--mx) var(--my), rgba(255,255,255,.07), transparent 60%); }
-    .fade-bottom { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,7,10,0) 55%, var(--bg) 100%); }
+    .fade-bottom { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,8,7,0) 55%, var(--bg) 100%); }
 
     .hero-main {
       position: relative; z-index: 1; flex-grow: 1;
@@ -213,7 +213,7 @@
     .rotator-track span { display: block; height: 1.1em; line-height: 1.1em; white-space: nowrap; -webkit-background-clip: text; background-clip: text; color: transparent; }
     .w-gold   { background-image: linear-gradient(90deg, var(--gold), #fff 45%, var(--gold)); }
     .w-cyan   { background-image: linear-gradient(90deg, var(--accent-2), #fff); }
-    .w-violet { background-image: linear-gradient(90deg, #A08BFF, #E4DCFF); }
+    .w-violet { background-image: linear-gradient(90deg, #7FE0C2, #E6FFF6); }
     .w-gold-2 { background-image: linear-gradient(90deg, var(--gold), #fff); }
 
     .lead {
@@ -320,7 +320,7 @@
     }
     .card::before { /* borda que acende perto do mouse */
       content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; z-index: 1;
-      background: radial-gradient(280px circle at var(--x) var(--y), rgba(232,211,162,.75), rgba(124,92,255,.35) 40%, transparent 70%);
+      background: radial-gradient(280px circle at var(--x) var(--y), rgba(232,211,162,.75), rgba(19,168,124,.35) 40%, transparent 70%);
       -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
       -webkit-mask-composite: xor; mask-composite: exclude;
       opacity: 0; transition: opacity .45s var(--ease); pointer-events: none;
@@ -336,7 +336,7 @@
     .card p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--muted); }
     .ico {
       width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
-      background: rgba(124,92,255,.12); border: 1px solid rgba(124,92,255,.25); color: #B9A8FF;
+      background: rgba(19,168,124,.12); border: 1px solid rgba(19,168,124,.25); color: #7FE0C2;
       transition: background .4s, border-color .4s, color .4s, transform .6s var(--ease);
     }
     .ico svg { width: 22px; height: 22px; transition: transform .7s var(--ease); }
@@ -388,20 +388,20 @@
     .invest { overflow: hidden; }
     .beam {
       position: absolute; left: 50%; top: 0; bottom: 0; width: 520px; margin-left: -260px; pointer-events: none;
-      background: radial-gradient(ellipse 50% 60% at 50% 45%, rgba(124,92,255,.35), transparent 70%);
+      background: radial-gradient(ellipse 50% 60% at 50% 45%, rgba(19,168,124,.35), transparent 70%);
       filter: blur(30px);
     }
     .beam::after { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(180deg, transparent, rgba(232,211,162,.5) 30%, rgba(232,211,162,.5) 60%, transparent); }
     .invest-grid { display: grid; grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); gap: 16px; align-items: stretch; max-width: 1000px; margin: 0 auto; }
     .price-card {
       position: relative; border-radius: 30px; padding: 1px;
-      background: conic-gradient(from var(--a), rgba(255,255,255,.08) 0deg, rgba(232,211,162,.9) 40deg, rgba(124,92,255,.7) 80deg, rgba(255,255,255,.08) 140deg, rgba(255,255,255,.08) 360deg);
+      background: conic-gradient(from var(--a), rgba(255,255,255,.08) 0deg, rgba(232,211,162,.9) 40deg, rgba(19,168,124,.7) 80deg, rgba(255,255,255,.08) 140deg, rgba(255,255,255,.08) 360deg);
       animation: spinA 6s linear infinite;
-      box-shadow: 0 50px 140px -40px rgba(124,92,255,.45);
+      box-shadow: 0 50px 140px -40px rgba(19,168,124,.45);
     }
     .price-inner {
       height: 100%; border-radius: 29px; padding: 44px;
-      background: linear-gradient(160deg, rgba(26,24,38,.96), rgba(10,10,15,.98));
+      background: linear-gradient(160deg, rgba(18,30,25,.96), rgba(8,12,10,.98));
       display: flex; flex-direction: column; gap: 10px;
     }
     .price-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .16em; }
@@ -428,9 +428,9 @@
 
     /* ═══════════════ QUEM ═══════════════ */
     .who { display: grid; grid-template-columns: 380px minmax(0,1fr); gap: 0; border-radius: 30px; overflow: hidden; border: 1px solid var(--line); background: rgba(255,255,255,.02); }
-    .who-photo { position: relative; min-height: 420px; background: linear-gradient(160deg, #6B4DF0, #2A1C7A 60%, #0E0A24); overflow: hidden; }
+    .who-photo { position: relative; min-height: 420px; background: linear-gradient(160deg, #1C9C77, #0B4A38 60%, #04120D); overflow: hidden; }
     .who-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.1); mix-blend-mode: multiply; }
-    .who-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(7,7,10,.65)); }
+    .who-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(6,8,7,.65)); }
     .who-text { padding: 56px; display: flex; flex-direction: column; justify-content: center; gap: 18px; }
     .who-text h3 { margin: 0; font-size: clamp(32px, 3.4vw, 46px); font-weight: 500; letter-spacing: -.04em; line-height: 1; }
     .who-text h3 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--gold); }
@@ -449,7 +449,7 @@
     .next-steps { list-style: none; margin: 64px auto 0; padding: 0; max-width: 980px; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; text-align: left; counter-reset: ns; }
     .next-steps li {
       counter-increment: ns; position: relative; padding: 26px 24px; border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.1); background: rgba(14,14,20,.5);
+      border: 1px solid rgba(255,255,255,.1); background: rgba(12,17,15,.5);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       display: flex; flex-direction: column; gap: 8px;
     }
@@ -552,7 +552,7 @@
       display: inline-flex; align-items: center; gap: 10px;
       padding: 10px 14px; border-radius: 14px;
       border: 1px solid rgba(255,255,255,.14);
-      background: rgba(18,18,26,.72); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      background: rgba(14,22,19,.72); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       box-shadow: 0 20px 50px -20px rgba(0,0,0,.8);
       font-size: 13px; color: var(--soft); white-space: nowrap;
     }
@@ -610,7 +610,7 @@
     .goals-foot { margin: 22px 0 0; text-align: center; font-size: 15px; color: var(--soft); }
 
     /* ═══════════════ PORTFÓLIO ═══════════════ */
-    .portfolio { background: linear-gradient(180deg, var(--bg), #050507 20%, #050507 85%, var(--bg)); }
+    .portfolio { background: linear-gradient(180deg, var(--bg), #040605 20%, #040605 85%, var(--bg)); }
     .case { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 72px; align-items: center; padding: 70px 0; }
     .case + .case { border-top: 1px solid var(--line); }
     .case.flip .case-text { order: 2; }
@@ -678,15 +678,8 @@
     }
 
     /* ═══════════════ CAPTAÇÃO ═══════════════ */
-    .capture-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: center; }
-    .shots { position: relative; height: 620px; }
-    .shot { position: absolute; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,.13); box-shadow: 0 40px 100px -35px rgba(0,0,0,.95); }
-    .shot img { width: 100%; height: 100%; object-fit: cover; }
-    .shot.s1 { left: 0; top: 0; width: 46%; height: 72%; }
-    .shot.s2 { right: 0; top: 8%; width: 50%; height: 56%; }
-    .shot.s3 { left: 22%; bottom: 0; width: 52%; height: 40%; z-index: 2; }
-    .shot.s3 img { object-position: center 35%; }
-    .cap-steps { list-style: none; margin: 40px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+    .cap-top { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 72px; align-items: end; }
+    .cap-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
     .cap-steps li {
       display: grid; grid-template-columns: 54px 1fr; gap: 18px; align-items: center;
       padding: 20px 22px; border-radius: 20px; border: 1px solid var(--line); background: rgba(255,255,255,.02);
@@ -694,13 +687,48 @@
     .cap-steps .n { font-family: var(--serif); font-style: italic; font-size: 44px; line-height: 1; background: linear-gradient(180deg, rgba(232,211,162,.95), rgba(232,211,162,.2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .cap-steps b { display: block; font-size: 18px; font-weight: 500; letter-spacing: -.02em; }
     .cap-steps p { margin: 4px 0 0; font-size: 14.5px; color: var(--muted); line-height: 1.5; }
-    .cap-badge { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; padding: 10px 16px; border-radius: 999px; border: 1px solid rgba(52,211,153,.35); background: rgba(52,211,153,.08); color: #6EE7B7; font-size: 14px; }
+    .cap-badge { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; padding: 10px 16px; border-radius: 999px; border: 1px solid rgba(60,207,176,.35); background: rgba(60,207,176,.08); color: #8FE9D2; font-size: 14px; }
+    .gallery { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; margin-top: 80px; padding-bottom: 56px; }
+    .g-item {
+      margin: 0; position: relative; aspect-ratio: 3 / 4.4; border-radius: 22px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 40px 90px -40px rgba(0,0,0,.95);
+    }
+    .g-item:nth-child(even) { margin-top: 56px; margin-bottom: -56px; }
+    .g-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+    .g-item::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 65%, rgba(6,8,7,.45)); pointer-events: none; }
+
+    /* ═══════════════ COMO FUNCIONA: FASES ═══════════════ */
+    .phases { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.55fr); gap: 16px; align-items: stretch; }
+    .phase {
+      position: relative; overflow: hidden; padding: 34px 32px; border-radius: 28px;
+      border: 1px solid var(--line); background: linear-gradient(160deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+      display: flex; flex-direction: column; gap: 26px;
+    }
+    .phase::before { content: ""; position: absolute; width: 280px; height: 280px; right: -110px; top: -110px; border-radius: 50%; background: var(--gold); filter: blur(90px); opacity: .14; pointer-events: none; }
+    .phase-2::before { background: var(--accent); opacity: .22; }
+    .phase-head { position: relative; display: flex; flex-direction: column; gap: 6px; }
+    .phase-tag { align-self: flex-start; padding: 5px 12px; border-radius: 999px; border: 1px solid rgba(232,211,162,.35); color: var(--gold); font-family: var(--mono); font-size: 12px; margin-bottom: 8px; }
+    .phase-2 .phase-tag { border-color: rgba(60,207,176,.4); color: #8FE9D2; }
+    .phase-head b { font-size: 28px; font-weight: 500; letter-spacing: -.035em; }
+    .phase-head small { font-size: 13px; color: var(--muted); }
+    .psteps { position: relative; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+    .psteps.grid-2 { display: grid; grid-template-columns: 1fr 1fr; }
+    .psteps li {
+      display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start;
+      padding: 20px; border-radius: 18px; border: 1px solid var(--line); background: rgba(0,0,0,.18);
+    }
+    .pn { font-family: var(--serif); font-style: italic; font-size: 36px; line-height: .9; background: linear-gradient(180deg, rgba(232,211,162,.95), rgba(232,211,162,.2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .psteps b { display: block; font-size: 17px; font-weight: 500; letter-spacing: -.02em; margin-bottom: 4px; }
+    .psteps p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--muted); }
 
     /* ═══════════════ RESPONSIVO (SOCIAL) ═══════════════ */
     @media (max-width: 1080px) {
       .fan { height: 520px; max-width: 520px; width: 100%; margin: 0 auto; }
       .fan-tilt { transform: none; }
-      .why-grid, .capture-grid { grid-template-columns: minmax(0,1fr); gap: 56px; }
+      .why-grid, .cap-top { grid-template-columns: minmax(0,1fr); gap: 48px; }
+      .phases { grid-template-columns: minmax(0,1fr); }
+      .gallery { grid-template-columns: 1fr 1fr; }
       .anatomy { max-width: 460px; }
       .goals { grid-template-columns: 1fr 1fr; }
       .case { grid-template-columns: minmax(0,1fr); gap: 40px; }
@@ -724,12 +752,16 @@
       .float-post.fr { right: -2%; bottom: 6%; }
       .reels { padding: 80px 0 100px; }
       .reel { width: 170px; }
-      .shots { height: 460px; }
+      .psteps.grid-2 { grid-template-columns: minmax(0,1fr); }
+      .phase { padding: 26px 20px; }
+      .gallery { gap: 10px; margin-top: 56px; }
+      .g-item { border-radius: 16px; }
+      .g-item:nth-child(even) { margin-top: 36px; margin-bottom: -36px; }
       .note { padding: 16px; gap: 12px; }
     }
     @media print {
       .reel-track { animation: none; flex-wrap: wrap; width: auto; }
-      .case, .why-grid, .capture-grid { page-break-inside: avoid; break-inside: avoid; }
+      .case, .why-grid, .cap-top, .gallery, .phases { page-break-inside: avoid; break-inside: avoid; }
       .fan-post { animation: none !important; }
     }
 
@@ -796,7 +828,7 @@
       <div class="nav-links">
         <a href="#estrategia">Estratégia</a>
         <a href="#portfolio">Trabalhos</a>
-        <a href="#captacao">Captação</a>
+        <a href="#metodo">Como funciona</a>
         <a href="#escopo">Escopo</a>
       </div>
       <a class="btn btn-light" href="#investimento">Ver investimento
@@ -843,7 +875,7 @@
             </span>
           </h1>
 
-          <p class="lead">Estratégia, roteiro, captação e design trabalhando juntos para que cada post tenha um motivo para existir, e o seu perfil passe a ser lembrado.</p>
+          <p class="lead">Estratégia, criação e captação trabalhando juntos para que cada post tenha um motivo para existir, e o seu perfil passe a ser lembrado.</p>
 
           <div class="ctas">
             <a class="btn btn-primary" href="#portfolio">Ver trabalhos reais
@@ -861,7 +893,7 @@
               </span>
               <span class="chip">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></svg>
-                CORE Diagnóstico por Imagem
+                Clínica Core
               </span>
               <span class="chip">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
@@ -876,11 +908,11 @@
           <div class="fan-glow" aria-hidden="true"></div>
           <div class="fan-tilt" id="dashTilt">
             <div class="fan-post p1"><img src="social-media-assets/maria-amelia_est_glicemia.jpg" alt="Post da Nutri Maria Amélia sobre glicemia" width="864" height="1080" /></div>
-            <div class="fan-post p2"><img src="social-media-assets/core_est_um-olhar-que-acolhe-um-cuidado.jpg" alt="Post da CORE Diagnóstico por Imagem" width="864" height="1080" /></div>
+            <div class="fan-post p2"><img src="social-media-assets/core_est_um-olhar-que-acolhe-um-cuidado.jpg" alt="Post da Clínica Core" width="864" height="1080" /></div>
             <div class="fan-post p3"><img src="social-media-assets/lindenmeyer_car1_horas-extras-01.jpg" alt="Carrossel da Lindenmeyer Advocacia sobre horas extras" width="864" height="1080" /></div>
           </div>
           <div class="fan-chip c1"><i aria-hidden="true"></i><span>Objetivo do post: <b>autoridade</b></span></div>
-          <div class="fan-chip c2"><span class="mono">roteiro → captação → edição</span></div>
+          <div class="fan-chip c2"><span class="mono">estratégia → cronograma → criação</span></div>
         </div>
 
       </div>
@@ -890,8 +922,8 @@
       <span>Do planejamento à publicação</span>
       <div class="marquee">
         <div class="marquee-track">
-          <span>Estratégia</span><span>Calendário editorial</span><span>Roteiros</span><span>Captação de vídeo</span><span>Edição de reels</span><span>Carrosséis</span><span>Design</span><span>Legendas</span><span>Gestão do perfil</span>
-          <span aria-hidden="true">Estratégia</span><span aria-hidden="true">Calendário editorial</span><span aria-hidden="true">Roteiros</span><span aria-hidden="true">Captação de vídeo</span><span aria-hidden="true">Edição de reels</span><span aria-hidden="true">Carrosséis</span><span aria-hidden="true">Design</span><span aria-hidden="true">Legendas</span><span aria-hidden="true">Gestão do perfil</span>
+          <span>Estratégia digital</span><span>Posicionamento</span><span>Linhas editoriais</span><span>Identidade visual</span><span>Cronograma mensal</span><span>Artes e carrosséis</span><span>Legendas</span><span>Captação mensal</span><span>Programação</span>
+          <span aria-hidden="true">Estratégia digital</span><span aria-hidden="true">Posicionamento</span><span aria-hidden="true">Linhas editoriais</span><span aria-hidden="true">Identidade visual</span><span aria-hidden="true">Cronograma mensal</span><span aria-hidden="true">Artes e carrosséis</span><span aria-hidden="true">Legendas</span><span aria-hidden="true">Captação mensal</span><span aria-hidden="true">Programação</span>
         </div>
       </div>
       <div class="scroll-ind" aria-hidden="true"><span></span></div>
@@ -939,12 +971,12 @@
       </div>
 
       <div class="goals">
-        <div class="goal" data-reveal style="--c:var(--accent)"><small>01</small><b>Autoridade</b><p>Mostra que você domina o assunto e explica de um jeito que o público entende.</p></div>
-        <div class="goal" data-reveal style="--c:var(--accent-2)"><small>02</small><b>Conexão</b><p>Mostra quem está por trás: rosto, voz, valores e jeito de atender.</p></div>
-        <div class="goal" data-reveal style="--c:var(--gold)"><small>03</small><b>Confiança</b><p>Bastidores, rotina e cuidado. O que faz alguém se sentir seguro para chamar.</p></div>
-        <div class="goal" data-reveal style="--c:#34D399"><small>04</small><b>Contato</b><p>Convida a pessoa a dar o próximo passo, no momento certo e sem forçar.</p></div>
+        <div class="goal" data-reveal style="--c:var(--gold)"><small>01</small><b>Autoridade</b><p>Mostra que você domina o assunto e explica de um jeito que o público entende.</p></div>
+        <div class="goal" data-reveal style="--c:var(--accent)"><small>02</small><b>Conexão</b><p>Mostra quem está por trás: rosto, voz, valores e jeito de atender.</p></div>
+        <div class="goal" data-reveal style="--c:var(--accent-2)"><small>03</small><b>Confiança</b><p>Bastidores, rotina e cuidado. O que faz alguém se sentir seguro para chamar.</p></div>
+        <div class="goal" data-reveal style="--c:#F0E6CC"><small>04</small><b>Contato</b><p>Convida a pessoa a dar o próximo passo, no momento certo e sem forçar.</p></div>
       </div>
-      <p class="goals-foot" data-reveal>O calendário de cada mês equilibra esses objetivos conforme o momento do seu negócio.</p>
+      <p class="goals-foot" data-reveal>O cronograma de cada mês equilibra esses objetivos conforme o momento do seu negócio.</p>
     </div>
   </section>
 
@@ -990,7 +1022,7 @@
       <article class="case flip">
         <div class="case-text" data-reveal>
           <span class="case-n">02 · Saúde · diagnóstico por imagem</span>
-          <h3>CORE <em>Diagnóstico por Imagem</em></h3>
+          <h3>Clínica <em>Core</em></h3>
           <p>Comunicação acolhedora para exames que envolvem expectativa e cuidado, como os da gestação.</p>
           <div class="case-tags"><span class="tag">Social Media</span><span class="tag">Tráfego Pago</span><span class="tag">Captação de vídeo</span></div>
         </div>
@@ -1051,117 +1083,26 @@
     <div class="sec-head center" data-reveal>
       <span class="eyebrow">Vídeos</span>
       <h2 class="h2">Vídeos que <em>aproximam.</em></h2>
-      <p class="sub">Roteiro, captação e edição feitos para o público de cada marca.</p>
+      <p class="sub">Roteiro e captação pensados para o público de cada marca.</p>
     </div>
     <div class="reel-mask">
       <div class="reel-track">
         <div class="reel"><img src="social-media-assets/lindenmeyer_Coisasqueparecemnormaisnotrabalho_2.jpg" alt="Vídeo da Lindenmeyer Advocacia" width="540" height="960" loading="lazy" /><span>Lindenmeyer</span></div>
         <div class="reel"><img src="social-media-assets/maria-amelia_Oproblemadorequeijo_2.jpg" alt="Vídeo da Nutri Maria Amélia" width="540" height="960" loading="lazy" /><span>Maria Amélia</span></div>
-        <div class="reel"><img src="social-media-assets/core_Coreexcelenciaematendimento_2.jpg" alt="Vídeo da CORE" width="540" height="960" loading="lazy" /><span>CORE</span></div>
+        <div class="reel"><img src="social-media-assets/core_Coreexcelenciaematendimento_2.jpg" alt="Vídeo da Clínica Core" width="540" height="960" loading="lazy" /><span>Clínica Core</span></div>
         <div class="reel"><img src="social-media-assets/lindenmeyer_Pensopormorte100_2.jpg" alt="Vídeo da Lindenmeyer Advocacia" width="540" height="960" loading="lazy" /><span>Lindenmeyer</span></div>
         <div class="reel"><img src="social-media-assets/maria-amelia_comodeverdadexcomodizemque_2.jpg" alt="Vídeo da Nutri Maria Amélia" width="540" height="960" loading="lazy" /><span>Maria Amélia</span></div>
-        <div class="reel"><img src="social-media-assets/core_Tireoide_2.jpg" alt="Vídeo da CORE" width="540" height="960" loading="lazy" /><span>CORE</span></div>
+        <div class="reel"><img src="social-media-assets/core_Tireoide_2.jpg" alt="Vídeo da Clínica Core" width="540" height="960" loading="lazy" /><span>Clínica Core</span></div>
         <div class="reel"><img src="social-media-assets/lindenmeyer_Recadosparaopatropt2_2.jpg" alt="Vídeo da Lindenmeyer Advocacia" width="540" height="960" loading="lazy" /><span>Lindenmeyer</span></div>
         <div class="reel"><img src="social-media-assets/maria-amelia_Controledadoenadebase_2.jpg" alt="Vídeo da Nutri Maria Amélia" width="540" height="960" loading="lazy" /><span>Maria Amélia</span></div>
         <div class="reel" aria-hidden="true"><img src="social-media-assets/lindenmeyer_Coisasqueparecemnormaisnotrabalho_2.jpg" alt="" loading="lazy" /><span>Lindenmeyer</span></div>
         <div class="reel" aria-hidden="true"><img src="social-media-assets/maria-amelia_Oproblemadorequeijo_2.jpg" alt="" loading="lazy" /><span>Maria Amélia</span></div>
-        <div class="reel" aria-hidden="true"><img src="social-media-assets/core_Coreexcelenciaematendimento_2.jpg" alt="" loading="lazy" /><span>CORE</span></div>
+        <div class="reel" aria-hidden="true"><img src="social-media-assets/core_Coreexcelenciaematendimento_2.jpg" alt="" loading="lazy" /><span>Clínica Core</span></div>
         <div class="reel" aria-hidden="true"><img src="social-media-assets/lindenmeyer_Pensopormorte100_2.jpg" alt="" loading="lazy" /><span>Lindenmeyer</span></div>
         <div class="reel" aria-hidden="true"><img src="social-media-assets/maria-amelia_comodeverdadexcomodizemque_2.jpg" alt="" loading="lazy" /><span>Maria Amélia</span></div>
-        <div class="reel" aria-hidden="true"><img src="social-media-assets/core_Tireoide_2.jpg" alt="" loading="lazy" /><span>CORE</span></div>
+        <div class="reel" aria-hidden="true"><img src="social-media-assets/core_Tireoide_2.jpg" alt="" loading="lazy" /><span>Clínica Core</span></div>
         <div class="reel" aria-hidden="true"><img src="social-media-assets/lindenmeyer_Recadosparaopatropt2_2.jpg" alt="" loading="lazy" /><span>Lindenmeyer</span></div>
         <div class="reel" aria-hidden="true"><img src="social-media-assets/maria-amelia_Controledadoenadebase_2.jpg" alt="" loading="lazy" /><span>Maria Amélia</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ CAPTAÇÃO ═══════════ -->
-  <section class="section" id="captacao">
-    <div class="wrap">
-      <div class="capture-grid">
-        <div class="shots" data-reveal>
-          <div class="shot s1"><img src="social-media-assets/bastidor-3.jpg" alt="Bastidores de captação de vídeo em escritório de advocacia" width="738" height="1600" loading="lazy" /></div>
-          <div class="shot s2"><img src="social-media-assets/bastidor-1.jpg" alt="Bastidores de captação em estúdio" width="738" height="1600" loading="lazy" /></div>
-          <div class="shot s3"><img src="social-media-assets/bastidor-4.jpg" alt="Bastidores de gravação com câmera e iluminação" width="738" height="1600" loading="lazy" /></div>
-        </div>
-        <div data-reveal>
-          <span class="eyebrow">Captação inclusa</span>
-          <h2 class="h2">A câmera <em>vai até você.</em></h2>
-          <p class="sub">Vídeo é o que mais aproxima uma marca do público. Por isso a captação faz parte do plano, não é um extra.</p>
-          <ol class="cap-steps">
-            <li><span class="n">1</span><div><b>Roteiro</b><p>Você não precisa saber o que falar. Chega tudo pensado.</p></div></li>
-            <li><span class="n">2</span><div><b>Captação</b><p>Câmera, luz e áudio levados até o seu espaço.</p></div></li>
-            <li><span class="n">3</span><div><b>Edição</b><p>Vídeos prontos para publicar, no ritmo de cada formato.</p></div></li>
-          </ol>
-          <span class="cap-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Incluso no plano mensal</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ ESCOPO ═══════════ -->
-  <section class="section" id="escopo">
-    <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <span class="eyebrow">Escopo</span>
-        <h2 class="h2">O que está <em>incluso</em> na gestão.</h2>
-        <p class="sub">Do diagnóstico à publicação. Você aprova; a gente cuida do resto.</p>
-      </div>
-
-      <div class="bento">
-        <div class="card c-big" data-reveal data-viz>
-          <div>
-            <div class="ico pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
-            <h3 style="margin-top:22px">Diagnóstico e posicionamento</h3>
-            <p style="margin-top:10px; max-width:460px">Antes do primeiro post, entendemos o negócio, o público e o lugar que a sua marca quer ocupar.</p>
-          </div>
-          <ul class="checks">
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Público e suas dúvidas</li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Tom de voz</li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Pilares de conteúdo</li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Referências e concorrência</li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Identidade dos posts</li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Objetivos do perfil</li>
-          </ul>
-        </div>
-
-        <div class="card" data-reveal>
-          <div class="ico pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg></div>
-          <h3>Calendário editorial</h3>
-          <p>Planejamento mensal com o objetivo de cada conteúdo, para você aprovar antes de produzir.</p>
-        </div>
-
-        <div class="card" data-reveal>
-          <div class="ico pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.38 3.62a1 1 0 0 1 3 3L7.37 18.64a2 2 0 0 1-.86.5l-2.87.84a.5.5 0 0 1-.62-.62l.84-2.87a2 2 0 0 1 .5-.86z"/></svg></div>
-          <h3>Roteiros</h3>
-          <p>Textos de vídeo e carrossel escritos para o seu público, na sua linguagem.</p>
-        </div>
-
-        <div class="card" data-reveal>
-          <div class="ico pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.4L16 11"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div>
-          <h3>Captação de vídeo</h3>
-          <p>Gravação no seu espaço, com câmera, luz e áudio profissionais.</p>
-        </div>
-
-        <div class="card" data-reveal>
-          <div class="ico spin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></svg></div>
-          <h3>Edição de reels</h3>
-          <p>Cortes, legendas na tela, trilha e ritmo pensados para prender a atenção.</p>
-        </div>
-
-        <div class="card" data-reveal>
-          <div class="ico pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></div>
-          <h3>Design e legendas</h3>
-          <p>Posts e carrosséis com identidade própria, e legendas que complementam o conteúdo.</p>
-        </div>
-
-        <div class="card c-wide" data-reveal>
-          <div class="ico up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg></div>
-          <div>
-            <h3>Publicação e gestão do perfil</h3>
-            <p style="margin-top:8px">Postagem nos melhores horários, organização do perfil e acompanhamento do que está funcionando.</p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1172,14 +1113,118 @@
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <span class="eyebrow">Como funciona</span>
-        <h2 class="h2">Um mês, <em>do começo ao fim.</em></h2>
+        <h2 class="h2">Duas etapas, <em>um só objetivo.</em></h2>
+        <p class="sub">Primeiro a estratégia, depois a operação de todo mês. E tudo passa pela sua aprovação antes de ir ao ar.</p>
       </div>
-      <div class="method-track" id="methodTrack">
-        <div class="method-line" aria-hidden="true"><span id="methodLine"></span></div>
-        <div class="mstep" data-reveal><span class="mstep-n">01</span><h3>Planejamento</h3><p>Pautas do mês, cada uma com o seu objetivo. Você aprova antes de qualquer produção.</p></div>
-        <div class="mstep" data-reveal><span class="mstep-n">02</span><h3>Roteiros</h3><p>Textos dos vídeos e carrosséis prontos, para a gravação fluir sem ensaio.</p></div>
-        <div class="mstep" data-reveal><span class="mstep-n">03</span><h3>Captação e produção</h3><p>Gravação no seu espaço, edição dos vídeos e design dos posts.</p></div>
-        <div class="mstep" data-reveal><span class="mstep-n">04</span><h3>Publicação</h3><p>Conteúdo no ar, perfil organizado e aprendizados levados para o próximo mês.</p></div>
+      <div class="phases">
+        <div class="phase" data-reveal>
+          <div class="phase-head"><span class="phase-tag">Etapa 1</span><b>Estratégia digital</b><small>No início do trabalho</small></div>
+          <ol class="psteps">
+            <li><span class="pn">01</span><div><b>Briefing</b><p>Depois do contrato, você recebe um briefing com perguntas-chave sobre o negócio. Junto com a nossa reunião, ele é a base de tudo.</p></div></li>
+            <li><span class="pn">02</span><div><b>Estratégia completa</b><p>Posicionamento, linhas editoriais, temas de foco e identidade visual: criada do zero se você ainda não tem, ajustada se precisar.</p></div></li>
+          </ol>
+        </div>
+        <div class="phase phase-2" data-reveal>
+          <div class="phase-head"><span class="phase-tag">Etapa 2</span><b>Operação mensal</b><small>Todo mês</small></div>
+          <ol class="psteps grid-2">
+            <li><span class="pn">03</span><div><b>Cronograma</b><p>O planejamento dos posts do mês, enviado para a sua aprovação.</p></div></li>
+            <li><span class="pn">04</span><div><b>Criação</b><p>Artes, carrosséis e legendas do cronograma, também enviados para aprovação.</p></div></li>
+            <li><span class="pn">05</span><div><b>Captação</b><p>Uma visita por mês, em data combinada, com equipamento e roteiros prontos.</p></div></li>
+            <li><span class="pn">06</span><div><b>Programação</b><p>Posts aprovados agendados e publicados nos melhores horários.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CAPTAÇÃO ═══════════ -->
+  <section class="section" id="captacao">
+    <div class="wrap">
+      <div class="cap-top">
+        <div data-reveal>
+          <span class="eyebrow">Captação inclusa</span>
+          <h2 class="h2">Uma visita por mês, <em>com tudo pronto.</em></h2>
+          <p class="sub">Vídeo é o que mais aproxima uma marca do público. Por isso a captação faz parte do plano, não é um extra.</p>
+          <span class="cap-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Incluso no plano mensal</span>
+        </div>
+        <ol class="cap-steps" data-reveal>
+          <li><span class="n">1</span><div><b>Data combinada</b><p>Uma visita por mês, no dia e horário que funcionam para você.</p></div></li>
+          <li><span class="n">2</span><div><b>Roteiros prontos</b><p>Os roteiros chegam junto. Você não precisa preparar nada.</p></div></li>
+          <li><span class="n">3</span><div><b>Equipamento completo</b><p>Câmera, luz e áudio levados até o seu espaço.</p></div></li>
+        </ol>
+      </div>
+      <div class="gallery" data-reveal>
+        <figure class="g-item"><img src="social-media-assets/bastidor-1.jpg" alt="Bastidores de captação em estúdio, com Thiago e cliente" width="738" height="1296" loading="lazy" /></figure>
+        <figure class="g-item"><img src="social-media-assets/bastidor-3.jpg" alt="Captação no escritório da Lindenmeyer Advocacia" width="738" height="1296" loading="lazy" /></figure>
+        <figure class="g-item"><img src="social-media-assets/bastidor-2.jpg" alt="Montagem de luz e câmera para gravação" width="738" height="1296" loading="lazy" /></figure>
+        <figure class="g-item"><img src="social-media-assets/bastidor-4.jpg" alt="Gravação com câmera e iluminação" width="738" height="1296" loading="lazy" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ ESCOPO ═══════════ -->
+  <section class="section" id="escopo">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="eyebrow">Escopo</span>
+        <h2 class="h2">O que está <em>incluso</em> na gestão.</h2>
+        <p class="sub">Da estratégia à publicação. Você aprova, e a gente cuida do resto.</p>
+      </div>
+
+      <div class="bento">
+        <div class="card c-big" data-reveal data-viz>
+          <div>
+            <div class="ico pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+            <h3 style="margin-top:22px">Estratégia digital</h3>
+            <p style="margin-top:10px; max-width:470px">Feita no início do trabalho, a partir da nossa reunião e do briefing. É ela que dá o porquê de cada post.</p>
+          </div>
+          <ul class="checks">
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Briefing do negócio</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Posicionamento</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Linhas editoriais</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Temas de foco</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Criação de identidade visual</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Ajuste da identidade existente</li>
+          </ul>
+        </div>
+
+        <div class="card" data-reveal>
+          <div class="ico pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg></div>
+          <h3>Cronograma mensal</h3>
+          <p>O planejamento dos posts do mês, enviado para a sua aprovação.</p>
+        </div>
+
+        <div class="card" data-reveal>
+          <div class="ico pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></div>
+          <h3>Artes e carrosséis</h3>
+          <p>Criação das artes e carrosséis do cronograma, com identidade própria.</p>
+        </div>
+
+        <div class="card" data-reveal>
+          <div class="ico pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 6.1H3"/><path d="M21 12.1H3"/><path d="M15.1 18H3"/></svg></div>
+          <h3>Legendas</h3>
+          <p>Textos que complementam cada post e conversam com o seu público.</p>
+        </div>
+
+        <div class="card" data-reveal>
+          <div class="ico pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.4L16 11"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div>
+          <h3>Captação mensal</h3>
+          <p>Uma visita por mês, com equipamento e roteiros inclusos.</p>
+        </div>
+
+        <div class="card" data-reveal>
+          <div class="ico up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg></div>
+          <h3>Programação</h3>
+          <p>Posts aprovados agendados e publicados nos melhores horários.</p>
+        </div>
+
+        <div class="card c-wide" data-reveal>
+          <div class="ico pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <div>
+            <h3>Tudo passa pela sua aprovação</h3>
+            <p style="margin-top:8px">Cronograma e posts são enviados para você aprovar antes de qualquer publicação.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1199,16 +1244,15 @@
             <span class="price-label">Proposta financeira</span>
             <span class="price-name">Gestão mensal de social media</span>
             <div class="price-from">A partir de</div>
-            <!-- [PLACEHOLDER] trocar pelo valor -->
-            <div class="price"><span class="mono" id="price">R$ 000</span><small>/mês</small></div>
+            <div class="price"><span class="mono" id="price">R$ 750</span><small>/mês</small></div>
             <ul class="incl">
-              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Diagnóstico e posicionamento</li>
-              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Calendário editorial</li>
-              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Roteiros</li>
-              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Captação de vídeo</li>
-              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Edição de reels</li>
-              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Design e legendas</li>
-              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Publicação e gestão do perfil</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Estratégia digital</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Identidade visual (criação ou ajuste)</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cronograma mensal</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Artes e carrosséis</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Legendas</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Captação mensal com roteiros</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Programação dos posts</li>
             </ul>
           </div>
         </div>
@@ -1219,7 +1263,7 @@
             <h3 style="margin-top:8px">Não está incluso</h3>
           </div>
           <div class="out-item"><b>Tráfego pago</b><span>Gestão de anúncios é um serviço à parte. A verba de anúncios é paga direto à plataforma.</span></div>
-          <div class="out-item"><b>Outros projetos</b><span>Identidade visual, sites e landing pages podem ser orçados à parte.</span></div>
+          <div class="out-item"><b>Outros projetos</b><span>Sites e landing pages podem ser orçados à parte.</span></div>
         </div>
       </div>
     </div>
@@ -1236,9 +1280,9 @@
           <p>Natural de <strong>Rio Grande</strong>, atuo como estrategista e criador de conteúdo digital desde 2022. Sou <strong>publicitário formado pela UCPel</strong> e tenho mais experiência com negócios de alta responsabilidade, como <strong>advocacia, saúde e educação</strong>.</p>
           <div class="tags">
             <span class="tag">Social media</span>
-            <span class="tag">Estratégia de conteúdo</span>
-            <span class="tag">Roteiro</span>
-            <span class="tag">Captação e edição</span>
+            <span class="tag">Estratégia digital</span>
+            <span class="tag">Identidade visual</span>
+            <span class="tag">Captação</span>
             <span class="tag">Design</span>
           </div>
         </div>
@@ -1262,8 +1306,8 @@
       </div>
       <ol class="next-steps">
         <li data-reveal><b>Aprovação</b><span>Você responde a mensagem e alinhamos os detalhes.</span></li>
-        <li data-reveal><b>Diagnóstico</b><span>Uma conversa para entender o negócio, o público e os objetivos.</span></li>
-        <li data-reveal><b>Primeiro calendário</b><span>Pautas do mês aprovadas e a primeira captação agendada.</span></li>
+        <li data-reveal><b>Contrato e briefing</b><span>Contrato assinado e envio do briefing com as perguntas-chave do negócio.</span></li>
+        <li data-reveal><b>Estratégia digital</b><span>Montagem da estratégia e início da operação mensal.</span></li>
       </ol>
     </div>
   </section>
@@ -1393,12 +1437,10 @@
       }
 
       /* parallax suave nas fotos de bastidores */
-      gsap.utils.toArray('.shot').forEach((s, i) => {
-        gsap.fromTo(s, { y: 40 * (i + 1) }, { y: -30 * (i + 1), ease: 'none', scrollTrigger: { trigger: '.shots', start: 'top bottom', end: 'bottom top', scrub: true } });
+      gsap.utils.toArray('.g-item img').forEach((img) => {
+        gsap.fromTo(img, { yPercent: -6, scale: 1.12 }, { yPercent: 6, scale: 1.12, ease: 'none', scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
       });
 
-      /* linha do método */
-      gsap.fromTo('#methodLine', { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '#methodTrack', start: 'top 80%', end: 'bottom 60%', scrub: true } });
 
       /* preço "decodifica" ao aparecer */
       if (window.ScrambleTextPlugin) {
