@@ -574,68 +574,6 @@
     .hbar-avg div::before { content: ""; position: absolute; left: var(--w); top: -100px; height: 112px; border-left: 1px dashed rgba(232,211,162,.55); }
     .hbar-avg .mono { text-align: right; color: var(--gold); font-size: 13px; }
 
-    /* ═══════════════ POTENCIAL ═══════════════ */
-    .potential { overflow: hidden; }
-    .potential .sec-glow { width: 50vw; height: 50vw; left: -15vw; top: 20%; background: var(--accent); filter: blur(170px); opacity: .18; }
-    .potential-grid {
-      position: absolute; inset: 0; pointer-events: none;
-      background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-      background-size: 72px 72px;
-      -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 45%, #000 20%, transparent 75%);
-              mask-image: radial-gradient(ellipse 60% 50% at 50% 45%, #000 20%, transparent 75%);
-    }
-    .sim {
-      display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.1fr);
-      border-radius: 30px; overflow: hidden;
-      border: 1px solid rgba(255,255,255,.12);
-      background: linear-gradient(160deg, rgba(30,28,44,.7), rgba(12,12,18,.7));
-      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-      box-shadow: 0 50px 140px -40px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.08);
-    }
-    .sim-controls { padding: 40px; display: flex; flex-direction: column; gap: 34px; border-right: 1px solid var(--line); }
-    .sim-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .14em; margin-bottom: 14px; }
-    .tabs { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 6px; padding: 5px; border-radius: 16px; background: rgba(0,0,0,.3); border: 1px solid var(--line); }
-    .tab {
-      appearance: none; border: 0; cursor: pointer; font: inherit;
-      padding: 12px 8px; border-radius: 12px; background: transparent; color: var(--muted);
-      font-size: 13.5px; font-weight: 500; transition: background .35s var(--ease), color .35s;
-    }
-    .tab:hover { color: var(--text); }
-    .tab[aria-pressed="true"] { background: rgba(255,255,255,.09); color: var(--text); box-shadow: inset 0 1px 0 rgba(255,255,255,.08); }
-    .budget-val { font-size: clamp(40px, 4.4vw, 60px); line-height: 1; color: var(--text); }
-    .budget-val small { font-size: .4em; color: var(--muted); letter-spacing: 0; }
-    .range { -webkit-appearance: none; appearance: none; width: 100%; height: 28px; background: transparent; cursor: pointer; margin: 18px 0 0; --p: 15%; }
-    .range::-webkit-slider-runnable-track { height: 6px; border-radius: 99px; background: linear-gradient(90deg, var(--accent) 0, var(--accent-2) var(--p), rgba(255,255,255,.1) var(--p)); }
-    .range::-moz-range-track { height: 6px; border-radius: 99px; background: linear-gradient(90deg, var(--accent) 0, var(--accent-2) var(--p), rgba(255,255,255,.1) var(--p)); }
-    .range::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; margin-top: -9px; border-radius: 50%; background: #fff; border: 0; box-shadow: 0 0 0 6px rgba(124,92,255,.3), 0 6px 20px rgba(0,0,0,.5); transition: box-shadow .3s; }
-    .range::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 0; box-shadow: 0 0 0 6px rgba(124,92,255,.3), 0 6px 20px rgba(0,0,0,.5); }
-    .range:hover::-webkit-slider-thumb { box-shadow: 0 0 0 9px rgba(124,92,255,.35), 0 6px 20px rgba(0,0,0,.5); }
-    .range-ends { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); font-family: var(--mono); margin-top: 6px; }
-    .sim-out { position: relative; padding: 40px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
-    .sim-out::before { content: ""; position: absolute; width: 360px; height: 360px; right: -120px; top: -120px; border-radius: 50%; background: var(--accent-2); filter: blur(120px); opacity: .14; pointer-events: none; }
-    .sim-main { font-size: clamp(54px, 6.4vw, 96px); line-height: .95; letter-spacing: -.06em; color: var(--gold); text-shadow: 0 0 70px rgba(232,211,162,.2); }
-    .sim-unit { font-size: 20px; color: var(--text); font-weight: 500; letter-spacing: -.02em; }
-    .sim-sub { font-size: 15px; color: var(--soft); }
-    .ramp { display: flex; align-items: flex-end; gap: 4px; height: 96px; margin-top: auto; padding-top: 28px; }
-    .ramp i { flex: 1; border-radius: 3px 3px 1px 1px; background: rgba(255,255,255,.07); transition: background .35s var(--ease), box-shadow .35s; }
-    .ramp i.on { background: linear-gradient(180deg, var(--accent-2), var(--accent)); }
-    .ramp i.cur { background: var(--gold); box-shadow: 0 0 18px rgba(232,211,162,.6); }
-    .sim-disclaimer { margin: 22px auto 0; max-width: 820px; text-align: center; font-size: 12.5px; line-height: 1.6; color: var(--muted); }
-
-    .journey { margin-top: 120px; }
-    .journey h3 { margin: 0 0 48px; text-align: center; font-size: clamp(26px, 2.6vw, 36px); font-weight: 500; letter-spacing: -.035em; }
-    .journey-track { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 24px; }
-    .journey-line { position: absolute; top: 32px; left: 12.5%; right: 12.5%; height: 1px; background: var(--line-2); }
-    .journey-line span { position: absolute; inset: 0; background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--gold)); transform-origin: left; box-shadow: 0 0 14px rgba(34,211,238,.6); }
-    .step { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }
-    .step-ico {
-      width: 64px; height: 64px; border-radius: 20px; display: flex; align-items: center; justify-content: center;
-      background: #0c0c12; border: 1px solid var(--line-2); color: var(--gold);
-      box-shadow: 0 0 0 8px var(--bg);
-    }
-    .step b { font-size: 18px; font-weight: 500; letter-spacing: -.02em; }
-    .step p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--muted); max-width: 230px; }
-
     /* ═══════════════ ESCOPO (BENTO) ═══════════════ */
     .bento { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
     .card {
@@ -734,7 +672,8 @@
     }
     .price-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .16em; }
     .price-name { font-size: 20px; font-weight: 500; letter-spacing: -.02em; }
-    .price { display: flex; align-items: baseline; gap: 10px; margin-top: 18px; }
+    .price-from { margin-top: 22px; font-size: 15px; color: var(--soft); letter-spacing: -.01em; }
+    .price { display: flex; align-items: baseline; gap: 10px; margin-top: 2px; }
     .price .mono { white-space: nowrap; font-size: clamp(76px, 9vw, 128px); line-height: .9; letter-spacing: -.06em; color: var(--gold); text-shadow: 0 0 90px rgba(232,211,162,.3); }
     .price small { font-size: 22px; color: var(--soft); }
     .per-day { font-size: 14px; color: var(--muted); }
@@ -801,8 +740,6 @@
       .pillars { grid-template-columns: minmax(0,1fr); }
       .p-index { display: none; }
       .pillar { min-height: auto; padding: 64px 0; }
-      .sim { grid-template-columns: minmax(0,1fr); }
-      .sim-controls { border-right: 0; border-bottom: 1px solid var(--line); }
       .bento { grid-template-columns: 1fr 1fr; }
       .c-big { grid-column: 1 / -1; grid-row: auto; }
       .method-track { grid-template-columns: 1fr 1fr; row-gap: 60px; }
@@ -830,11 +767,6 @@
       .price .mono { font-size: 66px; }
       .price small { font-size: 18px; }
       .stack-bar span { font-size: 10.5px; padding-left: 6px; }
-      .sim-controls, .sim-out { padding: 26px 20px; }
-      .tab { font-size: 12.5px; padding: 11px 4px; }
-      .journey { margin-top: 90px; }
-      .journey-track { grid-template-columns: minmax(0,1fr); gap: 34px; }
-      .journey-line { display: none; }
       .bento { grid-template-columns: minmax(0,1fr); }
       .c-wide { flex-direction: column; align-items: flex-start; }
       .checks { grid-template-columns: minmax(0,1fr); }
@@ -858,7 +790,7 @@
       .results-light, .p-index { display: none !important; }
       .pillars { grid-template-columns: minmax(0,1fr); }
       .pillar { min-height: auto; page-break-inside: avoid; break-inside: avoid; padding: 40px 0; }
-      .sim, .bento, .method-track, .invest-grid, .who { page-break-inside: avoid; break-inside: avoid; }
+      .bento, .method-track, .invest-grid, .who { page-break-inside: avoid; break-inside: avoid; }
       .manifesto-text .word { color: var(--text) !important; }
       .price-card { animation: none; }
     }
@@ -925,7 +857,6 @@
       <a class="brand" href="#topo" aria-label="Box Marketing, início"><img src="logo.png" alt="Box Marketing" width="63" height="30" /></a>
       <div class="nav-links">
         <a href="#resultados">Resultados</a>
-        <a href="#potencial">Potencial</a>
         <a href="#escopo">Escopo</a>
         <a href="#metodo">Método</a>
       </div>
@@ -1147,21 +1078,6 @@
             <div class="viz" data-viz data-reveal>
               <div class="viz-title"><span>Para onde foi a verba</span><span>R$ 116.330</span></div>
               <div class="stack">
-                <div class="stack-head"><span>Por área</span></div>
-                <div class="stack-bar" role="img" aria-label="Verba por área: infoprodutos 64,6%, saúde 17,9%, odontologia 13,2%, advocacia 4,3%">
-                  <span style="--w:64.6%;--c:var(--accent)" title="Infoprodutos · R$ 75.174">64,6%</span>
-                  <span style="--w:17.9%;--c:var(--accent-2)" title="Saúde · R$ 20.852">17,9%</span>
-                  <span style="--w:13.2%;--c:var(--gold)" title="Odontologia · R$ 15.312">13%</span>
-                  <span style="--w:4.3%;--c:#FF6B9A" title="Advocacia · R$ 4.992"></span>
-                </div>
-                <ul class="legend">
-                  <li><i style="--c:var(--accent)"></i>Infoprodutos <span class="mono">R$ 75,2 mil</span></li>
-                  <li><i style="--c:var(--accent-2)"></i>Saúde <span class="mono">R$ 20,9 mil</span></li>
-                  <li><i style="--c:var(--gold)"></i>Odontologia <span class="mono">R$ 15,3 mil</span></li>
-                  <li><i style="--c:#FF6B9A"></i>Advocacia <span class="mono">R$ 5,0 mil</span></li>
-                </ul>
-              </div>
-              <div class="stack">
                 <div class="stack-head"><span>Por objetivo</span></div>
                 <div class="stack-bar" role="img" aria-label="Verba por objetivo: vendas 53,4%, seguidores 20,2%, conversas no WhatsApp 19,3%, alcance, engajamento e testes 7,1%">
                   <span style="--w:53.4%;--c:var(--gold)" title="Vendas · R$ 62.145">53,4%</span>
@@ -1194,16 +1110,6 @@
               <div class="p-kpi"><span class="mono" data-count="102" data-suffix=" mil">102 mil</span><small>visitas ao perfil</small></div>
               <div class="p-kpi"><span class="mono" data-count="1.49" data-decimals="2" data-prefix="R$ ">R$ 1,49</span><small>por seguidor nas campanhas de seguidores</small></div>
               <div class="p-kpi"><span class="mono" data-count="12376">12.376</span><small>seguidores em infoprodutos, a R$ 0,60 cada</small></div>
-            </div>
-            <div class="viz" data-viz data-reveal>
-              <div class="viz-title"><span>Custo por seguidor, por área</span><span>menor é melhor</span></div>
-              <div class="vbars" role="img" aria-label="Custo por seguidor: infoprodutos 0,60 reais, advocacia 3,41, saúde 4,49, odontologia 5,67">
-                <div class="vbar best"><span class="mono">R$ 0,60</span><span class="vbar-col" style="--h:12%"></span><small>Infoprodutos</small></div>
-                <div class="vbar"><span class="mono">R$ 3,41</span><span class="vbar-col" style="--h:56%"></span><small>Advocacia</small></div>
-                <div class="vbar"><span class="mono">R$ 4,49</span><span class="vbar-col" style="--h:72%"></span><small>Saúde</small></div>
-                <div class="vbar"><span class="mono">R$ 5,67</span><span class="vbar-col" style="--h:90%"></span><small>Odontologia</small></div>
-              </div>
-              <p class="viz-foot">O custo muda conforme o nicho, e a estratégia também.</p>
             </div>
             <ul class="p-highlights" data-reveal>
               <li><span class="area">Infoprodutos</span>Um único vídeo educativo trouxe <strong>1.184 seguidores com R$ 328</strong> (R$ 0,28 cada).</li>
@@ -1258,69 +1164,6 @@
             <p class="p-note" data-reveal>Conversa iniciada não é agendamento nem contrato fechado. O fechamento depende do atendimento.</p>
           </article>
 
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ POTENCIAL ═══════════ -->
-  <section class="section potential" id="potencial">
-    <div class="potential-grid" aria-hidden="true"></div>
-    <div class="sec-glow" aria-hidden="true"></div>
-    <div class="wrap">
-      <div class="sec-head center" data-reveal>
-        <span class="eyebrow">Potencial</span>
-        <h2 class="h2">Agora, imagine isso <em>no seu negócio.</em></h2>
-        <p class="sub">Mova a verba e veja uma estimativa feita com os custos reais que você acabou de ver.</p>
-      </div>
-
-      <div class="sim" data-reveal>
-        <div class="sim-controls">
-          <div>
-            <div class="sim-label" id="goalLabel">O que você quer gerar</div>
-            <div class="tabs" role="group" aria-labelledby="goalLabel">
-              <button class="tab" type="button" data-mode="conv" aria-pressed="true">Conversas</button>
-              <button class="tab" type="button" data-mode="seg" aria-pressed="false">Seguidores</button>
-              <button class="tab" type="button" data-mode="venda" aria-pressed="false">Vendas online</button>
-            </div>
-          </div>
-          <div>
-            <label class="sim-label" for="budget">Verba mensal de anúncios</label>
-            <div class="budget-val mono" id="budgetVal">R$ 1.000<small> /mês</small></div>
-            <input class="range" id="budget" type="range" min="300" max="5000" step="100" value="1000" />
-            <div class="range-ends"><span>R$ 300</span><span>R$ 5.000</span></div>
-          </div>
-        </div>
-        <div class="sim-out" aria-live="polite">
-          <div class="sim-label">Estimativa por mês</div>
-          <div class="sim-main mono" id="simMain">105 – 160</div>
-          <div class="sim-unit" id="simUnit">conversas no WhatsApp</div>
-          <div class="sim-sub" id="simSub">cerca de 3 a 5 por dia</div>
-          <div class="ramp" id="ramp" aria-hidden="true"></div>
-        </div>
-      </div>
-      <p class="sim-disclaimer">Estimativa calculada com os custos médios das campanhas mostradas em Resultados. Os números variam conforme nicho, oferta, ticket, região, criativos e atendimento. Não é promessa de resultado. A verba de anúncios é paga direto à Meta e não inclui a gestão.</p>
-
-      <div class="journey" id="journey">
-        <h3 data-reveal>O caminho do anúncio até o cliente</h3>
-        <div class="journey-track">
-          <div class="journey-line" aria-hidden="true"><span id="journeyLine"></span></div>
-          <div class="step" data-reveal>
-            <div class="step-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-            <b>Alcance</b><p>O anúncio aparece para quem tem perfil de cliente: região, interesse e momento certos.</p>
-          </div>
-          <div class="step" data-reveal>
-            <div class="step-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4.1 12 6"/><path d="m5.1 8-2.9-.8"/><path d="m6 12-1.9 2"/><path d="M7.2 2.2 8 5.1"/><path d="M9.04 9.04a.6.6 0 0 1 .77-.77l11.9 4.95a.6.6 0 0 1-.06 1.13l-4.56 1.4a2 2 0 0 0-1.33 1.33l-1.4 4.56a.6.6 0 0 1-1.13.06z"/></svg></div>
-            <b>Clique</b><p>Criativo e chamada que fazem a pessoa parar de rolar e querer saber mais.</p>
-          </div>
-          <div class="step" data-reveal>
-            <div class="step-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg></div>
-            <b>Conversa</b><p>Oferta clara que leva para o WhatsApp, o perfil ou a página de vendas.</p>
-          </div>
-          <div class="step" data-reveal>
-            <div class="step-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg></div>
-            <b>Cliente</b><p>Acompanhamento dos números para investir mais no que traz cliente de verdade.</p>
-          </div>
         </div>
       </div>
     </div>
@@ -1425,8 +1268,8 @@
           <div class="price-inner">
             <span class="price-label">Proposta financeira</span>
             <span class="price-name">Gestão mensal de tráfego pago</span>
+            <div class="price-from">A partir de</div>
             <div class="price"><span class="mono" id="price">R$ 550</span><small>/mês</small></div>
-            <span class="per-day">Menos de <b>R$ 19 por dia</b>.</span>
             <ul class="incl">
               <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Planejamento e estratégia</li>
               <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Configuração inicial</li>
@@ -1515,13 +1358,6 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
 
   <script>
-    /* ═══════════ CONSTANTES DO SIMULADOR (ver briefing A.5.4) ═══════════ */
-    const SIM = {
-      conv:  { lo: 9.52, hi: 6.26 },        // custo por conversa: conservador / saúde
-      seg:   { lo: 3.41, hi: 1.49 },        // custo por seguidor: advocacia / média
-      venda: { cpa: 25.46, roas: 1.92 },    // custo por venda e ROAS médios
-    };
-
     document.addEventListener('DOMContentLoaded', () => {
       const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
       const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -1622,73 +1458,6 @@
       }, { rootMargin: '-45% 0px -45% 0px' });
       document.querySelectorAll('[data-pillar]').forEach((p) => ioPillar.observe(p));
 
-      /* ═══════════ SIMULADOR ═══════════ */
-      const range = document.getElementById('budget');
-      const budgetVal = document.getElementById('budgetVal');
-      const simMain = document.getElementById('simMain');
-      const simUnit = document.getElementById('simUnit');
-      const simSub = document.getElementById('simSub');
-      const ramp = document.getElementById('ramp');
-      const tabs = document.querySelectorAll('.tab');
-      const BARS = 24;
-      for (let i = 0; i < BARS; i++) {
-        const b = document.createElement('i');
-        b.style.height = (14 + (86 * (i + 1)) / BARS) + '%';
-        ramp.appendChild(b);
-      }
-      let mode = 'conv';
-      let shown = { a: 105, b: 160 };
-      let animId = null;
-
-      const calc = (v) => {
-        if (mode === 'conv') {
-          const a = Math.round(v / SIM.conv.lo), b = Math.round(v / SIM.conv.hi);
-          const da = Math.max(1, Math.floor(a / 30)), db = Math.max(1, Math.round(b / 30));
-          return { a, b, unit: 'conversas no WhatsApp', sub: da === db ? `cerca de ${da} por dia` : `cerca de ${da} a ${db} por dia` };
-        }
-        if (mode === 'seg') {
-          const a = Math.round(v / SIM.seg.lo), b = Math.round(v / SIM.seg.hi);
-          return { a, b, unit: 'novos seguidores', sub: 'público novo vendo o seu conteúdo todo dia' };
-        }
-        const n = Math.round(v / SIM.venda.cpa);
-        return { a: n, b: null, unit: 'vendas', sub: `e cerca de R$ ${fmt(Math.round(v * SIM.venda.roas))} em receita atribuída` };
-      };
-
-      const paint = (a, b) => {
-        simMain.textContent = b === null ? '≈ ' + fmt(a) : fmt(a) + ' – ' + fmt(b);
-      };
-
-      const update = () => {
-        const v = +range.value;
-        const p = (v - range.min) / (range.max - range.min);
-        range.style.setProperty('--p', (p * 100).toFixed(1) + '%');
-        budgetVal.innerHTML = 'R$ ' + fmt(v) + '<small> /mês</small>';
-        const r = calc(v);
-        simUnit.textContent = r.unit;
-        simSub.textContent = r.sub;
-        const cur = Math.max(0, Math.round(p * (BARS - 1)));
-        ramp.querySelectorAll('i').forEach((b, i) => { b.classList.toggle('on', i < cur); b.classList.toggle('cur', i === cur); });
-        cancelAnimationFrame(animId);
-        if (reduce) { paint(r.a, r.b); shown = { a: r.a, b: r.b ?? r.a }; return; }
-        const from = { ...shown }, t0 = performance.now();
-        const to = { a: r.a, b: r.b ?? r.a };
-        const step = (now) => {
-          const t = Math.min(1, (now - t0) / 450), e = easeOut(t);
-          const a = Math.round(from.a + (to.a - from.a) * e);
-          const b = Math.round(from.b + (to.b - from.b) * e);
-          paint(a, r.b === null ? null : b);
-          if (t < 1) animId = requestAnimationFrame(step); else shown = to;
-        };
-        animId = requestAnimationFrame(step);
-      };
-      range.addEventListener('input', update);
-      tabs.forEach((t) => t.addEventListener('click', () => {
-        mode = t.dataset.mode;
-        tabs.forEach((x) => x.setAttribute('aria-pressed', String(x === t)));
-        update();
-      }));
-      update();
-
       /* ═══════════ GSAP: scroll suave, manifesto, linhas, preço ═══════════ */
       if (reduce || !window.gsap || !window.ScrollTrigger) return;
       gsap.registerPlugin(ScrollTrigger);
@@ -1714,15 +1483,16 @@
       const manifesto = document.getElementById('manifesto');
       if (window.SplitText) {
         gsap.registerPlugin(SplitText);
-        const split = SplitText.create(manifesto, { type: 'words', wordsClass: 'word' });
-        gsap.fromTo(split.words, { opacity: .14 }, {
-          opacity: 1, stagger: .1, ease: 'none',
-          scrollTrigger: { trigger: manifesto, start: 'top 80%', end: 'bottom 45%', scrub: true },
+        document.fonts.ready.then(() => {
+          const split = SplitText.create(manifesto, { type: 'words', wordsClass: 'word' });
+          gsap.fromTo(split.words, { opacity: .14 }, {
+            opacity: 1, stagger: .1, ease: 'none',
+            scrollTrigger: { trigger: manifesto, start: 'top 80%', end: 'bottom 45%', scrub: true },
+          });
         });
       }
 
       /* linhas que se desenham */
-      gsap.fromTo('#journeyLine', { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '#journey', start: 'top 70%', end: 'bottom 70%', scrub: true } });
       gsap.fromTo('#methodLine', { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '#methodTrack', start: 'top 80%', end: 'bottom 60%', scrub: true } });
 
       /* preço "decodifica" ao aparecer */
