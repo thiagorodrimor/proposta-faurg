@@ -174,7 +174,7 @@
     }
     .hero-grid {
       width: 100%; max-width: var(--wrap);
-      display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      display: grid; grid-template-columns: minmax(0, 1.38fr) minmax(0, 1fr);
       gap: 56px; align-items: center;
     }
     .hero-copy { display: flex; flex-direction: column; gap: 30px; }
@@ -196,7 +196,7 @@
 
     .hero h1 {
       margin: 0; font-weight: 500;
-      font-size: clamp(46px, 6.6vw, 98px);
+      font-size: clamp(44px, 5.3vw, 78px);
       line-height: .98; letter-spacing: -.045em;
     }
     .line { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.04em; }
@@ -297,9 +297,9 @@
     .bars { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
     .bar-row { display: grid; grid-template-columns: 92px 1fr 70px; align-items: center; gap: 12px; font-size: 13px; }
     .bar-row > span:first-child { color: var(--soft); }
-    .bar-track { height: 8px; border-radius: 99px; background: rgba(255,255,255,.05); overflow: hidden; }
+    .bar-track { display: block; height: 8px; border-radius: 99px; background: rgba(255,255,255,.05); overflow: hidden; }
     .bar-fill {
-      height: 100%; border-radius: 99px; width: var(--w);
+      display: block; height: 100%; border-radius: 99px; width: var(--w);
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
       transform-origin: left; animation: grow 1.6s var(--ease) both;
     }
@@ -374,6 +374,9 @@
       .dash-card { padding: 16px; border-radius: 22px; gap: 16px; animation: none; }
       .dash-glow { opacity: .22; }
       .bar-row { grid-template-columns: 82px 1fr 58px; gap: 10px; font-size: 12px; }
+      .dash-head { flex-direction: column; gap: 10px; }
+      .kpi-big { padding: 14px 12px; }
+      .kpi-big .mono { font-size: 20px; white-space: nowrap; }
       .mini { padding: 10px; }
       .mini .mono { font-size: 15px; }
       .marquee-track { font-size: 18px; gap: 44px; }
@@ -409,7 +412,7 @@
   <!-- ═══════════ NAVBAR ═══════════ -->
   <div class="nav-wrap">
     <nav class="nav" id="nav" aria-label="Principal">
-      <a class="brand" href="#topo" aria-label="Box Marketing, início"><img src="logo.png" alt="Box Marketing" width="70" height="30" /></a>
+      <a class="brand" href="#topo" aria-label="Box Marketing, início"><img src="logo.png" alt="Box Marketing" width="63" height="30" /></a>
       <div class="nav-links">
         <a href="#resultados">Resultados</a>
         <a href="#potencial">Potencial</a>
